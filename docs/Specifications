@@ -9,4 +9,7 @@ TOOLS:
 	GLFW
 	SQLite
 	wxWidgets
+	CMake
+
+	
 
