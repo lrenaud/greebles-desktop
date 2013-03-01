@@ -1,4 +1,2 @@
-greebles
+Greebles
 ========
-
-A modern port of a classic arcade game
