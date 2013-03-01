@@ -1,0 +1,12 @@
+Intended Specifications for Greebles
+
+TARGET PLATFORMS:
+	Windows 7/8
+	Mac OS X 10
+
+TOOLS:
+	OpenGL
+	GLFW
+	SQLite
+	wxWidgets
+
