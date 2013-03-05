@@ -5,19 +5,92 @@
 
 enum
 {
-	ID_Quit = 1,
-	ID_About,
+	ID_Cancel = 1,
+	ID_Save
 };
 
 class SetupFrame : public wxFrame
 {
-public:
-	SetupFrame(const wxString& title, const wxPoint& position, const wxSize& size);
-
-	void OnQuit(wxCommandEvent& event);
-	void OnAbout(wxCommandEvent& event);
-
+private:
 	DECLARE_EVENT_TABLE()
+
+	static const int FRAME_WIDTH				= 400;
+	static const int FRAME_HEIGHT				= 600;
+
+	static const int PADDING					= 10;
+
+	static const int PLAYER_CONFIG_BOX_SIZE		= 180;
+
+protected:
+
+	/**
+	 * GENERATED COMPONENT LIST
+	 */
+	wxStaticText* playersAndKeysLabel;
+	wxCheckBox* p1EnabledCheckBox;
+	wxTextCtrl* p1Name;
+	
+	wxButton* p1UpButton;
+	
+	wxButton* p1LeftButton;
+	wxButton* p1PushButton;
+	wxButton* p1RightButton;
+	
+	wxButton* p1DownButton;
+	
+	wxChoice* p1Type;
+	wxStaticBitmap* p1Image;
+	wxCheckBox* p2EnabledCheckBox;
+	wxTextCtrl* p2Name;
+	
+	wxButton* p2UpButton;
+	
+	wxButton* p2LeftButton;
+	wxButton* p2PushButton;
+	wxButton* p2RightButton;
+	
+	wxButton* p2DownButton;
+	
+	wxChoice* p2Type;
+	wxStaticBitmap* p2Image;
+	wxCheckBox* p3EnabledCheckBox;
+	wxTextCtrl* p3Name;
+	
+	wxButton* p3UpButton;
+	
+	wxButton* p3LeftButton;
+	wxButton* p3PushButton;
+	wxButton* p3RightButton;
+	
+	wxButton* p3DownButton;
+	
+	wxChoice* p3Type;
+	wxStaticBitmap* p3Image;
+	wxCheckBox* p4EnabledCheckBox;
+	wxTextCtrl* p4Name;
+	
+	wxButton* p4UpButton;
+	
+	wxButton* p4LeftButton;
+	wxButton* p4PushButton;
+	wxButton* p4RightButton;
+	
+	wxButton* p4DownButton;
+	
+	wxChoice* p4Type;
+	wxStaticBitmap* p4Image;
+	wxCheckBox* soundCheckBox;
+	wxCheckBox* musicCheckBox;
+	wxStaticText* difficultyLabel;
+	wxChoice* difficultyComboBox;
+	wxButton* cancelButton;
+	wxButton* saveButton;
+
+public:
+	SetupFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
+
+	void OnCancel(wxCommandEvent& event);
+	void OnSave(wxCommandEvent& event);	
 };
 
 #endif

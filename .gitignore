@@ -15,3 +15,7 @@
 #All Visual Studio project files
 msvc-projects
 msvc-projects/*
+
+#All wxFormBuilder project files
+wxformbuilder-projects
+wxformbuilder-projects/*
