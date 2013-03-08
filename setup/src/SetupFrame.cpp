@@ -469,7 +469,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	musicCheckBox = new wxCheckBox( this, wxID_ANY, wxT("Music"), wxDefaultPosition, wxDefaultSize, 0 );
 	audioOptionsSizer->Add( musicCheckBox, 0, wxALL, 5 );
 	
-	masterVBoxSizer->Add( audioOptionsSizer, 0, wxEXPAND, 5 );
+	masterVBoxSizer->Add( audioOptionsSizer, 0, wxALL|wxEXPAND, 5 );
 	
 	wxBoxSizer* bottomRowSizer;
 	bottomRowSizer = new wxBoxSizer( wxVERTICAL );
