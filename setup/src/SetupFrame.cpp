@@ -531,5 +531,7 @@ void SetupFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
 
 void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
+	// Save Data
+
     Close(true);
 }
