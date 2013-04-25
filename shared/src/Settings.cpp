@@ -1,9 +1,8 @@
-#include "Settings.h"
+#include "../inc/Settings.h"
 
 Settings::Settings(void)
 {
-	if (!load())
-		; // Error
+
 }
 
 Settings::~Settings(void)
