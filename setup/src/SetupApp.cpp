@@ -5,9 +5,6 @@
 
 bool SetupApp::OnInit()
 {
-	SOAR::Log::GetInstance()->Message(SOAR::Log::MessageLevel::FATAL_ERROR) << "Hello World!";
-	SOAR::Log::GetInstance()->Flush();
-
     SetupFrame *frame = new SetupFrame(_("Greebles Setup"), 
 									   wxPoint(50, 50),
 									   wxSize(APP_WIDTH, APP_HEIGHT),
