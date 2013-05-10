@@ -1,6 +1,9 @@
 # Sublime Files
 *.sublime-workspace
 
+# MySQL Workbench Files
+*.mwb*
+
 # Compiled Object files
 *.slo
 *.lo
