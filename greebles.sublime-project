@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/Users/Ben/Documents/GitHub/greebles"
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "Build Greebles",
+			"cmd": "make"
+		}
+	]
+}
