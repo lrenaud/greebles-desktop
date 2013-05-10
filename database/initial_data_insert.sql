@@ -1,37 +1,25 @@
-INSERT OR REPLACE INTO `setup`(`name`, `value`) VALUES
-       ('p1enabled', 'true'),       
-       ('p1name', 'Player 1'),       
-       ('p1pushkey', 'Spacebar'),       
-       ('p1leftkey', 'Left'),       
-       ('p1rightkey', 'Right'),       
-       ('p1upkey', 'Up'),       
-       ('p1downkey', 'Down'),       
-       ('p1type', 'Human'),       
-       ('p2enabled', 'true'),       
-       ('p2name', 'Player 2'),       
-       ('p2pushkey', 'Spacebar'),       
-       ('p2leftkey', 'Left'),       
-       ('p2rightkey', 'Right'),       
-       ('p2upkey', 'Up'),       
-       ('p2downkey', 'Down'),       
-       ('p2type', 'Human'),       
-       ('p3enabled', 'true'),       
-       ('p3name', 'Player 2'),       
-       ('p3pushkey', 'Spacebar'),       
-       ('p3leftkey', 'Left'),       
-       ('p3rightkey', 'Right'),       
-       ('p3upkey', 'Up'),       
-       ('p3downkey', 'Down'),       
-       ('p3type', 'Human'),       
-       ('p4enabled', 'true'),       
-       ('p4name', 'Player 2'),       
-       ('p4pushkey', 'Spacebar'),       
-       ('p4leftkey', 'Left'),       
-       ('p4rightkey', 'Right'),       
-       ('p4upkey', 'Up'),       
-       ('p4downkey', 'Down'),       
-       ('p4type', 'Human'),       
-       ('soundenabled', 'true'),       
-       ('musicenabled', 'true'),       
-       ('difficulty', 'Normal')
+-- Insert Global Settings Defaults
+INSERT INTO `difficulty` VALUES(1, "Easy"),
+                               (2, "Normal"),
+                               (3, "Hard"),
+                               (4, "Suicidal");
+INSERT INTO `globalsettings` VALUES(1, 2, 1, 1);
+
+-- Insert Custom Settings Defaults
+INSERT INTO `customsettings` VALUES(1, 1, 1, 0, 0, "");
+
+-- Insert Player Information Defaults
+INSERT INTO `playertype` VALUES(1, "Human"),
+                               (2, "Friendly AI"),
+                               (3, "Nasty AI");
+
+INSERT INTO `controlset` VALUES(1, 1, 1, 1, 1, 1),
+                               (2, 1, 1, 1, 1, 1),
+                               (3, 1, 1, 1, 1, 1),
+                               (4, 1, 1, 1, 1, 1);
+                               
+INSERT INTO `player` VALUES(1, 1, 1, 1, "Player 1"),
+                           (2, 2, 2, 1, "Player 2"),
+                           (3, 2, 3, 1, "Player 3"),
+                           (4, 2, 4, 1, "Player 4");
 
