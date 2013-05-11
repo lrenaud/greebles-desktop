@@ -9,7 +9,40 @@
 	[
 		{
 			"name": "Build Greebles",
-			"cmd": "make"
+			"cmd": ["$project_path\\scripts\\build.bat"],
+
+			"variants":
+			[
+				{
+					"name": "Build Game",
+					"cmd": ["$project_path\\scripts\\build.bat", "Game", "Release"]
+				},
+
+				{
+					"name": "Build Setup",
+					"cmd": ["$project_path\\scripts\\build.bat", "Setup", "Release"]
+				},
+
+				{
+					"name": "Build Custom",
+					"cmd": ["$project_path\\scripts\\build.bat", "Custom", "Release"]
+				},
+
+				{
+					"name": "Run Game",
+					"cmd": ["$project_path\\scripts\\build.bat", "Game", "Release", "run"]
+				},
+
+				{
+					"name": "Run Setup",
+					"cmd": ["$project_path\\scripts\\build.bat", "Setup", "Release", "run"]
+				},
+
+				{
+					"name": "Run Custom",
+					"cmd": ["$project_path\\scripts\\build.bat", "Custom", "Release", "run"]
+				}
+			]
 		}
 	]
 }

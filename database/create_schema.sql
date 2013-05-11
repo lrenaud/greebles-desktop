@@ -11,6 +11,7 @@ CREATE TABLE `globalsettings`(`id` INTEGER PRIMARY KEY,
 CREATE TABLE `difficulty`(`id` INTEGER PRIMARY KEY,
 						  `difficulty` TEXT NOT NULL);
 
+
 -- Custom Settings Tables
 DROP TABLE IF EXISTS `customsettings`;
 
@@ -20,6 +21,7 @@ CREATE TABLE `customsettings`(`id` INTEGER PRIMARY KEY,
 							  `timelimit` INTEGER,
 							  `playersremain` INTEGER,
 							  `advertise` TEXT);
+
 
 -- Player Data Tables
 DROP TABLE IF EXISTS `player`;
@@ -44,6 +46,7 @@ CREATE TABLE `controlset`(`id` INTEGER PRIMARY KEY,
 						  `down` INTEGER NOT NULL,
 						  `push` INTEGER NOT NULL);
 
+
 -- Score Tables
 DROP TABLE IF EXISTS `score`;
 DROP TABLE IF EXISTS `highscore`;
@@ -62,3 +65,38 @@ CREATE TABLE `highscore`(`id` INTEGER PRIMARY KEY AUTOINCREMENT,
 CREATE TABLE `recentscore`(`id` INTEGER PRIMARY KEY AUTOINCREMENT,
 						   `scoreid` INTEGER,
 						   FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE CASCADE ON UPDATE CASCADE);
+
+
+-- Menu System/Directions Tables
+/**
+DROP TABLE IF EXISTS `action`;
+DROP TABLE IF EXISTS `menuscreen`;
+DROP TABLE IF EXISTS `infotext`;
+DROP TABLE IF EXISTS `actionrect`;
+DROP TABLE IF EXISTS `actionrectinfotext`;
+
+CREATE TABLE `action`(`id` INTEGER PRIMARY KEY,
+					  `name` TEXT NOT NULL);
+
+CREATE TABLE `menuscreen`(`id` INTEGER PRIMARY KEY,
+						  `name` TEXT NOT NULL);
+
+CREATE TABLE `infotext`(`id` INTEGER PRIMARY KEY,
+						`text` TEXT NOT NULL);
+
+CREATE TABLE `actionrect`(`id` INTEGER PRIMARY KEY,
+						  `menuscreenid` INTEGER NOT NULL,
+						  `actionid` INTEGER NOT NULL,
+						  `top` INTEGER NOT NULL,
+						  `left` INTEGER NOT NULL,
+						  `right` INTEGER NOT NULL,
+						  `bottom` INTEGER NOT NULL,
+						  FOREIGN KEY(`menuscreenid`) REFERENCES `menuscreen`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+						  FOREIGN KEY(`actionid`) REFERENCES `action`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT);
+
+CREATE TABLE `actionrectinfotext`(`id` INTEGER PRIMARY KEY,
+								  `actionrectid` INTEGER NOT NULL,
+								  `infotextid` INTEGER NOT NULL,
+								  FOREIGN KEY(`actionrectid`) REFERENCES `actionrect`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+								  FOREIGN KEY(`infotextid`) REFERENCES `infotext`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT);
+*/
