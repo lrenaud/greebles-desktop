@@ -41,6 +41,36 @@
 				{
 					"name": "Run Custom",
 					"cmd": ["$project_path\\scripts\\build.bat", "Custom", "Release", "run"]
+				},
+
+				{
+					"name": "Build Game (Debug)",
+					"cmd": ["$project_path\\scripts\\build.bat", "Game", "Debug"]
+				},
+
+				{
+					"name": "Build Setup (Debug)",
+					"cmd": ["$project_path\\scripts\\build.bat", "Setup", "Debug"]
+				},
+
+				{
+					"name": "Build Custom (Debug)",
+					"cmd": ["$project_path\\scripts\\build.bat", "Custom", "Debug"]
+				},
+
+				{
+					"name": "Run Game (Debug)",
+					"cmd": ["$project_path\\scripts\\build.bat", "Game", "Debug", "run"]
+				},
+
+				{
+					"name": "Run Setup (Debug)",
+					"cmd": ["$project_path\\scripts\\build.bat", "Setup", "Debug", "run"]
+				},
+
+				{
+					"name": "Run Custom (Debug)",
+					"cmd": ["$project_path\\scripts\\build.bat", "Custom", "Debug", "run"]
 				}
 			]
 		}

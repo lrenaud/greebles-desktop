@@ -19,10 +19,10 @@ Settings *Settings::GetInstance()
 
 bool Settings::Save()
 {
-
+    return false;
 }
 
 bool Settings::load()
 {
-
+    return false;
 }
