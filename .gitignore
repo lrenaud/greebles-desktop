@@ -1,8 +1,22 @@
+########################
+# CMake Files
+########################
+CMakeFiles
+CMakeCache.txt
+Makefile
+*.cmake
+
+########################
 # Sublime Files
+########################
+*.sublime-project
 *.sublime-workspace
 
-# MySQL Workbench Files
-*.mwb*
+########################
+# Various Project Files
+########################
+bin
+meta
 
 # Compiled Object files
 *.slo
@@ -17,11 +31,3 @@
 *.lai
 *.la
 *.a
-
-#All Visual Studio project files
-msvc-projects
-msvc-projects/*
-
-#All wxFormBuilder project files
-wxformbuilder-projects
-wxformbuilder-projects/*
