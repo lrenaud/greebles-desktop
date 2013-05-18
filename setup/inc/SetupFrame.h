@@ -3,6 +3,13 @@
 
 #include "wx/wx.h"
 
+enum
+{
+	myID_SOUND,
+	myID_MUSIC,
+	myID_DIFFICULTY
+};
+
 class SetupFrame : public wxFrame
 {
 private:
@@ -83,8 +90,20 @@ protected:
 public:
 	SetupFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
 
+	void OnDifficultyChange(wxCommandEvent& event);
+	void OnSoundChange(wxCommandEvent& event);
+	void OnMusicChange(wxCommandEvent& event);
+
 	void OnCancel(wxCommandEvent& event);
 	void OnSave(wxCommandEvent& event);	
+
+private:
+
+	/**
+	 * Refreshes the GUI to reflect the current state of GeneralSettings
+	 */
+	void refresh();
+
 };
 
 #endif

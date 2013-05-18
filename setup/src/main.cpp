@@ -1,9 +1,13 @@
 #include "wx/wx.h"
 
-#include "../inc/SetupApp.h"
-#include "../inc/SetupFrame.h"
+#include "SetupApp.h"
+#include "SetupFrame.h"
 
 BEGIN_EVENT_TABLE(SetupFrame, wxFrame)
+
+    EVT_CHOICE   (myID_DIFFICULTY,    SetupFrame::OnDifficultyChange)
+    EVT_CHECKBOX   (myID_SOUND,         SetupFrame::OnSoundChange)
+    EVT_CHECKBOX   (myID_MUSIC,         SetupFrame::OnMusicChange) 
 
 	EVT_BUTTON     (wxID_CANCEL,        SetupFrame::OnCancel)
 	EVT_BUTTON     (wxID_SAVE,          SetupFrame::OnSave)

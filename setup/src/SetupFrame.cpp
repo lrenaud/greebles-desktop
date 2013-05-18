@@ -469,10 +469,10 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* audioOptionsSizer;
 	audioOptionsSizer = new wxBoxSizer( wxVERTICAL );
 	
-	soundCheckBox = new wxCheckBox( this, wxID_ANY, wxT("Sound Effects"), wxDefaultPosition, wxDefaultSize, 0 );
+	soundCheckBox = new wxCheckBox( this, myID_SOUND, wxT("Sound Effects"), wxDefaultPosition, wxDefaultSize, 0 );
 	audioOptionsSizer->Add( soundCheckBox, 0, wxALL, 5 );
 	
-	musicCheckBox = new wxCheckBox( this, wxID_ANY, wxT("Music"), wxDefaultPosition, wxDefaultSize, 0 );
+	musicCheckBox = new wxCheckBox( this, myID_MUSIC, wxT("Music"), wxDefaultPosition, wxDefaultSize, 0 );
 	audioOptionsSizer->Add( musicCheckBox, 0, wxALL, 5 );
 	
 	masterVBoxSizer->Add( audioOptionsSizer, 0, wxALL|wxEXPAND, 5 );
@@ -490,9 +490,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	difficultyLabel->Wrap( -1 );
 	difficultySizer->Add( difficultyLabel, 0, wxBOTTOM|wxLEFT|wxTOP, 8 );
 	
-	wxString difficultyComboBoxChoices[] = { wxT("Easy"), wxT("Normal"), wxT("Hard") };
+	wxString difficultyComboBoxChoices[] = { wxT("Easy"), wxT("Normal"), wxT("Hard"), wxT("Suicidal") };
 	int difficultyComboBoxNChoices = sizeof( difficultyComboBoxChoices ) / sizeof( wxString );
-	difficultyComboBox = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, difficultyComboBoxNChoices, difficultyComboBoxChoices, 0 );
+	difficultyComboBox = new wxChoice( this, myID_DIFFICULTY, wxDefaultPosition, wxDefaultSize, difficultyComboBoxNChoices, difficultyComboBoxChoices, 0 );
 	difficultyComboBox->SetSelection( 0 );
 	difficultySizer->Add( difficultyComboBox, 1, wxALL|wxEXPAND, 5 );
 	
@@ -527,6 +527,31 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	/**
 	 * END GENERATED CODE
 	 */
+	
+	refresh();
+}
+
+void SetupFrame::OnDifficultyChange(wxCommandEvent& WXUNUSED(event))
+{
+	LOG_MESSAGE << "Diff change handler..";
+
+	GS->ChooseDifficulty(difficultyComboBox->GetSelection() + 1);
+}
+
+void SetupFrame::OnSoundChange(wxCommandEvent& WXUNUSED(event))
+{
+ 	if (soundCheckBox->IsChecked())
+ 		GS->EnableSound();
+ 	else
+ 		GS->DisableSound();
+}
+
+void SetupFrame::OnMusicChange(wxCommandEvent& WXUNUSED(event))
+{
+    if (musicCheckBox->IsChecked())
+    	GS->EnableMusic();
+    else
+    	GS->DisableMusic();
 }
 
 void SetupFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
@@ -550,8 +575,16 @@ void SetupFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
 void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
 	// Save Data
-	if (!GeneralSettings::GetInstance()->Save())
+	if (!GS->Save())
 		LOG_RECOVERABLE << "Settings failed to save, changes lost.";
 
     Close(true);
+}
+
+void SetupFrame::refresh()
+{
+	// General Settings
+	difficultyComboBox->SetSelection(GS->DifficultyLevelInt() - 1);
+	soundCheckBox->SetValue(GS->SoundEnabled());
+	musicCheckBox->SetValue(GS->MusicEnabled());
 }

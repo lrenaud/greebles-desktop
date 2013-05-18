@@ -3,12 +3,16 @@
 #include "GreeblesDatabase.h"
 #include "SetupApp.h"
 #include "SetupFrame.h"
+#include "GeneralSettings.h"
 
 bool SetupApp::OnInit()
 {
     Log::GetInstance()->SetFilterLevel(Log::MessageLevel::LOG_ALL);
 
-    SetupFrame *frame = new SetupFrame(_("Greebles Setup"), 
+    // Reload settings from DB
+    GeneralSettings::GetInstance()->Refresh();
+
+    SetupFrame *frame = new SetupFrame(_("Setup"), 
 									   wxPoint(50, 50),
 									   wxSize(APP_WIDTH, APP_HEIGHT),
 									   wxSYSTEM_MENU |  wxCAPTION | wxCLOSE_BOX | wxSTAY_ON_TOP | wxFRAME_TOOL_WINDOW);
