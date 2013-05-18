@@ -1,7 +1,7 @@
 #include <Database.h>
 #include <Macros.h>
 
-#include "../inc/GreeblesDatabase.h"
+#include "GreeblesDatabase.h"
 
 using namespace SOAR;
 

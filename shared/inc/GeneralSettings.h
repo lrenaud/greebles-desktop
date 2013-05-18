@@ -71,6 +71,18 @@ public:
      */
     bool DifficultyIsSuicidal()const{return difficulty == DL_SUICIDAL;}
 
+    /**
+     * Returns true if sound is currently enabled
+     * @return soundEnabled == true
+     */
+    bool SoundEnabled()const{return soundEnabled;}
+
+    /**
+     * Returns true if music is currently enabled
+     * @return musicEnabled == true
+     */
+    bool MusicEnabled()const{return musicEnabled;}
+
 private:
 
     /**
