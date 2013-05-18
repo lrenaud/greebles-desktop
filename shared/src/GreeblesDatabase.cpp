@@ -1,5 +1,6 @@
 #include <Database.h>
 #include <Macros.h>
+#include <Log.h>
 
 #include "GreeblesDatabase.h"
 
@@ -7,12 +8,13 @@ using namespace SOAR;
 
 GreeblesDatabase::GreeblesDatabase():Database("greebles.db", SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE)
 {
-    // If there is no hash to compare against, build the database and go on
-    // 
-    // Check to see if the database is intact
-    //      Compare a hash of the database file at last close, to now
-    //      If the hash is different, rebuild db.
-    //      Otherwise continue
+    if (QueryData("SELECT COUNT(*) FROM sqlite_master WHERE type='table';") && 
+        NextRow() &&
+        GetInt(0) == TABLE_COUNT + 1) // Add one for sqlite_sequence table.
+        return;     // Database seems to be intact
+
+    LOG_RECOVERABLE << "Database corruption detected. Table count was: " << GetInt(0) << ". Rebuilding database.";
+    rebuild();
 }
 
 GreeblesDatabase::~GreeblesDatabase()
