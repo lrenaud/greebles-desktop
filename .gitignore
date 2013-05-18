@@ -1,4 +1,11 @@
 ########################
+# Doxygen Files
+########################
+doxygen.errors.txt
+doxygen.log.txt
+doxygen/html
+
+########################
 # CMake Files
 ########################
 CMakeFiles
