@@ -1,12 +1,12 @@
 -- Global Settings Tables
-DROP TABLE IF EXISTS `globalsettings`;
-DROP TABLE IF EXISTS `difficulty`;
-
-CREATE TABLE `globalsettings`(`id` INTEGER PRIMARY KEY,
-							  `difficultyid` INTEGER NOT NULL,
-							  `sound` INTEGER NOT NULL,
-							  `music` INTEGER NOT NULL,
-							  FOREIGN KEY(`difficultyid`) REFERENCES `difficulty`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT);
+DROP TABLE IF EXISTS `generalsettings`;
+DROP TABLE IF EXISTS `difficulty`; 
+ 
+CREATE TABLE `generalsettings`(`id` INTEGER PRIMARY KEY,
+ 							   `difficultyid` INTEGER NOT NULL,
+							   `sound` INTEGER NOT NULL,
+							   `music` INTEGER NOT NULL,
+							   FOREIGN KEY(`difficultyid`) REFERENCES `difficulty`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT);
 
 CREATE TABLE `difficulty`(`id` INTEGER PRIMARY KEY,
 						  `difficulty` TEXT NOT NULL);

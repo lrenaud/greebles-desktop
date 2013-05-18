@@ -5,6 +5,8 @@
 
 using namespace SOAR;
 
+#define DB 				GreeblesDatabase::GetInstance()
+
 class GreeblesDatabase : public Database
 {
 private:

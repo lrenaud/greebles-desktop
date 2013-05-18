@@ -4,7 +4,7 @@ INSERT INTO `difficulty` VALUES(1, "Easy"),
                                (3, "Hard"),
                                (4, "Suicidal");
 
-INSERT INTO `globalsettings` VALUES(1, 2, 1, 1);
+INSERT INTO `generalsettings` VALUES(1, 2, 1, 1);
 
 
 -- Insert Custom Settings Defaults
