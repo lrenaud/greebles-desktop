@@ -1,6 +1,13 @@
-#include "../inc/GeneralSettings.h"
-#include "../inc/GreeblesDatabase.h"
-#include "../inc/Macros.h"
+#include <sstream>
+#include <string>
+
+#include <Log.h>
+
+#include "GeneralSettings.h"
+#include "GreeblesDatabase.h"
+#include "Macros.h"
+
+using namespace SOAR;
 
 GeneralSettings::GeneralSettings()
 {
@@ -11,6 +18,28 @@ GeneralSettings::GeneralSettings()
 GeneralSettings::~GeneralSettings()
 {
 
+}
+
+GeneralSettings* GeneralSettings::GetInstance()
+{
+    static GeneralSettings instance;
+
+    return &instance;
+}
+
+bool GeneralSettings::Save()
+{
+    int diffValue = (int)difficulty;
+    int soundValue = soundEnabled ? 1 : 0;
+    int musicValue = musicEnabled ? 1 : 0;
+
+    stringstream query;
+    query << "UPDATE `generalsettings` SET `difficultyid`=" << diffValue << ", `sound`=" << soundValue << ", `music`=" << musicValue << ";";
+
+    if (!DB->Query(query.str().c_str()))
+        return false;
+
+    return true;
 }
 
 bool GeneralSettings::refresh()
@@ -37,26 +66,6 @@ bool GeneralSettings::refresh()
         // was in the database, but greebles will not do that for difficulty levels.
         difficultyStrs[diffLevel] = reinterpret_cast<const char*>(DB->GetText(COL_DIFFICULTY_TEXT));
     }
-
-    return true;
-}
-
-bool GeneralSettings::save()
-{
-    int diffValue = (int)difficulty;
-    int soundValue = soundEnabled ? 1 : 0;
-    int musicValue = musicEnabled ? 1 : 0;
-
-    string query = "UPDATE `generalsettings` SET `difficultyid`=";
-    query += diffValue;
-    query += ", `sound`=";
-    query += soundValue;
-    query += ", `music`=";
-    query += musicValue;
-    query += ";";
-
-	if (!DB->Query(query.c_str()))
-        return false;
 
     return true;
 }

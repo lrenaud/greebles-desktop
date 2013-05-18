@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(greebles)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${greebles_SOURCE_DIR}/../bin)
+set(CMAKE_BUILD_TYPE Debug)
 
 add_definitions("-Wall")
 add_definitions("-std=c++0x")

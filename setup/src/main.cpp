@@ -4,8 +4,10 @@
 #include "../inc/SetupFrame.h"
 
 BEGIN_EVENT_TABLE(SetupFrame, wxFrame)
-	EVT_MENU(ID_Cancel, SetupFrame::OnCancel)
-	EVT_MENU(ID_Save, SetupFrame::OnSave)
+
+	EVT_BUTTON     (wxID_CANCEL,        SetupFrame::OnCancel)
+	EVT_BUTTON     (wxID_SAVE,          SetupFrame::OnSave)
+
 END_EVENT_TABLE()
 
 IMPLEMENT_APP(SetupApp)

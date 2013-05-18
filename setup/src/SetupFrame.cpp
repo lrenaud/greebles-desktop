@@ -1,8 +1,14 @@
+#include <Log.h>
+
 #include "wx/wx.h"
 #include "wx/stattext.h"
 #include "wx/button.h"
+#include "wx/msgdlg.h"		// For MessageDialogs
 
-#include "../inc/SetupFrame.h"
+#include "SetupFrame.h"
+#include "GeneralSettings.h"
+
+using namespace SOAR;
 
 SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
        : wxFrame(NULL, -1, title, pos, size, style)
@@ -498,10 +504,10 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* buttonsSizer;
 	buttonsSizer = new wxBoxSizer( wxHORIZONTAL );
 	
-	cancelButton = new wxButton( this, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	cancelButton = new wxButton( this, wxID_CANCEL, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
 	buttonsSizer->Add( cancelButton, 0, wxALL|wxEXPAND, 5 );
 	
-	saveButton = new wxButton( this, wxID_ANY, wxT("Save"), wxDefaultPosition, wxDefaultSize, 0 );
+	saveButton = new wxButton( this, wxID_SAVE, wxT("Save"), wxDefaultPosition, wxDefaultSize, 0 );
 	buttonsSizer->Add( saveButton, 0, wxALL|wxEXPAND, 5 );
 	
 	buttonAlignmentSizer->Add( buttonsSizer, 1, 0, 5 );
@@ -525,13 +531,27 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 
 void SetupFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
 {
-	// Prompt to make sure they want to exit without saving
+	wxMessageDialog confirmDialog(this, wxT("Your changes have not been saved, are you sure you want to exit?"),
+								  wxT("Confirm"), wxNO_DEFAULT | wxYES_NO | wxICON_EXCLAMATION);
+
+	switch (confirmDialog.ShowModal())
+	{
+		case wxID_YES:
+			break;
+
+		case wxID_NO:
+		default:
+			return;
+	}
+
     Close(true);
 }
 
 void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
 	// Save Data
+	if (!GeneralSettings::GetInstance()->Save())
+		LOG_RECOVERABLE << "Settings failed to save, changes lost.";
 
     Close(true);
 }

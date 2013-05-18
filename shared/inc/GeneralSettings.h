@@ -42,10 +42,21 @@ private:
      */
     map<DifficultyLevel, string>    difficultyStrs;
 
-public:
+private:
 
     GeneralSettings();
+
+public:
+
     ~GeneralSettings();
+
+    static GeneralSettings* GetInstance();
+
+    /**
+     * Saves the state of the general settings to the database.
+     * @return true if the data was successfully saved, false otherwise.
+     */
+    bool Save();
 
     /**
      * Returns true if the difficulty level is currently set to easy
@@ -83,6 +94,13 @@ public:
      */
     bool MusicEnabled()const{return musicEnabled;}
 
+    /**
+     * Sets the difficulty level based on the string representation given.
+     * If the string isn't recognized, the default is set. (Normal)
+     * @param difficulty The string representation of the desired difficulty level
+     */
+    void ChooseDifficulty(const char* difficulty);
+
 private:
 
     /**
@@ -90,12 +108,6 @@ private:
      * @return true if reload was successful, false otherwise.
      */
     bool refresh();
-
-    /**
-     * Saves the state of the general settings to the database.
-     * @return true if the data was successfully saved, false otherwise.
-     */
-    bool save();
 
     /**
      * Sets the state of general settings to be their default values.

@@ -3,12 +3,6 @@
 
 #include "wx/wx.h"
 
-enum
-{
-	ID_Cancel = 1,
-	ID_Save
-};
-
 class SetupFrame : public wxFrame
 {
 private:
