@@ -1,7 +1,7 @@
 #include <Log.h>
 
-#include "../inc/SetupApp.h"
-#include "../inc/SetupFrame.h"
+#include "SetupApp.h"
+#include "SetupFrame.h"
 
 bool SetupApp::OnInit()
 {

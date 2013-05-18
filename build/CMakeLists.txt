@@ -17,10 +17,10 @@ find_path(SQLITE3_INCLUDE_DIR sqlite3.h)
 find_library(SQLITE3_LIBRARY sqlite3)
 
 # SOAR Stuff
-include_directories("/home/drautb/GitHub/SOAR/inc")
+include_directories("/home/drautb/Dropbox/GitHub/SOAR/inc")
 add_library(SOAR STATIC IMPORTED)
 set_property(TARGET SOAR PROPERTY
-			 IMPORTED_LOCATION /home/drautb/GitHub/SOAR/lib/libSOAR.a)
+			 IMPORTED_LOCATION /home/drautb/Dropbox/GitHub/SOAR/lib/libSOAR.a)
 
 #include_directories("${CMAKE_SOURCE_DIR}/../game/inc")
 include_directories("${CMAKE_SOURCE_DIR}/../setup/inc")

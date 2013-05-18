@@ -16,11 +16,12 @@ bool GeneralSettings::refresh()
 {
     GreeblesDatabase::GetInstance()->QueryData("SELECT * FROM `globalsettings` WHERE `id`=1;");
     
+    return false;
 }
 
 bool GeneralSettings::save()
 {
-
+	return false;
 }
 
 void GeneralSettings::setDefaults()
