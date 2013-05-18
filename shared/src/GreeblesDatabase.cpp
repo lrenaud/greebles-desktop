@@ -26,3 +26,14 @@ GreeblesDatabase* GreeblesDatabase::GetInstance()
 
     return &instance;
 }
+
+bool GreeblesDatabase::rebuild()
+{
+    if (!ImportFile("database/create_schema.sql"))
+        return false;
+
+    if (!ImportFile("database/initial_data_insert.sql"))
+        return false;
+
+    return true;
+}

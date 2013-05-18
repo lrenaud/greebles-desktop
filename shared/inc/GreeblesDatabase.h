@@ -21,6 +21,20 @@ public:
     ~GreeblesDatabase();
 
     static GreeblesDatabase* GetInstance();
+
+private:
+
+    /**
+     * Destroys and recreates the database using the .sql scripts found
+     * in the database directory. 
+     *
+     * /database/create_schema.sql
+     * /database/initial_data_insert.sql
+     * 
+     * @return true if rebuild succeeded, false if errors were encountered.
+     */
+    bool rebuild();
+    
 };
 
 #endif 
