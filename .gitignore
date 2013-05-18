@@ -1,9 +1,9 @@
 ########################
 # Doxygen Files
 ########################
+doc/doxygen/html
 doxygen.errors.txt
 doxygen.log.txt
-doxygen/html
 
 ########################
 # CMake Files
