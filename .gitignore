@@ -18,6 +18,7 @@ Makefile
 ########################
 *.sublime-project
 *.sublime-workspace
+*.TODO
 
 ########################
 # Various Project Files
