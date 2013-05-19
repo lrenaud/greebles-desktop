@@ -5,6 +5,7 @@
 #include "wx/button.h"
 #include "wx/msgdlg.h"		// For MessageDialogs
 
+#include "wxNoLabelCheckBox.h"
 #include "SetupFrame.h"
 #include "GeneralSettings.h"
 
@@ -45,7 +46,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1EnabledHBox;
 	p1EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p1EnabledCheckBox = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p1EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p1NameVBox;
@@ -134,8 +135,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p1Type->SetSelection( 0 );
 	p1TypeHBox->Add( p1Type, 1, wxALL, 5 );
 	
-	p1Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../../../../Pictures/3D Renders/Rubiks Cube.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 28,28 ), 0 );
-	p1TypeHBox->Add( p1Image, 0, wxALL, 2 );
+	p1Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-1.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p1TypeHBox->Add( p1Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p1VBox->Add( p1TypeHBox, 0, wxEXPAND, 5 );
 	
@@ -152,7 +153,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2EnabledHBox;
 	p2EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p2EnabledCheckBox = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p2EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p2NameVBox;
@@ -241,8 +242,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p2Type->SetSelection( 0 );
 	p2TypeHBox->Add( p2Type, 1, wxALL, 5 );
 	
-	p2Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../../../../Pictures/3D Renders/Rubiks Cube.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 28,28 ), 0 );
-	p2TypeHBox->Add( p2Image, 0, wxALL, 2 );
+	p2Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p2TypeHBox->Add( p2Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p2VBox->Add( p2TypeHBox, 0, wxEXPAND, 5 );
 	
@@ -259,7 +260,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3EnabledHBox;
 	p3EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p3EnabledCheckBox = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p3EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p3NameVBox;
@@ -348,8 +349,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p3Type->SetSelection( 0 );
 	p3TypeHBox->Add( p3Type, 1, wxALL, 5 );
 	
-	p3Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../../../../Pictures/3D Renders/Rubiks Cube.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 28,28 ), 0 );
-	p3TypeHBox->Add( p3Image, 0, wxALL, 2 );
+	p3Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-3.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p3TypeHBox->Add( p3Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p3VBox->Add( p3TypeHBox, 0, wxEXPAND, 5 );
 	
@@ -366,7 +367,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4EnabledHBox;
 	p4EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p4EnabledCheckBox = new wxCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p4EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p4NameVBox;
@@ -455,8 +456,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p4Type->SetSelection( 0 );
 	p4TypeHBox->Add( p4Type, 1, wxALL, 5 );
 	
-	p4Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../../../../Pictures/3D Renders/Rubiks Cube.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 28,28 ), 0 );
-	p4TypeHBox->Add( p4Image, 0, wxALL, 2 );
+	p4Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-4.png"), wxBITMAP_TYPE_PNG ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p4TypeHBox->Add( p4Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p4VBox->Add( p4TypeHBox, 0, wxEXPAND, 5 );
 	
@@ -533,8 +534,6 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 
 void SetupFrame::OnDifficultyChange(wxCommandEvent& WXUNUSED(event))
 {
-	LOG_MESSAGE << "Diff change handler..";
-
 	GS->ChooseDifficulty(difficultyComboBox->GetSelection() + 1);
 }
 

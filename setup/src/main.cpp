@@ -5,7 +5,7 @@
 
 BEGIN_EVENT_TABLE(SetupFrame, wxFrame)
 
-    EVT_CHOICE   (myID_DIFFICULTY,    SetupFrame::OnDifficultyChange)
+    EVT_CHOICE     (myID_DIFFICULTY,    SetupFrame::OnDifficultyChange)
     EVT_CHECKBOX   (myID_SOUND,         SetupFrame::OnSoundChange)
     EVT_CHECKBOX   (myID_MUSIC,         SetupFrame::OnMusicChange) 
 

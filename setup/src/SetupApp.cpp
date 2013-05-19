@@ -7,6 +7,9 @@
 
 bool SetupApp::OnInit()
 {
+    // Make sure we can load .png files
+    wxInitAllImageHandlers();
+
     Log::GetInstance()->SetFilterLevel(Log::MessageLevel::LOG_ALL);
 
     // Reload settings from DB

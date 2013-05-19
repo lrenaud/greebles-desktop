@@ -37,7 +37,8 @@ add_executable(setup
 			   ${CMAKE_SOURCE_DIR}/../setup/src/SetupApp.cpp
 			   ${CMAKE_SOURCE_DIR}/../setup/src/SetupFrame.cpp
 			   ${CMAKE_SOURCE_DIR}/../shared/src/GeneralSettings.cpp
-			   ${CMAKE_SOURCE_DIR}/../shared/src/GreeblesDatabase.cpp)
+			   ${CMAKE_SOURCE_DIR}/../shared/src/GreeblesDatabase.cpp
+               ${CMAKE_SOURCE_DIR}/../shared/src/wxNoLabelCheckBox.cpp)
 target_link_libraries(setup 
 					  SOAR 
 					  ${SQLITE3_LIBRARY} 

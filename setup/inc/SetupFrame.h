@@ -3,6 +3,8 @@
 
 #include "wx/wx.h"
 
+#include "wxNoLabelCheckBox.h"
+
 enum
 {
 	myID_SOUND,
@@ -28,7 +30,7 @@ protected:
 	 * GENERATED COMPONENT LIST
 	 */
 	wxStaticText* playersAndKeysLabel;
-	wxCheckBox* p1EnabledCheckBox;
+	wxNoLabelCheckBox* p1EnabledCheckBox;
 	wxTextCtrl* p1Name;
 	
 	wxButton* p1UpButton;
@@ -41,7 +43,7 @@ protected:
 	
 	wxChoice* p1Type;
 	wxStaticBitmap* p1Image;
-	wxCheckBox* p2EnabledCheckBox;
+	wxNoLabelCheckBox* p2EnabledCheckBox;
 	wxTextCtrl* p2Name;
 	
 	wxButton* p2UpButton;
@@ -54,7 +56,7 @@ protected:
 	
 	wxChoice* p2Type;
 	wxStaticBitmap* p2Image;
-	wxCheckBox* p3EnabledCheckBox;
+	wxNoLabelCheckBox* p3EnabledCheckBox;
 	wxTextCtrl* p3Name;
 	
 	wxButton* p3UpButton;
@@ -67,7 +69,7 @@ protected:
 	
 	wxChoice* p3Type;
 	wxStaticBitmap* p3Image;
-	wxCheckBox* p4EnabledCheckBox;
+	wxNoLabelCheckBox* p4EnabledCheckBox;
 	wxTextCtrl* p4Name;
 	
 	wxButton* p4UpButton;
