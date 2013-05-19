@@ -2,13 +2,13 @@
 #define GENERAL_SETTINGS_H
 
 #include <string>
-#include <map>
 
 #include "GreeblesDatabase.h"
+#include "DifficultyLookup.h"
 
 using namespace std;
 
-#define GS      GeneralSettings::GetInstance()
+#define GS GeneralSettings::GetInstance()
 
 class GeneralSettings
 {
@@ -19,9 +19,6 @@ private:
         COL_DIFFICULTY=1,
         COL_SOUND,
         COL_MUSIC,
-
-        COL_DIFFICULTY_ID=0,
-        COL_DIFFICULTY_TEXT=1
     };
 
     enum DifficultyLevel
@@ -38,11 +35,6 @@ private:
     DifficultyLevel                 difficulty;
     bool                            soundEnabled;
     bool                            musicEnabled;
-
-    /**
-     * Map containing string representations of difficulty levels
-     */
-    map<DifficultyLevel, string>    difficultyStrs;
 
 private:
 

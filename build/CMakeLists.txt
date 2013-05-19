@@ -38,7 +38,10 @@ add_executable(setup
 			   ${CMAKE_SOURCE_DIR}/../setup/src/SetupFrame.cpp
 			   ${CMAKE_SOURCE_DIR}/../shared/src/GeneralSettings.cpp
 			   ${CMAKE_SOURCE_DIR}/../shared/src/GreeblesDatabase.cpp
-               ${CMAKE_SOURCE_DIR}/../shared/src/wxNoLabelCheckBox.cpp)
+               ${CMAKE_SOURCE_DIR}/../shared/src/wxNoLabelCheckBox.cpp
+			   ${CMAKE_SOURCE_DIR}/../shared/src/StaticLookup.cpp
+			   ${CMAKE_SOURCE_DIR}/../shared/src/DifficultyLookup.cpp
+			   ${CMAKE_SOURCE_DIR}/../shared/src/PlayerTypeLookup.cpp)
 target_link_libraries(setup 
 					  SOAR 
 					  ${SQLITE3_LIBRARY} 

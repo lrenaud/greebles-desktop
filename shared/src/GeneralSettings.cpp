@@ -5,7 +5,7 @@
 
 #include "GeneralSettings.h"
 #include "GreeblesDatabase.h"
-#include "Macros.h"
+#include "DifficultyLookup.h"
 
 using namespace SOAR;
 
@@ -54,19 +54,6 @@ bool GeneralSettings::Refresh()
     soundEnabled = DB->GetBool(COL_SOUND);
     musicEnabled = DB->GetBool(COL_MUSIC);
 
-    if (!DB->QueryData("SELECT * FROM `difficulty`;"))
-        return false;
-
-    difficultyStrs.clear();
-    while (DB->NextRow())
-    {
-        DifficultyLevel diffLevel = (DifficultyLevel)DB->GetInt(COL_DIFFICULTY_ID);
-
-        // The reinterpret_cast here could chop off data if anything more than ASCII text 
-        // was in the database, but greebles will not do that for difficulty levels.
-        difficultyStrs[diffLevel] = reinterpret_cast<const char*>(DB->GetText(COL_DIFFICULTY_TEXT));
-    }
-
     return true;
 }
 
@@ -107,7 +94,7 @@ bool GeneralSettings::MusicEnabled()const
 
 void GeneralSettings::ChooseDifficulty(int difficultyLevel)
 {
-    if (difficultyLevel < 1 || difficultyLevel > 4)
+    if (!DL->KeyExists(difficultyLevel))
     {
         LOG_WARNING << "Invalid difficulty level specified in ChooseDifficulty: " << difficultyLevel;
         return;
@@ -140,11 +127,5 @@ void GeneralSettings::setDefaults()
 {
     soundEnabled = true;
     musicEnabled = true;
-    difficulty = DL_NORMAL;
-
-    difficultyStrs.clear();
-    difficultyStrs[DL_EASY] = "Easy";
-    difficultyStrs[DL_NORMAL] = "Normal";
-    difficultyStrs[DL_HARD] = "Hard";
-    difficultyStrs[DL_SUICIDAL] = "Suicidal";
+    ChooseDifficulty(DL_NORMAL);
 }
