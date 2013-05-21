@@ -41,7 +41,8 @@ add_executable(setup
                ${CMAKE_SOURCE_DIR}/../shared/src/wxNoLabelCheckBox.cpp
 			   ${CMAKE_SOURCE_DIR}/../shared/src/StaticLookup.cpp
 			   ${CMAKE_SOURCE_DIR}/../shared/src/DifficultyLookup.cpp
-			   ${CMAKE_SOURCE_DIR}/../shared/src/PlayerTypeLookup.cpp)
+			   ${CMAKE_SOURCE_DIR}/../shared/src/PlayerTypeLookup.cpp
+			   ${CMAKE_SOURCE_DIR}/../shared/src/PlayerSettings.cpp)
 target_link_libraries(setup 
 					  SOAR 
 					  ${SQLITE3_LIBRARY} 

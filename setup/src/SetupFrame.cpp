@@ -1,3 +1,4 @@
+#include <Macros.h>
 #include <Log.h>
 
 #include "wx/wx.h"
@@ -8,6 +9,7 @@
 #include "wxNoLabelCheckBox.h"
 #include "SetupFrame.h"
 #include "GeneralSettings.h"
+#include "PlayerSettings.h"
 
 using namespace SOAR;
 
@@ -46,13 +48,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1EnabledHBox;
 	p1EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p1EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p1EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p1NameVBox;
 	p1NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1Name = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p1Name = new wxTextCtrl( this, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p1NameVBox->Add( p1Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p1EnabledHBox->Add( p1NameVBox, 1, 0, 5 );
@@ -131,7 +133,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p1TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p1TypeNChoices = sizeof( p1TypeChoices ) / sizeof( wxString );
-	p1Type = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, p1TypeNChoices, p1TypeChoices, 0 );
+	p1Type = new wxChoice( this, myID_P1_TYPE, wxDefaultPosition, wxDefaultSize, p1TypeNChoices, p1TypeChoices, 0 );
 	p1Type->SetSelection( 0 );
 	p1TypeHBox->Add( p1Type, 1, wxALL, 5 );
 	
@@ -529,7 +531,23 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	 * END GENERATED CODE
 	 */
 	
+	p1Settings = new PlayerSettings(1);
+	
 	refresh();
+}
+
+SetupFrame::~SetupFrame()
+{
+	SAFE_DELETE(p1Settings);
+}
+
+void SetupFrame::OnP1EnabledChange(wxCommandEvent& WXUNUSED(event))
+{
+	LOG_MESSAGE << "Changing enabled value..." << p1EnabledCheckBox->IsChecked();
+    if (p1EnabledCheckBox->IsChecked())
+    	p1Settings->Enable();
+    else
+    	p1Settings->Disable();
 }
 
 void SetupFrame::OnDifficultyChange(wxCommandEvent& WXUNUSED(event))
@@ -574,6 +592,10 @@ void SetupFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
 void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
 	// Save Data
+
+	if (!p1Settings->Save())
+		LOG_RECOVERABLE << "Player 1 Settings failed to save, changes lost.";
+
 	if (!GS->Save())
 		LOG_RECOVERABLE << "Settings failed to save, changes lost.";
 
@@ -582,6 +604,11 @@ void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 
 void SetupFrame::refresh()
 {
+	// Player Settings
+	p1EnabledCheckBox->SetValue(p1Settings->Enabled());
+	p1Name->SetValue(wxString(p1Settings->Name().c_str(), wxConvUTF8));
+	p1Type->SetSelection(p1Settings->PlayerTypeId() - 1);
+
 	// General Settings
 	difficultyComboBox->SetSelection(GS->DifficultyLevelInt() - 1);
 	soundCheckBox->SetValue(GS->SoundEnabled());

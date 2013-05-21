@@ -39,6 +39,8 @@ bool GeneralSettings::Save()
     if (!DB->Query(query.str().c_str()))
         return false;
 
+    DB->Done();
+
     return true;
 }
 
@@ -53,6 +55,8 @@ bool GeneralSettings::Refresh()
     difficulty = (DifficultyLevel)DB->GetInt(COL_DIFFICULTY);
     soundEnabled = DB->GetBool(COL_SOUND);
     musicEnabled = DB->GetBool(COL_MUSIC);
+
+    DB->Done();
 
     return true;
 }

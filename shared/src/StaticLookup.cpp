@@ -40,7 +40,7 @@ void StaticLookup::initialize(const char* tableName, int keyIdx, int valueIdx)
     if (DB->QueryData(query.str().c_str()))
     {
         while (DB->NextRow())
-            pairs[DB->GetInt(keyIdx)] = reinterpret_cast<const char*>(DB->GetText(valueIdx));
+            pairs[DB->GetInt(keyIdx)] = DB->GetString(valueIdx);
 
         DB->Done();
     }

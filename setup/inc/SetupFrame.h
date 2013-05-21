@@ -4,9 +4,14 @@
 #include "wx/wx.h"
 
 #include "wxNoLabelCheckBox.h"
+#include "PlayerSettings.h"
 
 enum
 {
+	myID_P1_ENABLED,
+	myID_P1_NAME,
+	myID_P1_TYPE,
+
 	myID_SOUND,
 	myID_MUSIC,
 	myID_DIFFICULTY
@@ -91,6 +96,9 @@ protected:
 
 public:
 	SetupFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
+	~SetupFrame();
+
+	void OnP1EnabledChange(wxCommandEvent& event);
 
 	void OnDifficultyChange(wxCommandEvent& event);
 	void OnSoundChange(wxCommandEvent& event);
@@ -100,6 +108,11 @@ public:
 	void OnSave(wxCommandEvent& event);	
 
 private:
+
+	/**
+	 * Player Settings Instances
+	 */
+	PlayerSettings* 	p1Settings;	
 
 	/**
 	 * Refreshes the GUI to reflect the current state of GeneralSettings
