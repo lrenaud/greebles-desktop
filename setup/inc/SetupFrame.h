@@ -41,6 +41,8 @@ private:
 
 	static const int PLAYER_CONFIG_BOX_SIZE		= 180;
 
+	static const int MAX_NAME_LENGTH			= 10;
+
 protected:
 
 	/**

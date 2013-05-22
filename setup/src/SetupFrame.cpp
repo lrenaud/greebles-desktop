@@ -55,6 +55,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p1NameVBox = new wxBoxSizer( wxVERTICAL );
 	
 	p1Name = new wxTextCtrl( this, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p1Name->SetMaxLength(MAX_NAME_LENGTH);
 	p1NameVBox->Add( p1Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p1EnabledHBox->Add( p1NameVBox, 1, 0, 5 );
@@ -162,6 +163,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p2NameVBox = new wxBoxSizer( wxVERTICAL );
 	
 	p2Name = new wxTextCtrl( this, myID_P2_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p2Name->SetMaxLength(MAX_NAME_LENGTH);
 	p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p2EnabledHBox->Add( p2NameVBox, 1, 0, 5 );
@@ -269,6 +271,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p3NameVBox = new wxBoxSizer( wxVERTICAL );
 	
 	p3Name = new wxTextCtrl( this, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p3Name->SetMaxLength(MAX_NAME_LENGTH);
 	p3NameVBox->Add( p3Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p3EnabledHBox->Add( p3NameVBox, 1, 0, 5 );
@@ -376,6 +379,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p4NameVBox = new wxBoxSizer( wxVERTICAL );
 	
 	p4Name = new wxTextCtrl( this, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p4Name->SetMaxLength(MAX_NAME_LENGTH);
 	p4NameVBox->Add( p4Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p4EnabledHBox->Add( p4NameVBox, 1, 0, 5 );
