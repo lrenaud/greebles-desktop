@@ -12,6 +12,18 @@ enum
 	myID_P1_NAME,
 	myID_P1_TYPE,
 
+	myID_P2_ENABLED,
+	myID_P2_NAME,
+	myID_P2_TYPE,
+
+	myID_P3_ENABLED,
+	myID_P3_NAME,
+	myID_P3_TYPE,
+
+	myID_P4_ENABLED,
+	myID_P4_NAME,
+	myID_P4_TYPE,
+
 	myID_SOUND,
 	myID_MUSIC,
 	myID_DIFFICULTY
@@ -99,6 +111,20 @@ public:
 	~SetupFrame();
 
 	void OnP1EnabledChange(wxCommandEvent& event);
+	void OnP1NameChange(wxCommandEvent& event);
+	void OnP1TypeChange(wxCommandEvent& event);
+
+	void OnP2EnabledChange(wxCommandEvent& event);
+	void OnP2NameChange(wxCommandEvent& event);
+	void OnP2TypeChange(wxCommandEvent& event);
+
+	void OnP3EnabledChange(wxCommandEvent& event);
+	void OnP3NameChange(wxCommandEvent& event);
+	void OnP3TypeChange(wxCommandEvent& event);
+
+	void OnP4EnabledChange(wxCommandEvent& event);
+	void OnP4NameChange(wxCommandEvent& event);
+	void OnP4TypeChange(wxCommandEvent& event);
 
 	void OnDifficultyChange(wxCommandEvent& event);
 	void OnSoundChange(wxCommandEvent& event);
@@ -109,10 +135,20 @@ public:
 
 private:
 
+	const static int 	PLAYER_COUNT = 4;
+
+	enum
+	{
+		P1=0,
+		P2,
+		P3,
+		P4
+	};
+
 	/**
 	 * Player Settings Instances
 	 */
-	PlayerSettings* 	p1Settings;	
+	PlayerSettings* 	playerSettings[PLAYER_COUNT];	
 
 	/**
 	 * Refreshes the GUI to reflect the current state of GeneralSettings

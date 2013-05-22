@@ -155,13 +155,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2EnabledHBox;
 	p2EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p2EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p2EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p2NameVBox;
 	p2NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2Name = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p2Name = new wxTextCtrl( this, myID_P2_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p2EnabledHBox->Add( p2NameVBox, 1, 0, 5 );
@@ -240,7 +240,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p2TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p2TypeNChoices = sizeof( p2TypeChoices ) / sizeof( wxString );
-	p2Type = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, p2TypeNChoices, p2TypeChoices, 0 );
+	p2Type = new wxChoice( this, myID_P2_TYPE, wxDefaultPosition, wxDefaultSize, p2TypeNChoices, p2TypeChoices, 0 );
 	p2Type->SetSelection( 0 );
 	p2TypeHBox->Add( p2Type, 1, wxALL, 5 );
 	
@@ -262,13 +262,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3EnabledHBox;
 	p3EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p3EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p3EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p3NameVBox;
 	p3NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3Name = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p3Name = new wxTextCtrl( this, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p3NameVBox->Add( p3Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p3EnabledHBox->Add( p3NameVBox, 1, 0, 5 );
@@ -347,7 +347,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p3TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p3TypeNChoices = sizeof( p3TypeChoices ) / sizeof( wxString );
-	p3Type = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, p3TypeNChoices, p3TypeChoices, 0 );
+	p3Type = new wxChoice( this, myID_P3_TYPE, wxDefaultPosition, wxDefaultSize, p3TypeNChoices, p3TypeChoices, 0 );
 	p3Type->SetSelection( 0 );
 	p3TypeHBox->Add( p3Type, 1, wxALL, 5 );
 	
@@ -369,13 +369,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4EnabledHBox;
 	p4EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p4EnabledCheckBox = new wxNoLabelCheckBox( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p4EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p4NameVBox;
 	p4NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4Name = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p4Name = new wxTextCtrl( this, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p4NameVBox->Add( p4Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
 	p4EnabledHBox->Add( p4NameVBox, 1, 0, 5 );
@@ -454,7 +454,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p4TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p4TypeNChoices = sizeof( p4TypeChoices ) / sizeof( wxString );
-	p4Type = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, p4TypeNChoices, p4TypeChoices, 0 );
+	p4Type = new wxChoice( this, myID_P4_TYPE, wxDefaultPosition, wxDefaultSize, p4TypeNChoices, p4TypeChoices, 0 );
 	p4Type->SetSelection( 0 );
 	p4TypeHBox->Add( p4Type, 1, wxALL, 5 );
 	
@@ -531,23 +531,100 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	 * END GENERATED CODE
 	 */
 	
-	p1Settings = new PlayerSettings(1);
+	for (int p=0; p<PLAYER_COUNT; p++)
+		playerSettings[p] = new PlayerSettings(p + 1);
 	
 	refresh();
 }
 
 SetupFrame::~SetupFrame()
 {
-	SAFE_DELETE(p1Settings);
+	for (int p=0; p<PLAYER_COUNT; p++)
+		SAFE_DELETE(playerSettings[p]);
 }
 
+/**
+ * PLAYER 1 BINDINGS
+ */
 void SetupFrame::OnP1EnabledChange(wxCommandEvent& WXUNUSED(event))
 {
-	LOG_MESSAGE << "Changing enabled value..." << p1EnabledCheckBox->IsChecked();
     if (p1EnabledCheckBox->IsChecked())
-    	p1Settings->Enable();
+    	playerSettings[P1]->Enable();
     else
-    	p1Settings->Disable();
+    	playerSettings[P1]->Disable();
+}
+
+void SetupFrame::OnP1NameChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P1]->ChangeName(p1Name->GetValue().mb_str());
+}
+
+void SetupFrame::OnP1TypeChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P1]->SetTypeById(p1Type->GetSelection() + 1);
+}
+
+/**
+ * PLAYER 2 BINDINGS
+ */
+void SetupFrame::OnP2EnabledChange(wxCommandEvent& WXUNUSED(event))
+{
+    if (p2EnabledCheckBox->IsChecked())
+    	playerSettings[P2]->Enable();
+    else
+    	playerSettings[P2]->Disable();
+}
+
+void SetupFrame::OnP2NameChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P2]->ChangeName(p2Name->GetValue().mb_str());
+}
+
+void SetupFrame::OnP2TypeChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P2]->SetTypeById(p2Type->GetSelection() + 1);
+}
+
+/**
+ * PLAYER 3 BINDINGS
+ */
+void SetupFrame::OnP3EnabledChange(wxCommandEvent& WXUNUSED(event))
+{
+    if (p3EnabledCheckBox->IsChecked())
+    	playerSettings[P3]->Enable();
+    else
+    	playerSettings[P3]->Disable();
+}
+
+void SetupFrame::OnP3NameChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P3]->ChangeName(p3Name->GetValue().mb_str());
+}
+
+void SetupFrame::OnP3TypeChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P3]->SetTypeById(p3Type->GetSelection() + 1);
+}
+
+/**
+ * PLAYER 4 BINDINGS
+ */
+void SetupFrame::OnP4EnabledChange(wxCommandEvent& WXUNUSED(event))
+{
+    if (p4EnabledCheckBox->IsChecked())
+    	playerSettings[P4]->Enable();
+    else
+    	playerSettings[P4]->Disable();
+}
+
+void SetupFrame::OnP4NameChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P4]->ChangeName(p4Name->GetValue().mb_str());
+}
+
+void SetupFrame::OnP4TypeChange(wxCommandEvent& WXUNUSED(event))
+{
+    playerSettings[P4]->SetTypeById(p4Type->GetSelection() + 1);
 }
 
 void SetupFrame::OnDifficultyChange(wxCommandEvent& WXUNUSED(event))
@@ -592,9 +669,11 @@ void SetupFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
 void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
 	// Save Data
-
-	if (!p1Settings->Save())
-		LOG_RECOVERABLE << "Player 1 Settings failed to save, changes lost.";
+	for (int p=0; p<PLAYER_COUNT; p++)
+	{
+		if (!playerSettings[p]->Save())
+			LOG_RECOVERABLE << "Player " << (p + 1) << " Settings failed to save, changes lost.";	
+	}
 
 	if (!GS->Save())
 		LOG_RECOVERABLE << "Settings failed to save, changes lost.";
@@ -605,9 +684,21 @@ void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 void SetupFrame::refresh()
 {
 	// Player Settings
-	p1EnabledCheckBox->SetValue(p1Settings->Enabled());
-	p1Name->SetValue(wxString(p1Settings->Name().c_str(), wxConvUTF8));
-	p1Type->SetSelection(p1Settings->PlayerTypeId() - 1);
+	p1EnabledCheckBox->SetValue(playerSettings[P1]->Enabled());
+	p1Name->SetValue(wxString(playerSettings[P1]->Name().c_str(), wxConvUTF8));
+	p1Type->SetSelection(playerSettings[P1]->PlayerTypeId() - 1);
+
+	p2EnabledCheckBox->SetValue(playerSettings[P2]->Enabled());
+	p2Name->SetValue(wxString(playerSettings[P2]->Name().c_str(), wxConvUTF8));
+	p2Type->SetSelection(playerSettings[P2]->PlayerTypeId() - 1);
+
+	p3EnabledCheckBox->SetValue(playerSettings[P3]->Enabled());
+	p3Name->SetValue(wxString(playerSettings[P3]->Name().c_str(), wxConvUTF8));
+	p3Type->SetSelection(playerSettings[P3]->PlayerTypeId() - 1);
+
+	p4EnabledCheckBox->SetValue(playerSettings[P4]->Enabled());
+	p4Name->SetValue(wxString(playerSettings[P4]->Name().c_str(), wxConvUTF8));
+	p4Type->SetSelection(playerSettings[P4]->PlayerTypeId() - 1);
 
 	// General Settings
 	difficultyComboBox->SetSelection(GS->DifficultyLevelInt() - 1);
