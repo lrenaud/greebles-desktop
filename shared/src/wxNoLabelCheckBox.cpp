@@ -64,6 +64,11 @@ void wxNoLabelCheckBox::OnClicked(wxMouseEvent& event)
     m_state = ! m_state;
     SetBitmap(m_pImageList->GetBitmap(m_state ? 1 : 0));
     event.Skip();
+
+    // Dispatch Checkbox Event
+    wxCommandEvent checkboxEvent(wxEVT_COMMAND_CHECKBOX_CLICKED, GetId());
+    checkboxEvent.SetEventObject(this);
+    GetEventHandler()->ProcessEvent(checkboxEvent);
 }
 
 void wxNoLabelCheckBox::SetValue(bool value)
