@@ -23,9 +23,6 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 	
-	wxBoxSizer* masterPanelSizer;
-	masterPanelSizer = new wxBoxSizer( wxVERTICAL );
-	
 	masterPanel = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* masterVBoxSizer;
 	masterVBoxSizer = new wxBoxSizer( wxVERTICAL );
@@ -532,10 +529,6 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	masterPanel->SetSizer( masterVBoxSizer );
 	masterPanel->Layout();
 	masterVBoxSizer->Fit( masterPanel );
-	masterPanelSizer->Add( masterPanel, 1, wxEXPAND | wxALL, 5 );
-	
-	this->SetSizer( masterPanelSizer );
-	this->Layout();
 
 	/**
 	 * END GENERATED CODE
