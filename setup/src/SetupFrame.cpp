@@ -23,6 +23,10 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 	
+	wxBoxSizer* masterPanelSizer;
+	masterPanelSizer = new wxBoxSizer( wxVERTICAL );
+	
+	masterPanel = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* masterVBoxSizer;
 	masterVBoxSizer = new wxBoxSizer( wxVERTICAL );
 	
@@ -30,7 +34,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	labelSizer = new wxBoxSizer( wxHORIZONTAL );
 	
 	labelSizer->SetMinSize( wxSize( -1,20 ) ); 
-	playersAndKeysLabel = new wxStaticText( this, wxID_ANY, wxT("Players and Keys:"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	playersAndKeysLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("Players and Keys:"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	playersAndKeysLabel->Wrap( -1 );
 	labelSizer->Add( playersAndKeysLabel, 0, wxALL|wxEXPAND, 5 );
 	
@@ -40,7 +44,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	playersGridSizer = new wxGridSizer( 2, 2, 0, 0 );
 	
 	wxStaticBoxSizer* p1BoxSizer;
-	p1BoxSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Player 1") ), wxVERTICAL );
+	p1BoxSizer = new wxStaticBoxSizer( new wxStaticBox( masterPanel, wxID_ANY, wxT("Player 1") ), wxVERTICAL );
 	
 	wxBoxSizer* p1VBox;
 	p1VBox = new wxBoxSizer( wxVERTICAL );
@@ -48,13 +52,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1EnabledHBox;
 	p1EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p1EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p1EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p1NameVBox;
 	p1NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1Name = new wxTextCtrl( this, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p1Name = new wxTextCtrl( masterPanel, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p1Name->SetMaxLength(MAX_NAME_LENGTH);
 	p1NameVBox->Add( p1Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
@@ -71,7 +75,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1UpVBox;
 	p1UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1UpButton = new wxButton( this, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1UpButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p1UpVBox->Add( p1UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -84,7 +88,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1LeftVBox;
 	p1LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1LeftButton = new wxButton( this, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1LeftButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p1LeftVBox->Add( p1LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -94,7 +98,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1PushVBox;
 	p1PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1PushButton = new wxButton( this, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1PushButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p1PushVBox->Add( p1PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -104,7 +108,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1RightButtonVBox;
 	p1RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1RightButton = new wxButton( this, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1RightButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p1RightButtonVBox->Add( p1RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
@@ -117,7 +121,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1DownButtonVBox;
 	p1DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1DownButton = new wxButton( this, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1DownButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p1DownButtonVBox->Add( p1DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -134,11 +138,11 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p1TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p1TypeNChoices = sizeof( p1TypeChoices ) / sizeof( wxString );
-	p1Type = new wxChoice( this, myID_P1_TYPE, wxDefaultPosition, wxDefaultSize, p1TypeNChoices, p1TypeChoices, 0 );
+	p1Type = new wxChoice( masterPanel, myID_P1_TYPE, wxDefaultPosition, wxDefaultSize, p1TypeNChoices, p1TypeChoices, 0 );
 	p1Type->SetSelection( 0 );
 	p1TypeHBox->Add( p1Type, 1, wxALL, 5 );
 	
-	p1Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-1.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p1Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-1.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p1TypeHBox->Add( p1Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p1VBox->Add( p1TypeHBox, 0, wxEXPAND, 5 );
@@ -148,7 +152,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	playersGridSizer->Add( p1BoxSizer, 1, wxALL|wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* p2BoxSizer;
-	p2BoxSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Player 2") ), wxVERTICAL );
+	p2BoxSizer = new wxStaticBoxSizer( new wxStaticBox( masterPanel, wxID_ANY, wxT("Player 2") ), wxVERTICAL );
 	
 	wxBoxSizer* p2VBox;
 	p2VBox = new wxBoxSizer( wxVERTICAL );
@@ -156,13 +160,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2EnabledHBox;
 	p2EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p2EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p2EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p2NameVBox;
 	p2NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2Name = new wxTextCtrl( this, myID_P2_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p2Name = new wxTextCtrl( masterPanel, myID_P2_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p2Name->SetMaxLength(MAX_NAME_LENGTH);
 	p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
@@ -179,7 +183,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2UpVBox;
 	p2UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2UpButton = new wxButton( this, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2UpButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p2UpVBox->Add( p2UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -192,7 +196,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2LeftVBox;
 	p2LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2LeftButton = new wxButton( this, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2LeftButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p2LeftVBox->Add( p2LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -202,7 +206,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2PushVBox;
 	p2PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2PushButton = new wxButton( this, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2PushButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p2PushVBox->Add( p2PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -212,7 +216,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2RightButtonVBox;
 	p2RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2RightButton = new wxButton( this, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2RightButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p2RightButtonVBox->Add( p2RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
@@ -225,7 +229,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2DownButtonVBox;
 	p2DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2DownButton = new wxButton( this, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2DownButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p2DownButtonVBox->Add( p2DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -242,11 +246,11 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p2TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p2TypeNChoices = sizeof( p2TypeChoices ) / sizeof( wxString );
-	p2Type = new wxChoice( this, myID_P2_TYPE, wxDefaultPosition, wxDefaultSize, p2TypeNChoices, p2TypeChoices, 0 );
+	p2Type = new wxChoice( masterPanel, myID_P2_TYPE, wxDefaultPosition, wxDefaultSize, p2TypeNChoices, p2TypeChoices, 0 );
 	p2Type->SetSelection( 0 );
 	p2TypeHBox->Add( p2Type, 1, wxALL, 5 );
 	
-	p2Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p2Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p2TypeHBox->Add( p2Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p2VBox->Add( p2TypeHBox, 0, wxEXPAND, 5 );
@@ -256,7 +260,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	playersGridSizer->Add( p2BoxSizer, 1, wxALL|wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* p3BoxSizer;
-	p3BoxSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Player 3") ), wxVERTICAL );
+	p3BoxSizer = new wxStaticBoxSizer( new wxStaticBox( masterPanel, wxID_ANY, wxT("Player 3") ), wxVERTICAL );
 	
 	wxBoxSizer* p3VBox;
 	p3VBox = new wxBoxSizer( wxVERTICAL );
@@ -264,13 +268,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3EnabledHBox;
 	p3EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p3EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p3EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p3NameVBox;
 	p3NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3Name = new wxTextCtrl( this, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p3Name = new wxTextCtrl( masterPanel, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p3Name->SetMaxLength(MAX_NAME_LENGTH);
 	p3NameVBox->Add( p3Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
@@ -287,7 +291,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3UpVBox;
 	p3UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3UpButton = new wxButton( this, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3UpButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p3UpVBox->Add( p3UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -300,7 +304,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3LeftVBox;
 	p3LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3LeftButton = new wxButton( this, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3LeftButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p3LeftVBox->Add( p3LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -310,7 +314,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3PushVBox;
 	p3PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3PushButton = new wxButton( this, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3PushButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p3PushVBox->Add( p3PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -320,7 +324,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3RightButtonVBox;
 	p3RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3RightButton = new wxButton( this, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3RightButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p3RightButtonVBox->Add( p3RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
@@ -333,7 +337,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3DownButtonVBox;
 	p3DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3DownButton = new wxButton( this, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3DownButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p3DownButtonVBox->Add( p3DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -350,11 +354,11 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p3TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p3TypeNChoices = sizeof( p3TypeChoices ) / sizeof( wxString );
-	p3Type = new wxChoice( this, myID_P3_TYPE, wxDefaultPosition, wxDefaultSize, p3TypeNChoices, p3TypeChoices, 0 );
+	p3Type = new wxChoice( masterPanel, myID_P3_TYPE, wxDefaultPosition, wxDefaultSize, p3TypeNChoices, p3TypeChoices, 0 );
 	p3Type->SetSelection( 0 );
 	p3TypeHBox->Add( p3Type, 1, wxALL, 5 );
 	
-	p3Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-3.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p3Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-3.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p3TypeHBox->Add( p3Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p3VBox->Add( p3TypeHBox, 0, wxEXPAND, 5 );
@@ -364,7 +368,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	playersGridSizer->Add( p3BoxSizer, 1, wxALL|wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* p4BoxSizer;
-	p4BoxSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Player 4") ), wxVERTICAL );
+	p4BoxSizer = new wxStaticBoxSizer( new wxStaticBox( masterPanel, wxID_ANY, wxT("Player 4") ), wxVERTICAL );
 	
 	wxBoxSizer* p4VBox;
 	p4VBox = new wxBoxSizer( wxVERTICAL );
@@ -372,13 +376,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4EnabledHBox;
 	p4EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p4EnabledCheckBox = new wxNoLabelCheckBox( this, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p4EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALL, 10 );
 	
 	wxBoxSizer* p4NameVBox;
 	p4NameVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4Name = new wxTextCtrl( this, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	p4Name = new wxTextCtrl( masterPanel, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	p4Name->SetMaxLength(MAX_NAME_LENGTH);
 	p4NameVBox->Add( p4Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
 	
@@ -395,7 +399,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4UpVBox;
 	p4UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4UpButton = new wxButton( this, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4UpButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p4UpVBox->Add( p4UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -408,7 +412,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4LeftVBox;
 	p4LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4LeftButton = new wxButton( this, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4LeftButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p4LeftVBox->Add( p4LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -418,7 +422,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4PushVBox;
 	p4PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4PushButton = new wxButton( this, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4PushButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p4PushVBox->Add( p4PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -428,7 +432,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4RightButtonVBox;
 	p4RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4RightButton = new wxButton( this, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4RightButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p4RightButtonVBox->Add( p4RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
@@ -441,7 +445,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4DownButtonVBox;
 	p4DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4DownButton = new wxButton( this, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4DownButton->SetMinSize( wxSize( -1,32 ) );
 	
 	p4DownButtonVBox->Add( p4DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
@@ -458,11 +462,11 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	wxString p4TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
 	int p4TypeNChoices = sizeof( p4TypeChoices ) / sizeof( wxString );
-	p4Type = new wxChoice( this, myID_P4_TYPE, wxDefaultPosition, wxDefaultSize, p4TypeNChoices, p4TypeChoices, 0 );
+	p4Type = new wxChoice( masterPanel, myID_P4_TYPE, wxDefaultPosition, wxDefaultSize, p4TypeNChoices, p4TypeChoices, 0 );
 	p4Type->SetSelection( 0 );
 	p4TypeHBox->Add( p4Type, 1, wxALL, 5 );
 	
-	p4Image = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("image/player-4.png"), wxBITMAP_TYPE_PNG ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p4Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-4.png"), wxBITMAP_TYPE_PNG ), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p4TypeHBox->Add( p4Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p4VBox->Add( p4TypeHBox, 0, wxEXPAND, 5 );
@@ -476,10 +480,10 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* audioOptionsSizer;
 	audioOptionsSizer = new wxBoxSizer( wxVERTICAL );
 	
-	soundCheckBox = new wxCheckBox( this, myID_SOUND, wxT("Sound Effects"), wxDefaultPosition, wxDefaultSize, 0 );
+	soundCheckBox = new wxCheckBox( masterPanel, myID_SOUND, wxT("Sound Effects"), wxDefaultPosition, wxDefaultSize, 0 );
 	audioOptionsSizer->Add( soundCheckBox, 0, wxALL, 5 );
 	
-	musicCheckBox = new wxCheckBox( this, myID_MUSIC, wxT("Music"), wxDefaultPosition, wxDefaultSize, 0 );
+	musicCheckBox = new wxCheckBox( masterPanel, myID_MUSIC, wxT("Music"), wxDefaultPosition, wxDefaultSize, 0 );
 	audioOptionsSizer->Add( musicCheckBox, 0, wxALL, 5 );
 	
 	masterVBoxSizer->Add( audioOptionsSizer, 0, wxALL|wxEXPAND, 5 );
@@ -493,15 +497,15 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* difficultySizer;
 	difficultySizer = new wxBoxSizer( wxHORIZONTAL );
 	
-	difficultyLabel = new wxStaticText( this, wxID_ANY, wxT("Difficulty:"), wxDefaultPosition, wxDefaultSize, 0 );
+	difficultyLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("Difficulty:"), wxDefaultPosition, wxDefaultSize, 0 );
 	difficultyLabel->Wrap( -1 );
 	difficultySizer->Add( difficultyLabel, 0, wxBOTTOM|wxLEFT|wxTOP, 8 );
 	
-	wxString difficultyComboBoxChoices[] = { wxT("Easy"), wxT("Normal"), wxT("Hard"), wxT("Suicidal") };
-	int difficultyComboBoxNChoices = sizeof( difficultyComboBoxChoices ) / sizeof( wxString );
-	difficultyComboBox = new wxChoice( this, myID_DIFFICULTY, wxDefaultPosition, wxDefaultSize, difficultyComboBoxNChoices, difficultyComboBoxChoices, 0 );
-	difficultyComboBox->SetSelection( 0 );
-	difficultySizer->Add( difficultyComboBox, 1, wxALL|wxEXPAND, 5 );
+	wxString difficultyChoiceChoices[] = { wxT("Easy"), wxT("Normal"), wxT("Hard"), wxT("Suicidal") };
+	int difficultyChoiceNChoices = sizeof( difficultyChoiceChoices ) / sizeof( wxString );
+	difficultyChoice = new wxChoice( masterPanel, myID_DIFFICULTY, wxDefaultPosition, wxDefaultSize, difficultyChoiceNChoices, difficultyChoiceChoices, 0 );
+	difficultyChoice->SetSelection( 0 );
+	difficultySizer->Add( difficultyChoice, 1, wxALL|wxEXPAND, 5 );
 	
 	bottomRowGridSizer->Add( difficultySizer, 1, wxEXPAND, 5 );
 	
@@ -511,10 +515,10 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* buttonsSizer;
 	buttonsSizer = new wxBoxSizer( wxHORIZONTAL );
 	
-	cancelButton = new wxButton( this, wxID_CANCEL, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	cancelButton = new wxButton( masterPanel, wxID_CANCEL, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
 	buttonsSizer->Add( cancelButton, 0, wxALL|wxEXPAND, 5 );
 	
-	saveButton = new wxButton( this, wxID_SAVE, wxT("Save"), wxDefaultPosition, wxDefaultSize, 0 );
+	saveButton = new wxButton( masterPanel, wxID_SAVE, wxT("Save"), wxDefaultPosition, wxDefaultSize, 0 );
 	buttonsSizer->Add( saveButton, 0, wxALL|wxEXPAND, 5 );
 	
 	buttonAlignmentSizer->Add( buttonsSizer, 1, 0, 5 );
@@ -525,11 +529,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	masterVBoxSizer->Add( bottomRowSizer, 0, wxEXPAND, 5 );
 	
-	this->SetSizer( masterVBoxSizer );
-	this->Layout();
-	masterVBoxSizer->Fit( this );
+	masterPanel->SetSizer( masterVBoxSizer );
+	masterPanel->Layout();
+	masterVBoxSizer->Fit( masterPanel );
+	masterPanelSizer->Add( masterPanel, 1, wxEXPAND | wxALL, 5 );
 	
-	this->Centre( wxBOTH );
+	this->SetSizer( masterPanelSizer );
+	this->Layout();
 
 	/**
 	 * END GENERATED CODE
@@ -633,7 +639,7 @@ void SetupFrame::OnP4TypeChange(wxCommandEvent& WXUNUSED(event))
 
 void SetupFrame::OnDifficultyChange(wxCommandEvent& WXUNUSED(event))
 {
-	GS->ChooseDifficulty(difficultyComboBox->GetSelection() + 1);
+	GS->ChooseDifficulty(difficultyChoice->GetSelection() + 1);
 }
 
 void SetupFrame::OnSoundChange(wxCommandEvent& WXUNUSED(event))
@@ -705,7 +711,7 @@ void SetupFrame::refresh()
 	p4Type->SetSelection(playerSettings[P4]->PlayerTypeId() - 1);
 
 	// General Settings
-	difficultyComboBox->SetSelection(GS->DifficultyLevelInt() - 1);
+	difficultyChoice->SetSelection(GS->DifficultyLevelInt() - 1);
 	soundCheckBox->SetValue(GS->SoundEnabled());
 	musicCheckBox->SetValue(GS->MusicEnabled());
 }

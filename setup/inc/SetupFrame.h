@@ -48,6 +48,7 @@ protected:
 	/**
 	 * GENERATED COMPONENT LIST
 	 */
+	wxPanel* masterPanel;
 	wxStaticText* playersAndKeysLabel;
 	wxNoLabelCheckBox* p1EnabledCheckBox;
 	wxTextCtrl* p1Name;
@@ -59,7 +60,6 @@ protected:
 	wxButton* p1RightButton;
 	
 	wxButton* p1DownButton;
-	
 	wxChoice* p1Type;
 	wxStaticBitmap* p1Image;
 	wxNoLabelCheckBox* p2EnabledCheckBox;
@@ -72,7 +72,6 @@ protected:
 	wxButton* p2RightButton;
 	
 	wxButton* p2DownButton;
-	
 	wxChoice* p2Type;
 	wxStaticBitmap* p2Image;
 	wxNoLabelCheckBox* p3EnabledCheckBox;
@@ -85,7 +84,6 @@ protected:
 	wxButton* p3RightButton;
 	
 	wxButton* p3DownButton;
-	
 	wxChoice* p3Type;
 	wxStaticBitmap* p3Image;
 	wxNoLabelCheckBox* p4EnabledCheckBox;
@@ -98,13 +96,12 @@ protected:
 	wxButton* p4RightButton;
 	
 	wxButton* p4DownButton;
-	
 	wxChoice* p4Type;
 	wxStaticBitmap* p4Image;
 	wxCheckBox* soundCheckBox;
 	wxCheckBox* musicCheckBox;
 	wxStaticText* difficultyLabel;
-	wxChoice* difficultyComboBox;
+	wxChoice* difficultyChoice;
 	wxButton* cancelButton;
 	wxButton* saveButton;
 
