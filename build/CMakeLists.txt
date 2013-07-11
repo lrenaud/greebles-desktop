@@ -5,8 +5,10 @@ project(greebles)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${greebles_SOURCE_DIR}/../bin)
 set(CMAKE_BUILD_TYPE Debug)
 
-add_definitions("-Wall")
-add_definitions("-std=c++0x")
+add_definitions("-Wall")                # Give ALL the warnings!
+add_definitions("-Werror")              # Treat ALL The warnings as errors
+add_definitions("-pedantic-errors")     # Only allow standard-compliant code
+add_definitions("-std=c++11")           # Use the 2011 C++ Standard
 
 # WxWidgets Stuff
 # http://wiki.wxwidgets.org/CMake
@@ -30,7 +32,7 @@ include_directories("${CMAKE_SOURCE_DIR}/../shared/inc")
 
 #add_executable(game 
 #			   ${CMAKE_SOURCE_DIR}/../*.cpp)
-#target_link_libraries(game SOAR ${SQLITE3_LIBRARY})
+#target_link_libraries(game SOAR ${SQLITE3_LIBRARY} /usr/lib/FMOD/libfmodex64.so)
 
 add_executable(setup
 			   ${CMAKE_SOURCE_DIR}/../setup/src/main.cpp

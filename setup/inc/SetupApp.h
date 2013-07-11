@@ -8,4 +8,4 @@ class SetupApp : public wxApp
     virtual bool OnInit();
 };
 
-DECLARE_APP(SetupApp);
+DECLARE_APP(SetupApp)
