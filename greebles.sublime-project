@@ -1,0 +1,58 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"make"
+			],
+			"name": "Build Greebles",
+			"working_dir": "${project_path}/build/",
+
+			"variants": [
+				{
+					"name": "Linux - Debug Game",
+					"cmd": ["./game"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Game",
+					"cmd": ["./game"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
+					"name": "Linux - Debug Setup",
+					"cmd": ["./setup"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Setup",
+					"cmd": ["./setup"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
+					"name": "Linux - Debug Custom",
+					"cmd": ["./custom"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Custom",
+					"cmd": ["./custom"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
+					"name": "Generate Documentation",
+					"cmd": ["./execute_doxygen.sh"],
+					"working_dir": "${project_path}/scripts/"
+				}
+			]
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "/home/drautb/Dropbox/GitHub/greebles"
+		}
+	]
+}
+
