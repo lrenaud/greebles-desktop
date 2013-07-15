@@ -4,6 +4,8 @@
 #include <string>
 #include <sstream>
 
+#include "ControlSet.h"
+
 using namespace std;
 
 class PlayerSettings
@@ -31,6 +33,8 @@ private:
     PlayerType      playerType;
 
     int             controlSetId;
+
+    ControlSet*     controlSet;
 
     bool            enabled;
 
@@ -84,6 +88,12 @@ public:
      * @return name
      */
     const string& Name()const;
+
+    /**
+     * Get this player's control set
+     * @return a pointer to this player's current controls
+     */
+    ControlSet* Controls();
 
     /**
      * Change the player's type by specifying a new type id

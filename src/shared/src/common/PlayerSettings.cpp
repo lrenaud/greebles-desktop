@@ -1,9 +1,11 @@
 #include <sstream>
 
+#include <Macros.h>
 #include <Log.h>
 
 #include "PlayerSettings.h"
 #include "GreeblesDatabase.h"
+#include "ControlSet.h"
 
 using namespace std;
 using namespace SOAR;
@@ -14,11 +16,13 @@ PlayerSettings::PlayerSettings(int id)
 
     if (!load(id))
         setDefaults();
+
+    controlSet = new ControlSet(controlSetId);
 }
 
 PlayerSettings::~PlayerSettings()
 {
-
+    SAFE_DELETE(controlSet);
 }
 
 int PlayerSettings::PlayerTypeId()const
@@ -49,6 +53,11 @@ bool PlayerSettings::Enabled()const
 const string& PlayerSettings::Name()const
 {
     return name;
+}
+
+ControlSet* PlayerSettings::Controls()
+{
+    return controlSet;
 }
 
 bool PlayerSettings::SetTypeById(int typeId)
@@ -86,7 +95,10 @@ bool PlayerSettings::Save()
     if (DB->Query(query.str().c_str()))
     {
         DB->Done();
-        return true;
+        
+        // Save this player's controls as well
+        if (controlSet->Save())
+            return true;
     }
 
     return false;

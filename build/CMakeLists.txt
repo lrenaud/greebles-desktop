@@ -94,7 +94,8 @@ set(SHARED_COMMON_SRCS
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp)
+	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp
+	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp)
 
 set(SHARED_WINDOWS_SRCS )
 
