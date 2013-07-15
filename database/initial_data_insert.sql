@@ -16,10 +16,10 @@ INSERT INTO `playertype` VALUES(1, "Human"),
                                (2, "Friendly AI"),
                                (3, "Nasty AI");
 
-INSERT INTO `controlset` VALUES(1, 1, 1, 1, 1, 1),
-                               (2, 1, 1, 1, 1, 1),
-                               (3, 1, 1, 1, 1, 1),
-                               (4, 1, 1, 1, 1, 1);
+INSERT INTO `controlset` VALUES(1, 263, 262, 265, 264, 32),   -- Left, Right, Up,  Down, Spacebar
+                               (2, 323, 329, 325, 326, 333),  -- NP3,  NP9,   NP5, NP6,  NP -
+                               (3, 76,  39,  80,  59,  75),   -- L,    ',     P,   ;,    K
+                               (4, 83,  70,  69,  68,  65);   -- S,    F,     E,   D,    A
 
 INSERT INTO `player` VALUES(1, 1, 1, 1, "Player 1"),
                            (2, 2, 2, 1, "Player 2"),

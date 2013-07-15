@@ -44,6 +44,11 @@
 					"name": "Generate Documentation",
 					"cmd": ["./execute_doxygen.sh"],
 					"working_dir": "${project_path}/scripts/"
+				},
+				{
+					"name": "Reset Database",
+					"cmd": ["rm", "linux/Debug/greebles.db", "linux/Release/greebles.db"],
+					"working_dir": "${project_path}/bin/"
 				}
 			]
 		}
