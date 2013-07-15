@@ -5,8 +5,8 @@ project(greebles)
 ##########################################################
 # Select Build Type
 ##########################################################
-# set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Debug)
+# set(CMAKE_BUILD_TYPE Release)
 
 ##########################################################
 # Select Platform
@@ -93,7 +93,8 @@ set(SHARED_COMMON_SRCS
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/StaticLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp)
+	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
+	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp)
 
 set(SHARED_WINDOWS_SRCS )
 
@@ -118,7 +119,8 @@ set(GAME_LINUX_SRCS )
 set(SETUP_COMMON_SRCS 
 	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
 	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupApp.cpp
-	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp)
+	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp
+	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/NewKeyDialog.cpp)
 
 set(SETUP_WINDOWS_SRCS )
 

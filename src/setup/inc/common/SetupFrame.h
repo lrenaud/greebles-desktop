@@ -5,12 +5,14 @@
 
 #include "wxNoLabelCheckBox.h"
 #include "PlayerSettings.h"
+#include "NewKeyDialog.h"
 
 enum
 {
 	myID_P1_ENABLED,
 	myID_P1_NAME,
 	myID_P1_TYPE,
+	myID_P1_UP,
 
 	myID_P2_ENABLED,
 	myID_P2_NAME,
@@ -54,7 +56,6 @@ protected:
 	wxTextCtrl* p1Name;
 	
 	wxButton* p1UpButton;
-	
 	wxButton* p1LeftButton;
 	wxButton* p1PushButton;
 	wxButton* p1RightButton;
@@ -66,7 +67,6 @@ protected:
 	wxTextCtrl* p2Name;
 	
 	wxButton* p2UpButton;
-	
 	wxButton* p2LeftButton;
 	wxButton* p2PushButton;
 	wxButton* p2RightButton;
@@ -78,7 +78,6 @@ protected:
 	wxTextCtrl* p3Name;
 	
 	wxButton* p3UpButton;
-	
 	wxButton* p3LeftButton;
 	wxButton* p3PushButton;
 	wxButton* p3RightButton;
@@ -90,7 +89,6 @@ protected:
 	wxTextCtrl* p4Name;
 	
 	wxButton* p4UpButton;
-	
 	wxButton* p4LeftButton;
 	wxButton* p4PushButton;
 	wxButton* p4RightButton;
@@ -106,12 +104,14 @@ protected:
 	wxButton* saveButton;
 
 public:
+
 	SetupFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
 	~SetupFrame();
 
 	void OnP1EnabledChange(wxCommandEvent& event);
 	void OnP1NameChange(wxCommandEvent& event);
 	void OnP1TypeChange(wxCommandEvent& event);
+	void OnP1Up(wxCommandEvent& event);
 
 	void OnP2EnabledChange(wxCommandEvent& event);
 	void OnP2NameChange(wxCommandEvent& event);
@@ -148,6 +148,11 @@ private:
 	 * Player Settings Instances
 	 */
 	PlayerSettings* 	playerSettings[PLAYER_COUNT];	
+
+	/**
+	 * Dialog for receiving new key presses
+	 */
+	NewKeyDialog*		newKeyDlg;
 
 	/**
 	 * Refreshes the GUI to reflect the current state of GeneralSettings
