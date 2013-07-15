@@ -1,5 +1,8 @@
+#include <string>
+
 #include <Macros.h>
 #include <Log.h>
+#include <Keyboard.h>
 
 #include "wx/wx.h"
 #include "wx/stattext.h"
@@ -703,6 +706,10 @@ void SetupFrame::refresh()
 	p1EnabledCheckBox->SetValue(playerSettings[P1]->Enabled());
 	p1Name->SetValue(wxString(playerSettings[P1]->Name().c_str(), wxConvUTF8));
 	p1Type->SetSelection(playerSettings[P1]->PlayerTypeId() - 1);
+
+	std::string str = KEY_STR(playerSettings[P1]->Controls()->UpKey());
+	wxString s(str.c_str(), wxConvUTF8);
+	p1UpButton->SetLabel(s);
 
 	p2EnabledCheckBox->SetValue(playerSettings[P2]->Enabled());
 	p2Name->SetValue(wxString(playerSettings[P2]->Name().c_str(), wxConvUTF8));

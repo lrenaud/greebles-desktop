@@ -52,6 +52,7 @@ void NewKeyDialog::pollKeys(wxTimerEvent& event)
         if (wxGetKeyState((wxKeyCode)newKey))
         {
             // KEY WAS HIT, Handle it!
+            // Don't allow duplicate keys, notify if key isn't allowed
             this->EndModal(0);
         }
     }
