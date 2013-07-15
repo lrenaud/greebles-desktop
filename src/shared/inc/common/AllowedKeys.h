@@ -2,10 +2,13 @@
 #define ALLOWED_KEYS_H
 
 #include <vector>
+#include <algorithm>
 
 #include <GLFW/glfw3.h>
 
 using namespace std;
+
+#define KEY_ALLOWED(k)  (find(ALLOWED_KEYS.begin(), ALLOWED_KEYS.end(), k) != ALLOWED_KEYS.end())
 
 const vector<int>  ALLOWED_KEYS = {
     GLFW_KEY_SPACE,
