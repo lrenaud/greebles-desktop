@@ -13,10 +13,13 @@ using namespace SOAR;
 
 ControlSet::ControlSet(int controlSetId)
 {
-    this->id = id;
+    this->id = controlSetId;
 
     if (!load(id))
+    {
         setDefaults();
+        LOG_RECOVERABLE << "Control Set #" << id << " failed to load";
+    }
 }
 
 ControlSet::~ControlSet()

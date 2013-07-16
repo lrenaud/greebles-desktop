@@ -14,6 +14,7 @@
 #include "GeneralSettings.h"
 #include "PlayerSettings.h"
 #include "NewKeyDialog.h"
+#include "KeyTranslator.h"
 
 using namespace SOAR;
 
@@ -223,7 +224,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p2RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2RightButton->SetMinSize( wxSize( -1,32 ) );
 	
-	p2RightButtonVBox->Add( p2RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+	p2RightButtonVBox->Add( p2RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
 	p2ControlsGrid->Add( p2RightButtonVBox, 1, wxEXPAND, 5 );
 	
@@ -331,7 +332,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p3RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3RightButton->SetMinSize( wxSize( -1,32 ) );
 	
-	p3RightButtonVBox->Add( p3RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+	p3RightButtonVBox->Add( p3RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
 	p3ControlsGrid->Add( p3RightButtonVBox, 1, wxEXPAND, 5 );
 	
@@ -439,7 +440,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p4RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4RightButton->SetMinSize( wxSize( -1,32 ) );
 	
-	p4RightButtonVBox->Add( p4RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+	p4RightButtonVBox->Add( p4RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
 	p4ControlsGrid->Add( p4RightButtonVBox, 1, wxEXPAND, 5 );
 	
@@ -707,21 +708,41 @@ void SetupFrame::refresh()
 	p1Name->SetValue(wxString(playerSettings[P1]->Name().c_str(), wxConvUTF8));
 	p1Type->SetSelection(playerSettings[P1]->PlayerTypeId() - 1);
 
-	std::string str = KEY_STR(playerSettings[P1]->Controls()->UpKey());
-	wxString s(str.c_str(), wxConvUTF8);
-	p1UpButton->SetLabel(s);
+	p1UpButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->UpKey()));
+	p1DownButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->DownKey()));
+	p1LeftButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->LeftKey()));
+	p1RightButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->RightKey()));
+	p1PushButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->PushKey()));
 
 	p2EnabledCheckBox->SetValue(playerSettings[P2]->Enabled());
 	p2Name->SetValue(wxString(playerSettings[P2]->Name().c_str(), wxConvUTF8));
 	p2Type->SetSelection(playerSettings[P2]->PlayerTypeId() - 1);
 
+	p2UpButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->UpKey()));
+	p2DownButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->DownKey()));
+	p2LeftButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->LeftKey()));
+	p2RightButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->RightKey()));
+	p2PushButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->PushKey()));
+
 	p3EnabledCheckBox->SetValue(playerSettings[P3]->Enabled());
 	p3Name->SetValue(wxString(playerSettings[P3]->Name().c_str(), wxConvUTF8));
 	p3Type->SetSelection(playerSettings[P3]->PlayerTypeId() - 1);
 
+	p3UpButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->UpKey()));
+	p3DownButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->DownKey()));
+	p3LeftButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->LeftKey()));
+	p3RightButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->RightKey()));
+	p3PushButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->PushKey()));
+
 	p4EnabledCheckBox->SetValue(playerSettings[P4]->Enabled());
 	p4Name->SetValue(wxString(playerSettings[P4]->Name().c_str(), wxConvUTF8));
 	p4Type->SetSelection(playerSettings[P4]->PlayerTypeId() - 1);
+
+	p4UpButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->UpKey()));
+	p4DownButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->DownKey()));
+	p4LeftButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->LeftKey()));
+	p4RightButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->RightKey()));
+	p4PushButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->PushKey()));
 
 	// General Settings
 	difficultyChoice->SetSelection(GS->DifficultyLevelInt() - 1);
