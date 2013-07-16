@@ -82,6 +82,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p1UpButton = new wxButton( masterPanel, myID_P1_UP, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1UpButton->SetMinSize( wxSize( -1,32 ) );
+	p1UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p1UpVBox->Add( p1UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -95,6 +96,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p1LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1LeftButton->SetMinSize( wxSize( -1,32 ) );
+	p1LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p1LeftVBox->Add( p1LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -105,6 +107,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p1PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1PushButton->SetMinSize( wxSize( -1,32 ) );
+	p1PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p1PushVBox->Add( p1PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -115,8 +118,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p1RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1RightButton->SetMinSize( wxSize( -1,32 ) );
+	p1RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
-	p1RightButtonVBox->Add( p1RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+	p1RightButtonVBox->Add( p1RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
 	p1ControlsGrid->Add( p1RightButtonVBox, 1, wxEXPAND, 5 );
 	
@@ -128,6 +132,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p1DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1DownButton->SetMinSize( wxSize( -1,32 ) );
+	p1DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p1DownButtonVBox->Add( p1DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -190,6 +195,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p2UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2UpButton->SetMinSize( wxSize( -1,32 ) );
+	p2UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p2UpVBox->Add( p2UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -203,6 +209,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p2LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2LeftButton->SetMinSize( wxSize( -1,32 ) );
+	p2LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p2LeftVBox->Add( p2LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -213,6 +220,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p2PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2PushButton->SetMinSize( wxSize( -1,32 ) );
+	p2PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p2PushVBox->Add( p2PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -223,6 +231,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p2RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2RightButton->SetMinSize( wxSize( -1,32 ) );
+	p2RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p2RightButtonVBox->Add( p2RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -236,6 +245,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p2DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2DownButton->SetMinSize( wxSize( -1,32 ) );
+	p2DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p2DownButtonVBox->Add( p2DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -298,6 +308,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p3UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3UpButton->SetMinSize( wxSize( -1,32 ) );
+	p3UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p3UpVBox->Add( p3UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -311,6 +322,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p3LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3LeftButton->SetMinSize( wxSize( -1,32 ) );
+	p3LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p3LeftVBox->Add( p3LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -321,6 +333,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p3PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3PushButton->SetMinSize( wxSize( -1,32 ) );
+	p3PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p3PushVBox->Add( p3PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -331,6 +344,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p3RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3RightButton->SetMinSize( wxSize( -1,32 ) );
+	p3RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p3RightButtonVBox->Add( p3RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -344,6 +358,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p3DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3DownButton->SetMinSize( wxSize( -1,32 ) );
+	p3DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p3DownButtonVBox->Add( p3DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -406,6 +421,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p4UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4UpButton->SetMinSize( wxSize( -1,32 ) );
+	p4UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p4UpVBox->Add( p4UpButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -419,6 +435,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p4LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4LeftButton->SetMinSize( wxSize( -1,32 ) );
+	p4LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p4LeftVBox->Add( p4LeftButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -429,6 +446,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p4PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4PushButton->SetMinSize( wxSize( -1,32 ) );
+	p4PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p4PushVBox->Add( p4PushButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -439,6 +457,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p4RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4RightButton->SetMinSize( wxSize( -1,32 ) );
+	p4RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p4RightButtonVBox->Add( p4RightButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
@@ -452,6 +471,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	p4DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4DownButton->SetMinSize( wxSize( -1,32 ) );
+	p4DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
 	p4DownButtonVBox->Add( p4DownButton, 0, wxALIGN_CENTER_HORIZONTAL|wxALL|wxEXPAND, 5 );
 	
