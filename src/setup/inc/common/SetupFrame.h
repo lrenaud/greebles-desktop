@@ -52,50 +52,47 @@ protected:
 	 */
 	wxPanel* masterPanel;
 	wxStaticText* playersAndKeysLabel;
+
 	wxNoLabelCheckBox* p1EnabledCheckBox;
 	wxTextCtrl* p1Name;
-	
-	wxButton* p1UpButton;
 	wxButton* p1LeftButton;
-	wxButton* p1PushButton;
 	wxButton* p1RightButton;
-	
+	wxButton* p1UpButton;
 	wxButton* p1DownButton;
+	wxButton* p1PushButton;
 	wxChoice* p1Type;
 	wxStaticBitmap* p1Image;
+
 	wxNoLabelCheckBox* p2EnabledCheckBox;
 	wxTextCtrl* p2Name;
-	
-	wxButton* p2UpButton;
 	wxButton* p2LeftButton;
-	wxButton* p2PushButton;
 	wxButton* p2RightButton;
-	
+	wxButton* p2UpButton;
 	wxButton* p2DownButton;
+	wxButton* p2PushButton;
 	wxChoice* p2Type;
 	wxStaticBitmap* p2Image;
+
 	wxNoLabelCheckBox* p3EnabledCheckBox;
 	wxTextCtrl* p3Name;
-	
-	wxButton* p3UpButton;
 	wxButton* p3LeftButton;
-	wxButton* p3PushButton;
 	wxButton* p3RightButton;
-	
+	wxButton* p3UpButton;
 	wxButton* p3DownButton;
+	wxButton* p3PushButton;
 	wxChoice* p3Type;
 	wxStaticBitmap* p3Image;
+
 	wxNoLabelCheckBox* p4EnabledCheckBox;
 	wxTextCtrl* p4Name;
-	
-	wxButton* p4UpButton;
 	wxButton* p4LeftButton;
-	wxButton* p4PushButton;
 	wxButton* p4RightButton;
-	
+	wxButton* p4UpButton;
 	wxButton* p4DownButton;
+	wxButton* p4PushButton;
 	wxChoice* p4Type;
 	wxStaticBitmap* p4Image;
+	
 	wxCheckBox* soundCheckBox;
 	wxCheckBox* musicCheckBox;
 	wxStaticText* difficultyLabel;
