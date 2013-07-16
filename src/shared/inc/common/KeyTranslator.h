@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#define KEY_WX_STR(k)   KeyTranslator::GetInstance().KeyToWxString(k)
+
 class KeyTranslator
 {
 private:
@@ -37,6 +39,15 @@ public:
      * @return         The corresponding WXK_* value
      */
     int TranslateGLFWToWXK(int glfwKey);
+
+    /**
+     * This method returns a string representation of a key,
+     * but as a wxString rather than a std::string. This makes
+     * using strings in the forms much easier.
+     * @param  glfwKey The GLFW_KEY_* value to get a string for
+     * @return         a wxString representation of glfwKey
+     */
+    wxString KeyToWxString(int glfwKey);
 
 private:
 

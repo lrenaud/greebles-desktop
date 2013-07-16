@@ -1,7 +1,13 @@
+#include <string>
+
 #include <wx/wx.h>
 #include <GLFW/glfw3.h>
 
+#include <Keyboard.h>
+
 #include "KeyTranslator.h"
+
+using namespace std;
 
 KeyTranslator::KeyTranslator()
 {
@@ -26,6 +32,14 @@ int KeyTranslator::TranslateGLFWToWXK(int glfwKey)
         glfwKey = GLFW_KEY_UNKNOWN;
 
     return glfwToWxKeys[glfwKey];
+}
+
+wxString KeyTranslator::KeyToWxString(int glfwKey)
+{
+    string stdStr = KEY_STR(glfwKey);
+    wxString wxStr(stdStr.c_str(), wxConvUTF8);
+
+    return wxStr;
 }
 
 void KeyTranslator::populateTranslationMap()
