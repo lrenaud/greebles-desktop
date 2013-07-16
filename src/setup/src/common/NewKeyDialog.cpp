@@ -50,10 +50,6 @@ void NewKeyDialog::pollKeys(wxTimerEvent& event)
     {   
         int newKey = KeyTranslator::GetInstance().TranslateGLFWToWXK(key);
         if (wxGetKeyState((wxKeyCode)newKey))
-        {
-            // KEY WAS HIT, Handle it!
-            // Don't allow duplicate keys, notify if key isn't allowed
-            this->EndModal(0);
-        }
+            this->EndModal(key);
     }
 }

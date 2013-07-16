@@ -94,7 +94,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1LeftVBox;
 	p1LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1LeftButton = new wxButton( masterPanel, myID_P1_LEFT, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1LeftButton->SetMinSize( wxSize( -1,32 ) );
 	p1LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -105,7 +105,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1PushVBox;
 	p1PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1PushButton = new wxButton( masterPanel, myID_P1_PUSH, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1PushButton->SetMinSize( wxSize( -1,32 ) );
 	p1PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -116,7 +116,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1RightButtonVBox;
 	p1RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1RightButton = new wxButton( masterPanel, myID_P1_RIGHT, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1RightButton->SetMinSize( wxSize( -1,32 ) );
 	p1RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -130,7 +130,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1DownButtonVBox;
 	p1DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p1DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p1DownButton = new wxButton( masterPanel, myID_P1_DOWN, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p1DownButton->SetMinSize( wxSize( -1,32 ) );
 	p1DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -193,7 +193,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2UpVBox;
 	p2UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2UpButton = new wxButton( masterPanel, myID_P2_UP, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2UpButton->SetMinSize( wxSize( -1,32 ) );
 	p2UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -207,7 +207,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2LeftVBox;
 	p2LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2LeftButton = new wxButton( masterPanel, myID_P2_LEFT, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2LeftButton->SetMinSize( wxSize( -1,32 ) );
 	p2LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -218,7 +218,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2PushVBox;
 	p2PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2PushButton = new wxButton( masterPanel, myID_P2_PUSH, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2PushButton->SetMinSize( wxSize( -1,32 ) );
 	p2PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -229,7 +229,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2RightButtonVBox;
 	p2RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2RightButton = new wxButton( masterPanel, myID_P2_RIGHT, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2RightButton->SetMinSize( wxSize( -1,32 ) );
 	p2RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -243,7 +243,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2DownButtonVBox;
 	p2DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p2DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p2DownButton = new wxButton( masterPanel, myID_P2_DOWN, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p2DownButton->SetMinSize( wxSize( -1,32 ) );
 	p2DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -306,7 +306,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3UpVBox;
 	p3UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3UpButton = new wxButton( masterPanel, myID_P3_UP, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3UpButton->SetMinSize( wxSize( -1,32 ) );
 	p3UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -320,7 +320,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3LeftVBox;
 	p3LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3LeftButton = new wxButton( masterPanel, myID_P3_LEFT, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3LeftButton->SetMinSize( wxSize( -1,32 ) );
 	p3LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -331,7 +331,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3PushVBox;
 	p3PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3PushButton = new wxButton( masterPanel, myID_P3_PUSH, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3PushButton->SetMinSize( wxSize( -1,32 ) );
 	p3PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -342,7 +342,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3RightButtonVBox;
 	p3RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3RightButton = new wxButton( masterPanel, myID_P3_RIGHT, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3RightButton->SetMinSize( wxSize( -1,32 ) );
 	p3RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -356,7 +356,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3DownButtonVBox;
 	p3DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p3DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p3DownButton = new wxButton( masterPanel, myID_P3_DOWN, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p3DownButton->SetMinSize( wxSize( -1,32 ) );
 	p3DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -419,7 +419,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4UpVBox;
 	p4UpVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4UpButton = new wxButton( masterPanel, wxID_ANY, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4UpButton = new wxButton( masterPanel, myID_P4_UP, wxT("Up"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4UpButton->SetMinSize( wxSize( -1,32 ) );
 	p4UpButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -433,7 +433,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4LeftVBox;
 	p4LeftVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4LeftButton = new wxButton( masterPanel, wxID_ANY, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4LeftButton = new wxButton( masterPanel, myID_P4_LEFT, wxT("Left"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4LeftButton->SetMinSize( wxSize( -1,32 ) );
 	p4LeftButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -444,7 +444,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4PushVBox;
 	p4PushVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4PushButton = new wxButton( masterPanel, wxID_ANY, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4PushButton = new wxButton( masterPanel, myID_P4_PUSH, wxT("Push"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4PushButton->SetMinSize( wxSize( -1,32 ) );
 	p4PushButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -455,7 +455,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4RightButtonVBox;
 	p4RightButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4RightButton = new wxButton( masterPanel, wxID_ANY, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4RightButton = new wxButton( masterPanel, myID_P4_RIGHT, wxT("Right"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4RightButton->SetMinSize( wxSize( -1,32 ) );
 	p4RightButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -469,7 +469,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4DownButtonVBox;
 	p4DownButtonVBox = new wxBoxSizer( wxVERTICAL );
 	
-	p4DownButton = new wxButton( masterPanel, wxID_ANY, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
+	p4DownButton = new wxButton( masterPanel, myID_P4_DOWN, wxT("Down"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	p4DownButton->SetMinSize( wxSize( -1,32 ) );
 	p4DownButton->SetMaxSize( wxSize( -1,32 ) );
 	
@@ -601,7 +601,32 @@ void SetupFrame::OnP1TypeChange(wxCommandEvent& WXUNUSED(event))
 
 void SetupFrame::OnP1Up(wxCommandEvent& WXUNUSED(event))
 {
-	newKeyDlg->ShowModal();
+	playerSettings[P1]->Controls()->SetUpKey(newKeyDlg->ShowModal());
+	p1UpButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->UpKey()));
+}
+
+void SetupFrame::OnP1Down(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P1]->Controls()->SetDownKey(newKeyDlg->ShowModal());
+	p1DownButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->DownKey()));
+}
+
+void SetupFrame::OnP1Left(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P1]->Controls()->SetLeftKey(newKeyDlg->ShowModal());
+	p1LeftButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->LeftKey()));
+}
+
+void SetupFrame::OnP1Right(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P1]->Controls()->SetRightKey(newKeyDlg->ShowModal());
+	p1RightButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->RightKey()));
+}
+
+void SetupFrame::OnP1Push(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P1]->Controls()->SetPushKey(newKeyDlg->ShowModal());
+	p1PushButton->SetLabel(KEY_WX_STR(playerSettings[P1]->Controls()->PushKey()));
 }
 
 /**
@@ -625,6 +650,36 @@ void SetupFrame::OnP2TypeChange(wxCommandEvent& WXUNUSED(event))
     playerSettings[P2]->SetTypeById(p2Type->GetSelection() + 1);
 }
 
+void SetupFrame::OnP2Up(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P2]->Controls()->SetUpKey(newKeyDlg->ShowModal());
+	p2UpButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->UpKey()));
+}
+
+void SetupFrame::OnP2Down(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P2]->Controls()->SetDownKey(newKeyDlg->ShowModal());
+	p2DownButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->DownKey()));
+}
+
+void SetupFrame::OnP2Left(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P2]->Controls()->SetLeftKey(newKeyDlg->ShowModal());
+	p2LeftButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->LeftKey()));
+}
+
+void SetupFrame::OnP2Right(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P2]->Controls()->SetRightKey(newKeyDlg->ShowModal());
+	p2RightButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->RightKey()));
+}
+
+void SetupFrame::OnP2Push(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P2]->Controls()->SetPushKey(newKeyDlg->ShowModal());
+	p2PushButton->SetLabel(KEY_WX_STR(playerSettings[P2]->Controls()->PushKey()));
+}
+
 /**
  * PLAYER 3 BINDINGS
  */
@@ -646,6 +701,36 @@ void SetupFrame::OnP3TypeChange(wxCommandEvent& WXUNUSED(event))
     playerSettings[P3]->SetTypeById(p3Type->GetSelection() + 1);
 }
 
+void SetupFrame::OnP3Up(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P3]->Controls()->SetUpKey(newKeyDlg->ShowModal());
+	p3UpButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->UpKey()));
+}
+
+void SetupFrame::OnP3Down(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P3]->Controls()->SetDownKey(newKeyDlg->ShowModal());
+	p3DownButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->DownKey()));
+}
+
+void SetupFrame::OnP3Left(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P3]->Controls()->SetLeftKey(newKeyDlg->ShowModal());
+	p3LeftButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->LeftKey()));
+}
+
+void SetupFrame::OnP3Right(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P3]->Controls()->SetRightKey(newKeyDlg->ShowModal());
+	p3RightButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->RightKey()));
+}
+
+void SetupFrame::OnP3Push(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P3]->Controls()->SetPushKey(newKeyDlg->ShowModal());
+	p3PushButton->SetLabel(KEY_WX_STR(playerSettings[P3]->Controls()->PushKey()));
+}
+
 /**
  * PLAYER 4 BINDINGS
  */
@@ -665,6 +750,36 @@ void SetupFrame::OnP4NameChange(wxCommandEvent& WXUNUSED(event))
 void SetupFrame::OnP4TypeChange(wxCommandEvent& WXUNUSED(event))
 {
     playerSettings[P4]->SetTypeById(p4Type->GetSelection() + 1);
+}
+
+void SetupFrame::OnP4Up(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P4]->Controls()->SetUpKey(newKeyDlg->ShowModal());
+	p4UpButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->UpKey()));
+}
+
+void SetupFrame::OnP4Down(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P4]->Controls()->SetDownKey(newKeyDlg->ShowModal());
+	p4DownButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->DownKey()));
+}
+
+void SetupFrame::OnP4Left(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P4]->Controls()->SetLeftKey(newKeyDlg->ShowModal());
+	p4LeftButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->LeftKey()));
+}
+
+void SetupFrame::OnP4Right(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P4]->Controls()->SetRightKey(newKeyDlg->ShowModal());
+	p4RightButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->RightKey()));
+}
+
+void SetupFrame::OnP4Push(wxCommandEvent& WXUNUSED(event))
+{
+	playerSettings[P4]->Controls()->SetPushKey(newKeyDlg->ShowModal());
+	p4PushButton->SetLabel(KEY_WX_STR(playerSettings[P4]->Controls()->PushKey()));
 }
 
 void SetupFrame::OnDifficultyChange(wxCommandEvent& WXUNUSED(event))

@@ -12,19 +12,38 @@ enum
 	myID_P1_ENABLED,
 	myID_P1_NAME,
 	myID_P1_TYPE,
-	myID_P1_UP,
+	myID_P1_UP,   
+	myID_P1_DOWN, 
+	myID_P1_LEFT, 
+	myID_P1_RIGHT,
+	myID_P1_PUSH, 
 
 	myID_P2_ENABLED,
 	myID_P2_NAME,
 	myID_P2_TYPE,
+	myID_P2_UP,   
+	myID_P2_DOWN, 
+	myID_P2_LEFT, 
+	myID_P2_RIGHT,
+	myID_P2_PUSH, 
 
 	myID_P3_ENABLED,
 	myID_P3_NAME,
 	myID_P3_TYPE,
+	myID_P3_UP,   
+	myID_P3_DOWN, 
+	myID_P3_LEFT, 
+	myID_P3_RIGHT,
+	myID_P3_PUSH, 
 
 	myID_P4_ENABLED,
 	myID_P4_NAME,
 	myID_P4_TYPE,
+	myID_P4_UP,   
+	myID_P4_DOWN, 
+	myID_P4_LEFT, 
+	myID_P4_RIGHT,
+	myID_P4_PUSH, 
 
 	myID_SOUND,
 	myID_MUSIC,
@@ -109,18 +128,37 @@ public:
 	void OnP1NameChange(wxCommandEvent& event);
 	void OnP1TypeChange(wxCommandEvent& event);
 	void OnP1Up(wxCommandEvent& event);
+	void OnP1Down(wxCommandEvent& event);
+	void OnP1Left(wxCommandEvent& event);
+	void OnP1Right(wxCommandEvent& event);
+	void OnP1Push(wxCommandEvent& event);
 
 	void OnP2EnabledChange(wxCommandEvent& event);
 	void OnP2NameChange(wxCommandEvent& event);
 	void OnP2TypeChange(wxCommandEvent& event);
+	void OnP2Up(wxCommandEvent& event);
+	void OnP2Down(wxCommandEvent& event);
+	void OnP2Left(wxCommandEvent& event);
+	void OnP2Right(wxCommandEvent& event);
+	void OnP2Push(wxCommandEvent& event);
 
 	void OnP3EnabledChange(wxCommandEvent& event);
 	void OnP3NameChange(wxCommandEvent& event);
 	void OnP3TypeChange(wxCommandEvent& event);
+	void OnP3Up(wxCommandEvent& event);
+	void OnP3Down(wxCommandEvent& event);
+	void OnP3Left(wxCommandEvent& event);
+	void OnP3Right(wxCommandEvent& event);
+	void OnP3Push(wxCommandEvent& event);
 
 	void OnP4EnabledChange(wxCommandEvent& event);
 	void OnP4NameChange(wxCommandEvent& event);
 	void OnP4TypeChange(wxCommandEvent& event);
+	void OnP4Up(wxCommandEvent& event);
+	void OnP4Down(wxCommandEvent& event);
+	void OnP4Left(wxCommandEvent& event);
+	void OnP4Right(wxCommandEvent& event);
+	void OnP4Push(wxCommandEvent& event);
 
 	void OnDifficultyChange(wxCommandEvent& event);
 	void OnSoundChange(wxCommandEvent& event);
