@@ -38,6 +38,9 @@ wxNoLabelCheckBox::wxNoLabelCheckBox(wxWindow* parent, wxWindowID id, const wxSt
     wxBitmap bitmap(16, 16);
     wxMemoryDC mdc(bitmap);
 
+    wxBrush brush(wxColour(242, 241, 240));
+    mdc.SetBackground(brush);
+
     mdc.Clear(); // needed?
     wxRendererNative::Get().DrawCheckBox(this, mdc, wxRect(0, 0, 16, 16), 0);
     mdc.SelectObject(wxNullBitmap);
