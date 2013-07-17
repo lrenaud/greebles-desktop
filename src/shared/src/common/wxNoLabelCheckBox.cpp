@@ -18,10 +18,12 @@
 #include "wxNoLabelCheckBox.h"
 #include "wx/renderer.h"
 
-IMPLEMENT_DYNAMIC_CLASS(wxNoLabelCheckBox, wxStaticBitmap)
+IMPLEMENT_DYNAMIC_CLASS(wxNoLabelCheckBox, wxPanel)
 
-BEGIN_EVENT_TABLE(wxNoLabelCheckBox, wxStaticBitmap)
-    EVT_LEFT_UP(wxNoLabelCheckBox::OnClicked)
+BEGIN_EVENT_TABLE(wxNoLabelCheckBox, wxPanel)
+    EVT_LEFT_UP     (wxNoLabelCheckBox::OnClicked)
+    EVT_KEY_UP      (wxNoLabelCheckBox::OnKeyUp)
+    EVT_PAINT       (wxNoLabelCheckBox::OnPaint)
 END_EVENT_TABLE()
 
 wxNoLabelCheckBox::wxNoLabelCheckBox()
@@ -31,7 +33,7 @@ wxNoLabelCheckBox::wxNoLabelCheckBox()
 }
 
 wxNoLabelCheckBox::wxNoLabelCheckBox(wxWindow* parent, wxWindowID id, const wxString& name, const wxPoint& pos, const wxSize& size, long style)
-    :wxStaticBitmap(parent, id, wxNullBitmap, pos, size, style, name)
+    : wxPanel(parent, id, pos, size, style, name)
 {
     m_pImageList = new wxImageList(16, 16, true);
 
@@ -53,7 +55,6 @@ wxNoLabelCheckBox::wxNoLabelCheckBox(wxWindow* parent, wxWindowID id, const wxSt
     m_pImageList->Add(bitmap);
 
     m_state = false;
-    SetBitmap(m_pImageList->GetBitmap(0));
 }
 
 wxNoLabelCheckBox::~wxNoLabelCheckBox()
@@ -64,20 +65,29 @@ wxNoLabelCheckBox::~wxNoLabelCheckBox()
 
 void wxNoLabelCheckBox::OnClicked(wxMouseEvent& event)
 {
-    m_state = ! m_state;
-    SetBitmap(m_pImageList->GetBitmap(m_state ? 1 : 0));
+    switchCheck();
     event.Skip();
+}
 
-    // Dispatch Checkbox Event
-    wxCommandEvent checkboxEvent(wxEVT_COMMAND_CHECKBOX_CLICKED, GetId());
-    checkboxEvent.SetEventObject(this);
-    GetEventHandler()->ProcessEvent(checkboxEvent);
+void wxNoLabelCheckBox::OnKeyUp(wxKeyEvent& event)
+{
+    if (event.GetKeyCode() == WXK_SPACE)
+    {
+        switchCheck();
+        event.Skip();
+    }
+}
+
+void wxNoLabelCheckBox::OnPaint(wxPaintEvent& event)
+{
+    wxPaintDC dc(this);
+    dc.DrawBitmap(m_pImageList->GetBitmap(m_state ? 1 : 0), 0, 0, false);
 }
 
 void wxNoLabelCheckBox::SetValue(bool value)
 {
     m_state = value;
-    SetBitmap(m_pImageList->GetBitmap(value ? 1 : 0));
+    Refresh();
 }
 
 bool wxNoLabelCheckBox::GetValue() const
@@ -89,3 +99,15 @@ bool wxNoLabelCheckBox::IsChecked() const
 {
     return (m_state != false);
 }
+
+void wxNoLabelCheckBox::switchCheck()
+{
+    m_state = ! m_state;
+    Refresh();
+
+    // Dispatch Checkbox Event
+    wxCommandEvent checkboxEvent(wxEVT_COMMAND_CHECKBOX_CLICKED, GetId());
+    checkboxEvent.SetEventObject(this);
+    GetEventHandler()->ProcessEvent(checkboxEvent);
+}
+

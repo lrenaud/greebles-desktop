@@ -57,8 +57,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p1EnabledHBox;
 	p1EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p1EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALL, 10 );
+	p1EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P1_ENABLED, wxEmptyString );
+	p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxTOP|wxBOTTOM, 10 );
 	
 	wxBoxSizer* p1NameVBox;
 	p1NameVBox = new wxBoxSizer( wxVERTICAL );
@@ -170,8 +170,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p2EnabledHBox;
 	p2EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p2EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALL, 10 );
+	p2EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P2_ENABLED, wxEmptyString );
+	p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxTOP|wxBOTTOM, 10 );
 	
 	wxBoxSizer* p2NameVBox;
 	p2NameVBox = new wxBoxSizer( wxVERTICAL );
@@ -283,8 +283,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p3EnabledHBox;
 	p3EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p3EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALL, 10 );
+	p3EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P3_ENABLED, wxEmptyString );
+	p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxTOP|wxBOTTOM, 10 );
 	
 	wxBoxSizer* p3NameVBox;
 	p3NameVBox = new wxBoxSizer( wxVERTICAL );
@@ -396,8 +396,8 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	wxBoxSizer* p4EnabledHBox;
 	p4EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
 	
-	p4EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALL, 10 );
+	p4EnabledCheckBox = new wxNoLabelCheckBox( masterPanel, myID_P4_ENABLED, wxEmptyString );
+	p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxTOP|wxBOTTOM, 10 );
 	
 	wxBoxSizer* p4NameVBox;
 	p4NameVBox = new wxBoxSizer( wxVERTICAL );

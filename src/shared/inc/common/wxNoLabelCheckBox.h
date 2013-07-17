@@ -18,7 +18,7 @@
 
 #include "wx/imaglist.h"
 
-class wxNoLabelCheckBox: public wxStaticBitmap
+class wxNoLabelCheckBox : public wxPanel
 {    
     DECLARE_DYNAMIC_CLASS(wxNoLabelCheckBox)
     DECLARE_EVENT_TABLE()
@@ -33,6 +33,8 @@ public:
                       long style = 0);
     ~wxNoLabelCheckBox();
     void OnClicked(wxMouseEvent& event);
+    void OnKeyUp(wxKeyEvent& event);
+    void OnPaint(wxPaintEvent& event);
     virtual void SetValue(bool value);
     virtual bool GetValue() const;
     virtual bool IsChecked() const;
@@ -40,6 +42,9 @@ public:
 private:
     bool m_state;
     wxImageList* m_pImageList;
+
+    void switchCheck();
 };
 
 #endif
+
