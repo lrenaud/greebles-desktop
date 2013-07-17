@@ -6,7 +6,7 @@
 // Name:        wxNoLabelCheckBox.h
 // Purpose:     
 // Author:      Olivier Le Cam
-// Modified by: 
+// Modified by: Ben Draut, changed to inherit from wxPanel (Jul 2013)
 // Created:     25/03/2008 19:01:21
 // RCS-ID:      
 // Copyright:   
