@@ -54,7 +54,7 @@ END_EVENT_TABLE()
 
 BEGIN_EVENT_TABLE(NewKeyDialog, wxDialog)
 
-    EVT_TIMER      (wxID_ANY,               NewKeyDialog::pollKeys)
+    EVT_KEY_UP        (NewKeyDialog::OnKeyUp)
 
 END_EVENT_TABLE()
 

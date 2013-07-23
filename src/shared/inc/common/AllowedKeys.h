@@ -100,6 +100,12 @@ const vector<int>  ALLOWED_KEYS = {
     GLFW_KEY_KP_ADD,
     GLFW_KEY_KP_ENTER,
     GLFW_KEY_KP_EQUAL,
+    GLFW_KEY_LEFT_SHIFT,     
+    GLFW_KEY_LEFT_CONTROL,   
+    GLFW_KEY_LEFT_ALT,       
+    GLFW_KEY_RIGHT_SHIFT,    
+    GLFW_KEY_RIGHT_CONTROL,  
+    GLFW_KEY_RIGHT_ALT
 };
 
-#endif
+#endif 

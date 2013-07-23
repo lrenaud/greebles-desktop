@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 #include <wx/wx.h>
 #include <GLFW/glfw3.h>
@@ -6,6 +7,7 @@
 #include <Keyboard.h>
 
 #include "KeyTranslator.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -28,18 +30,23 @@ KeyTranslator& KeyTranslator::GetInstance()
 
 int KeyTranslator::TranslateGLFWToWXK(int glfwKey)
 {
-    if (!glfwToWxKeys.count(glfwKey))
+    if (glfwToWxKeys.count(glfwKey) == 0)
         glfwKey = GLFW_KEY_UNKNOWN;
 
     return glfwToWxKeys[glfwKey];
 }
 
+int KeyTranslator::TranslateWXKToGLFW(int wxKey)
+{
+    if (wxkToGLFWKeys.count(wxKey) == 0)
+        wxKey = GLFW_KEY_UNKNOWN;
+
+    return wxkToGLFWKeys[wxKey];
+}
+
 wxString KeyTranslator::KeyToWxString(int glfwKey)
 {
-    string stdStr = KEY_STR(glfwKey);
-    wxString wxStr(stdStr.c_str(), wxConvUTF8);
-
-    return wxStr;
+    return Utility::StringToWxString(KEY_STR(glfwKey));
 }
 
 void KeyTranslator::populateTranslationMap()
@@ -169,4 +176,13 @@ void KeyTranslator::populateTranslationMap()
         { GLFW_KEY_RIGHT_SUPER,     GLFW_KEY_UNKNOWN },
         { GLFW_KEY_MENU,            GLFW_KEY_UNKNOWN }
     };
+
+    wxkToGLFWKeys.clear();
+
+    wxkToGLFWKeys[GLFW_KEY_UNKNOWN] = GLFW_KEY_UNKNOWN;
+    for (auto pair : glfwToWxKeys)
+    {
+        if (pair.second != GLFW_KEY_UNKNOWN)
+            wxkToGLFWKeys[pair.second] = pair.first;
+    }
 }

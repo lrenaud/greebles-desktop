@@ -16,6 +16,11 @@ private:
      */
     map<int, int>         glfwToWxKeys;
 
+    /**
+     * Maps WXK_* values to GLFW_KEY_* values
+     */
+    map<int, int>         wxkToGLFWKeys;
+
 private:
 
     /**
@@ -39,6 +44,14 @@ public:
      * @return         The corresponding WXK_* value
      */
     int TranslateGLFWToWXK(int glfwKey);
+
+    /**
+     * This method will return the corresponding GLFW_KEY_* value
+     * for a given WXK_* value
+     * @param  wxKey The WXK_* value to translate
+     * @return       The corresponding GLFW_KEY_* value
+     */
+    int TranslateWXKToGLFW(int wxKey);
 
     /**
      * This method returns a string representation of a key,

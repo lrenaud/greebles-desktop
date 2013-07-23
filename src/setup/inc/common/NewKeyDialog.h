@@ -5,6 +5,8 @@
 
 #include <wx/wx.h>
 
+#include "wxFocusableStaticText.h"
+
 using namespace std;
 
 class NewKeyDialog : public wxDialog
@@ -17,9 +19,7 @@ private:
      * Dialog Components
      */
     wxBoxSizer*                            sizer          = nullptr;
-    wxStaticText*                          dialogMsg      = nullptr;
-
-    wxTimer*                               pollTimer      = nullptr;
+    wxFocusableStaticText*                 dialogMsg      = nullptr;
 
 public:
 
@@ -29,9 +29,7 @@ public:
     virtual int ShowModal();
     virtual void EndModal(int retCode);
 
-private:
-
-    void pollKeys(wxTimerEvent& event);
+    void OnKeyUp(wxKeyEvent& event);
 
 };
 
