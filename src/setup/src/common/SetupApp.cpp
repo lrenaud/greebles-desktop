@@ -1,5 +1,5 @@
 #include <Macros.h>
-#include <Log.h>
+#include <util/Log.h>
 
 #include "GreeblesDatabase.h"
 #include "SetupApp.h"
@@ -11,7 +11,7 @@ bool SetupApp::OnInit()
     // Make sure we can load .png files
     wxInitAllImageHandlers();
 
-    Log::GetInstance()->SetFilterLevel(Log::MessageLevel::LOG_ALL);
+    Util::Log::GetInstance()->SetFilterLevel(Util::Log::MessageLevel::LOG_ALL);
 
     // Reload settings from DB
     GeneralSettings::GetInstance()->Refresh();

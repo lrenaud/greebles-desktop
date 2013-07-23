@@ -2,7 +2,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include <Log.h>
+#include <util/Log.h>
 
 #include "ControlSet.h"
 #include "AllowedKeys.h"
@@ -92,9 +92,9 @@ bool ControlSet::Save()
     query << "`push`=" << push << " ";
     query << "WHERE `id`=" << id << ";";
 
-    if (DB->Query(query.str().c_str()))
+    if (GreeblesDB->Query(query.str().c_str()))
     {
-        DB->Done();
+        GreeblesDB->Done();
         return true;
     }
 
@@ -121,16 +121,16 @@ bool ControlSet::load(int id)
     stringstream query;
     query << "SELECT * FROM `controlset` WHERE `id`=" << id << ";";
 
-    if (DB->QueryData(query.str().c_str()) && DB->NextRow())
+    if (GreeblesDB->QueryData(query.str().c_str()) && GreeblesDB->NextRow())
     {
-        id = DB->GetInt(COL_ID);
-        directions[LEFT] = DB->GetInt(COL_LEFT);
-        directions[RIGHT] = DB->GetInt(COL_RIGHT);
-        directions[UP] = DB->GetInt(COL_UP);
-        directions[DOWN] = DB->GetInt(COL_DOWN);
-        push = DB->GetInt(COL_PUSH);
+        id = GreeblesDB->GetInt(COL_ID);
+        directions[LEFT] = GreeblesDB->GetInt(COL_LEFT);
+        directions[RIGHT] = GreeblesDB->GetInt(COL_RIGHT);
+        directions[UP] = GreeblesDB->GetInt(COL_UP);
+        directions[DOWN] = GreeblesDB->GetInt(COL_DOWN);
+        push = GreeblesDB->GetInt(COL_PUSH);
 
-        DB->Done();
+        GreeblesDB->Done();
 
         return true;
     }

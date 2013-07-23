@@ -1,7 +1,7 @@
 
-#include <Database.h>
 #include <Macros.h>
-#include <Log.h>
+#include <db/Database.h>
+#include <util/Log.h>
 
 #include "GreeblesDatabase.h"
 

@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-#include <Log.h>
+#include <util/Log.h>
 
 #include "StaticLookup.h"
 #include "GreeblesDatabase.h"
@@ -37,12 +37,12 @@ void StaticLookup::initialize(const char* tableName, int keyIdx, int valueIdx)
     stringstream query;
     query << "SELECT * FROM `" << tableName << "`;";
 
-    if (DB->QueryData(query.str().c_str()))
+    if (GreeblesDB->QueryData(query.str().c_str()))
     {
-        while (DB->NextRow())
-            pairs[DB->GetInt(keyIdx)] = DB->GetString(valueIdx);
+        while (GreeblesDB->NextRow())
+            pairs[GreeblesDB->GetInt(keyIdx)] = GreeblesDB->GetString(valueIdx);
 
-        DB->Done();
+        GreeblesDB->Done();
     }
     else
         LOG_RECOVERABLE << "StaticLookup query failed";

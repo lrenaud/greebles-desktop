@@ -2,7 +2,7 @@
 
 #include <wx/wx.h>
 
-#include <Keyboard.h>
+#include <input/Keyboard.h>
 
 #include "NewKeyDialog.h"
 #include "AllowedKeys.h"

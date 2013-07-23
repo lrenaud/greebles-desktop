@@ -4,7 +4,7 @@
 #include <wx/wx.h>
 #include <GLFW/glfw3.h>
 
-#include <Keyboard.h>
+#include <input/Keyboard.h>
 
 #include "KeyTranslator.h"
 #include "Utility.h"

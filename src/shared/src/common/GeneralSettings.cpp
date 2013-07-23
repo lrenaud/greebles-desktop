@@ -1,7 +1,7 @@
 #include <sstream>
 #include <string>
 
-#include <Log.h>
+#include <util/Log.h>
 
 #include "GeneralSettings.h"
 #include "GreeblesDatabase.h"
@@ -36,27 +36,27 @@ bool GeneralSettings::Save()
     stringstream query;
     query << "UPDATE `generalsettings` SET `difficultyid`=" << diffValue << ", `sound`=" << soundValue << ", `music`=" << musicValue << ";";
 
-    if (!DB->Query(query.str().c_str()))
+    if (!GreeblesDB->Query(query.str().c_str()))
         return false;
 
-    DB->Done();
+    GreeblesDB->Done();
 
     return true;
 }
 
 bool GeneralSettings::Refresh()
 {
-    if (!DB->QueryData("SELECT * FROM `generalsettings` WHERE `id`=1;"))
+    if (!GreeblesDB->QueryData("SELECT * FROM `generalsettings` WHERE `id`=1;"))
         return false;
 
-    if (!DB->NextRow())
+    if (!GreeblesDB->NextRow())
         return false;
 
-    difficulty = (DifficultyLevel)DB->GetInt(COL_DIFFICULTY);
-    soundEnabled = DB->GetBool(COL_SOUND);
-    musicEnabled = DB->GetBool(COL_MUSIC);
+    difficulty = (DifficultyLevel)GreeblesDB->GetInt(COL_DIFFICULTY);
+    soundEnabled = GreeblesDB->GetBool(COL_SOUND);
+    musicEnabled = GreeblesDB->GetBool(COL_MUSIC);
 
-    DB->Done();
+    GreeblesDB->Done();
 
     return true;
 }

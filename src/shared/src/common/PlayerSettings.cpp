@@ -1,7 +1,7 @@
 #include <sstream>
 
 #include <Macros.h>
-#include <Log.h>
+#include <util/Log.h>
 
 #include "PlayerSettings.h"
 #include "GreeblesDatabase.h"
@@ -92,9 +92,9 @@ bool PlayerSettings::Save()
     query << enabled;
     query << ", `name`='" << name << "' WHERE `id`=" << id << ";";
 
-    if (DB->Query(query.str().c_str()))
+    if (GreeblesDB->Query(query.str().c_str()))
     {
-        DB->Done();
+        GreeblesDB->Done();
         
         // Save this player's controls as well
         if (controlSet->Save())
@@ -109,15 +109,15 @@ bool PlayerSettings::load(int id)
     stringstream query;
     query << "SELECT * FROM `player` WHERE `id`=" << id << ";";
 
-    if (DB->QueryData(query.str().c_str()) && DB->NextRow())
+    if (GreeblesDB->QueryData(query.str().c_str()) && GreeblesDB->NextRow())
     {
-        id = DB->GetInt(COL_ID);
-        playerType = (PlayerType)DB->GetInt(COL_PLAYER_TYPE_ID);
-        controlSetId = DB->GetInt(COL_CONTROL_SET_ID);
-        enabled = DB->GetBool(COL_ENABLED);
-        name = DB->GetString(COL_NAME);
+        id = GreeblesDB->GetInt(COL_ID);
+        playerType = (PlayerType)GreeblesDB->GetInt(COL_PLAYER_TYPE_ID);
+        controlSetId = GreeblesDB->GetInt(COL_CONTROL_SET_ID);
+        enabled = GreeblesDB->GetBool(COL_ENABLED);
+        name = GreeblesDB->GetString(COL_NAME);
 
-        DB->Done();
+        GreeblesDB->Done();
 
         return true;
     }

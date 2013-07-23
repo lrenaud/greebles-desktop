@@ -1,11 +1,12 @@
 #ifndef GREEBLES_DATABASE_H
 #define GREEBLES_DATABASE_H
 
-#include <Database.h>
+#include <db/Database.h>
 
 using namespace SOAR;
+using namespace DB;
 
-#define DB 				GreeblesDatabase::GetInstance()
+#define GreeblesDB 				GreeblesDatabase::GetInstance()
 
 class GreeblesDatabase : public Database
 {

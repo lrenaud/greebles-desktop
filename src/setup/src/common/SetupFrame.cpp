@@ -1,8 +1,8 @@
 #include <string>
 
 #include <Macros.h>
-#include <Log.h>
-#include <Keyboard.h>
+#include <input/Keyboard.h>
+#include <util/Log.h>
 
 #include "wx/wx.h"
 #include "wx/stattext.h"
