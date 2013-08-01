@@ -89,14 +89,12 @@ include_directories("${CUSTOM_PATH_TO_INC}/${CFG_PLATFORM}")
 set(SHARED_COMMON_SRCS
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GeneralSettings.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GreeblesDatabase.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/wxNoLabelCheckBox.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/StaticLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/wxFocusableStaticText.cpp
 	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Utility.cpp)
 
 set(SHARED_WINDOWS_SRCS )
@@ -123,6 +121,8 @@ set(SETUP_COMMON_SRCS
 	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
 	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupApp.cpp
 	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxNoLabelCheckBox.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxFocusableStaticText.cpp
 	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/NewKeyDialog.cpp)
 
 set(SETUP_WINDOWS_SRCS )
