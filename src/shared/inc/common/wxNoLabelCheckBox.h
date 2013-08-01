@@ -25,13 +25,19 @@ class wxNoLabelCheckBox : public wxPanel
 
 public:
     wxNoLabelCheckBox();
+
     wxNoLabelCheckBox(wxWindow* parent, 
                       wxWindowID id = wxID_ANY, 
                       const wxString& name = wxCheckBoxNameStr, 
                       const wxPoint& pos = wxDefaultPosition, 
                       const wxSize& size = wxDefaultSize, 
                       long style = 0);
+
     ~wxNoLabelCheckBox();
+
+    wxNoLabelCheckBox(const wxNoLabelCheckBox& other)=delete;
+    wxNoLabelCheckBox& operator=(const wxNoLabelCheckBox& rhs)=delete;
+
     void OnClicked(wxMouseEvent& event);
     void OnKeyUp(wxKeyEvent& event);
     void OnPaint(wxPaintEvent& event);

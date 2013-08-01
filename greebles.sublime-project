@@ -21,6 +21,11 @@
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
 				{
+					"name": "Linux - Valgrind Setup",
+					"cmd": ["valgrind", "./setup"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
 					"name": "Linux - Debug Setup",
 					"cmd": ["./setup"],
 					"working_dir": "${project_path}/bin/linux/Debug/"

@@ -22,7 +22,7 @@ PlayerSettings::PlayerSettings(int id)
 
 PlayerSettings::~PlayerSettings()
 {
-    SAFE_DELETE(controlSet);
+    free();   
 }
 
 int PlayerSettings::PlayerTypeId()const
@@ -102,6 +102,11 @@ bool PlayerSettings::Save()
     }
 
     return false;
+}
+
+void PlayerSettings::free()
+{
+    SAFE_DELETE(controlSet);
 }
 
 bool PlayerSettings::load(int id)

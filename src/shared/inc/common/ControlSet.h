@@ -35,6 +35,9 @@ public:
     ControlSet(int controlSetId);
     ~ControlSet();
 
+    ControlSet(const ControlSet& other)=delete;
+    ControlSet& operator=(const ControlSet& rhs)=delete;
+
     /**
      * Get the GLFW_KEY_* value for this key
      * @return An int corresponding to the GLFW_KEY_* value for this key

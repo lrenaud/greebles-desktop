@@ -48,6 +48,9 @@ public:
      */
     PlayerSettings(int id);
 
+    PlayerSettings(const PlayerSettings& other)=delete;
+    PlayerSettings& operator=(const PlayerSettings& rhs)=delete;    
+
     /**
      * Destructor
      */
@@ -129,6 +132,11 @@ public:
     bool Save();
 
 private:
+
+    /**
+     * Frees associated resources
+     */
+    void free();
 
     /**
      * Read in the player settings associated with id from the database

@@ -3,12 +3,20 @@
 
 #include "wx/wx.h"
 
+#include <math/Rectangle.h>
+
 #include "wxNoLabelCheckBox.h"
 #include "PlayerSettings.h"
 #include "NewKeyDialog.h"
 
+using namespace SOAR;
+using namespace Math;
+
 enum
 {
+	myID_MASTER_PANEL=0,
+
+	myID_P1_BOX,
 	myID_P1_ENABLED,
 	myID_P1_NAME,
 	myID_P1_TYPE,
@@ -69,60 +77,66 @@ protected:
 	/**
 	 * GENERATED COMPONENT LIST
 	 */
-	wxPanel* masterPanel;
-	wxStaticText* playersAndKeysLabel;
+	wxPanel* masterPanel = nullptr;
+	wxStaticText* playersAndKeysLabel = nullptr;
 
-	wxNoLabelCheckBox* p1EnabledCheckBox;
-	wxTextCtrl* p1Name;
-	wxButton* p1LeftButton;
-	wxButton* p1RightButton;
-	wxButton* p1UpButton;
-	wxButton* p1DownButton;
-	wxButton* p1PushButton;
-	wxChoice* p1Type;
-	wxStaticBitmap* p1Image;
+	wxNoLabelCheckBox* p1EnabledCheckBox = nullptr;
+	wxTextCtrl* p1Name = nullptr;
+	wxButton* p1LeftButton = nullptr;
+	wxButton* p1RightButton = nullptr;
+	wxButton* p1UpButton = nullptr;
+	wxButton* p1DownButton = nullptr;
+	wxButton* p1PushButton = nullptr;
+	wxChoice* p1Type = nullptr;
+	wxStaticBitmap* p1Image = nullptr;
 
-	wxNoLabelCheckBox* p2EnabledCheckBox;
-	wxTextCtrl* p2Name;
-	wxButton* p2LeftButton;
-	wxButton* p2RightButton;
-	wxButton* p2UpButton;
-	wxButton* p2DownButton;
-	wxButton* p2PushButton;
-	wxChoice* p2Type;
-	wxStaticBitmap* p2Image;
+	wxNoLabelCheckBox* p2EnabledCheckBox = nullptr;
+	wxTextCtrl* p2Name = nullptr;
+	wxButton* p2LeftButton = nullptr;
+	wxButton* p2RightButton = nullptr;
+	wxButton* p2UpButton = nullptr;
+	wxButton* p2DownButton = nullptr;
+	wxButton* p2PushButton = nullptr;
+	wxChoice* p2Type = nullptr;
+	wxStaticBitmap* p2Image = nullptr;
 
-	wxNoLabelCheckBox* p3EnabledCheckBox;
-	wxTextCtrl* p3Name;
-	wxButton* p3LeftButton;
-	wxButton* p3RightButton;
-	wxButton* p3UpButton;
-	wxButton* p3DownButton;
-	wxButton* p3PushButton;
-	wxChoice* p3Type;
-	wxStaticBitmap* p3Image;
+	wxNoLabelCheckBox* p3EnabledCheckBox = nullptr;
+	wxTextCtrl* p3Name = nullptr;
+	wxButton* p3LeftButton = nullptr;
+	wxButton* p3RightButton = nullptr;
+	wxButton* p3UpButton = nullptr;
+	wxButton* p3DownButton = nullptr;
+	wxButton* p3PushButton = nullptr;
+	wxChoice* p3Type = nullptr;
+	wxStaticBitmap* p3Image = nullptr;
 
-	wxNoLabelCheckBox* p4EnabledCheckBox;
-	wxTextCtrl* p4Name;
-	wxButton* p4LeftButton;
-	wxButton* p4RightButton;
-	wxButton* p4UpButton;
-	wxButton* p4DownButton;
-	wxButton* p4PushButton;
-	wxChoice* p4Type;
-	wxStaticBitmap* p4Image;
-	
-	wxCheckBox* soundCheckBox;
-	wxCheckBox* musicCheckBox;
-	wxStaticText* difficultyLabel;
-	wxChoice* difficultyChoice;
-	wxButton* cancelButton;
-	wxButton* saveButton;
+	wxNoLabelCheckBox* p4EnabledCheckBox = nullptr;
+	wxTextCtrl* p4Name = nullptr;
+	wxButton* p4LeftButton = nullptr;
+	wxButton* p4RightButton = nullptr;
+	wxButton* p4UpButton = nullptr;
+	wxButton* p4DownButton = nullptr;
+	wxButton* p4PushButton = nullptr;
+	wxChoice* p4Type = nullptr;
+	wxStaticBitmap* p4Image = nullptr;
+
+	wxCheckBox* soundCheckBox = nullptr;
+	wxCheckBox* musicCheckBox = nullptr;
+	wxStaticText* difficultyLabel = nullptr;
+	wxChoice* difficultyChoice = nullptr;
+	wxButton* cancelButton = nullptr;
+	wxButton* saveButton = nullptr;
 
 public:
 
 	SetupFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
 	~SetupFrame();
+
+	// No copying allowed
+	SetupFrame(const SetupFrame& other)=delete;
+	SetupFrame& operator=(const SetupFrame& rhs)=delete;
+
+	void OnMouseDown(wxMouseEvent& event);
 
 	void OnP1EnabledChange(wxCommandEvent& event);
 	void OnP1NameChange(wxCommandEvent& event);
@@ -171,6 +185,9 @@ private:
 
 	const static int 	PLAYER_COUNT = 4;
 
+	const static int 	PLAYER_RECT_WIDTH = 184;
+	const static int 	PLAYER_RECT_HEIGHT = 203;
+
 	enum
 	{
 		P1=0,
@@ -182,12 +199,12 @@ private:
 	/**
 	 * Player Settings Instances
 	 */
-	PlayerSettings* 	playerSettings[PLAYER_COUNT];	
-
+	PlayerSettings* 	playerSettings[PLAYER_COUNT] = {nullptr, nullptr, nullptr, nullptr};	
+	
 	/**
 	 * Dialog for receiving new key presses
 	 */
-	NewKeyDialog*		newKeyDlg;
+	NewKeyDialog*		newKeyDlg = nullptr;
 
 	/**
 	 * Refreshes the GUI to reflect the current state of GeneralSettings

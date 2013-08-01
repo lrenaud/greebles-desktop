@@ -15,8 +15,10 @@
 #include "PlayerSettings.h"
 #include "NewKeyDialog.h"
 #include "KeyTranslator.h"
+#include "PlayerImages.h"
 
 using namespace SOAR;
+using namespace Math;
 
 SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
        : wxFrame(NULL, -1, title, pos, size, style)
@@ -31,7 +33,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 	
-	masterPanel = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	masterPanel = new wxPanel( this, myID_MASTER_PANEL, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	masterPanel->Connect(myID_MASTER_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnMouseDown));
+
 	wxBoxSizer* masterVBoxSizer;
 	masterVBoxSizer = new wxBoxSizer( wxVERTICAL );
 	
@@ -152,7 +156,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p1Type->SetSelection( 0 );
 	p1TypeHBox->Add( p1Type, 1, wxALL, 5 );
 	
-	p1Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-1.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p1Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(player_1), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p1TypeHBox->Add( p1Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p1VBox->Add( p1TypeHBox, 0, wxEXPAND, 5 );
@@ -265,7 +269,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p2Type->SetSelection( 0 );
 	p2TypeHBox->Add( p2Type, 1, wxALL, 5 );
 	
-	p2Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p2Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(player_2), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p2TypeHBox->Add( p2Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p2VBox->Add( p2TypeHBox, 0, wxEXPAND, 5 );
@@ -378,7 +382,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p3Type->SetSelection( 0 );
 	p3TypeHBox->Add( p3Type, 1, wxALL, 5 );
 	
-	p3Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-3.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p3Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(player_3), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p3TypeHBox->Add( p3Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p3VBox->Add( p3TypeHBox, 0, wxEXPAND, 5 );
@@ -491,7 +495,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	p4Type->SetSelection( 0 );
 	p4TypeHBox->Add( p4Type, 1, wxALL, 5 );
 	
-	p4Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/player-4.png"), wxBITMAP_TYPE_PNG ), wxDefaultPosition, wxSize( 23,23 ), 0 );
+	p4Image = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(player_4), wxDefaultPosition, wxSize( 23,23 ), 0 );
 	p4TypeHBox->Add( p4Image, 0, wxALL|wxALIGN_CENTER, 2 );
 	
 	p4VBox->Add( p4TypeHBox, 0, wxEXPAND, 5 );
@@ -564,7 +568,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 	
 	for (int p=0; p<PLAYER_COUNT; p++)
 		playerSettings[p] = new PlayerSettings(p + 1);
-	
+
 	newKeyDlg = new NewKeyDialog(this);
 
 	refresh();
@@ -572,15 +576,20 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 
 SetupFrame::~SetupFrame()
 {
+	SAFE_DELETE(newKeyDlg);
+
 	for (int p=0; p<PLAYER_COUNT; p++)
 		SAFE_DELETE(playerSettings[p]);
-
-	SAFE_DELETE(newKeyDlg);
 }
 
 /**
  * PLAYER 1 BINDINGS
  */
+void SetupFrame::OnMouseDown(wxMouseEvent& event)
+{
+	
+}
+
 void SetupFrame::OnP1EnabledChange(wxCommandEvent& WXUNUSED(event))
 {
     if (p1EnabledCheckBox->IsChecked())

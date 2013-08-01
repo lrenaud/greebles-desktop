@@ -30,6 +30,5 @@ bool SetupApp::OnInit()
 
 int SetupApp::OnExit()
 {
-
     return 0;
 }

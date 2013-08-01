@@ -26,6 +26,9 @@ public:
     NewKeyDialog(wxWindow* parent);
     ~NewKeyDialog();
 
+    NewKeyDialog(const NewKeyDialog& other)=delete;
+    NewKeyDialog& operator=(const NewKeyDialog& rhs)=delete;
+
     virtual int ShowModal();
     virtual void EndModal(int retCode);
 

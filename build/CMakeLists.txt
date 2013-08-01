@@ -20,7 +20,7 @@ set(CFG_PLATFORM linux)
 ##########################################################
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin/${CFG_PLATFORM}/${CMAKE_BUILD_TYPE})
 
-set(CMAKE_CXX_FLAGS_DEBUG "-DCFG_DEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "-DCFG_DEBUG -g")
 set(CMAKE_CXX_FLAGS_RELEASE "-DCFG_RELEASE")
 
 # Paths to source for Game, Setup App, and Custom App

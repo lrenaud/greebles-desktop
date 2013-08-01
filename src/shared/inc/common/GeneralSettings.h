@@ -40,6 +40,9 @@ private:
 
     GeneralSettings();
 
+    GeneralSettings(const GeneralSettings& other)=delete;
+    GeneralSettings& operator=(const GeneralSettings& rhs)=delete;
+
 public:
 
     ~GeneralSettings();

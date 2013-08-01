@@ -15,6 +15,9 @@ public:
     wxFocusableStaticText(wxWindow* parent, const char* text);
     ~wxFocusableStaticText();
 
+    wxFocusableStaticText(const wxFocusableStaticText& other)=delete;
+    wxFocusableStaticText& operator=(const wxFocusableStaticText& rhs)=delete;
+
 };
 
 #endif
