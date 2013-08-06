@@ -51,7 +51,6 @@ BEGIN_EVENT_TABLE(SetupFrame, wxFrame)
 
 END_EVENT_TABLE()
 
-
 BEGIN_EVENT_TABLE(NewKeyDialog, wxDialog)
 
     EVT_KEY_UP        (NewKeyDialog::OnKeyUp)

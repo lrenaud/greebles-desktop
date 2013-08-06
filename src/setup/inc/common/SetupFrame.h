@@ -16,7 +16,7 @@ enum
 {
 	myID_MASTER_PANEL=0,
 
-	myID_P1_BOX,
+	myID_P1_PANEL,
 	myID_P1_ENABLED,
 	myID_P1_NAME,
 	myID_P1_TYPE,
@@ -26,6 +26,7 @@ enum
 	myID_P1_RIGHT,
 	myID_P1_PUSH, 
 
+	myID_P2_PANEL,
 	myID_P2_ENABLED,
 	myID_P2_NAME,
 	myID_P2_TYPE,
@@ -35,6 +36,7 @@ enum
 	myID_P2_RIGHT,
 	myID_P2_PUSH, 
 
+	myID_P3_PANEL,
 	myID_P3_ENABLED,
 	myID_P3_NAME,
 	myID_P3_TYPE,
@@ -44,6 +46,7 @@ enum
 	myID_P3_RIGHT,
 	myID_P3_PUSH, 
 
+	myID_P4_PANEL,
 	myID_P4_ENABLED,
 	myID_P4_NAME,
 	myID_P4_TYPE,
@@ -80,6 +83,7 @@ protected:
 	wxPanel* masterPanel = nullptr;
 	wxStaticText* playersAndKeysLabel = nullptr;
 
+	wxPanel* p1Panel = nullptr;
 	wxNoLabelCheckBox* p1EnabledCheckBox = nullptr;
 	wxTextCtrl* p1Name = nullptr;
 	wxButton* p1LeftButton = nullptr;
@@ -90,6 +94,7 @@ protected:
 	wxChoice* p1Type = nullptr;
 	wxStaticBitmap* p1Image = nullptr;
 
+	wxPanel* p2Panel = nullptr;
 	wxNoLabelCheckBox* p2EnabledCheckBox = nullptr;
 	wxTextCtrl* p2Name = nullptr;
 	wxButton* p2LeftButton = nullptr;
@@ -100,6 +105,7 @@ protected:
 	wxChoice* p2Type = nullptr;
 	wxStaticBitmap* p2Image = nullptr;
 
+	wxPanel* p3Panel = nullptr;
 	wxNoLabelCheckBox* p3EnabledCheckBox = nullptr;
 	wxTextCtrl* p3Name = nullptr;
 	wxButton* p3LeftButton = nullptr;
@@ -110,6 +116,7 @@ protected:
 	wxChoice* p3Type = nullptr;
 	wxStaticBitmap* p3Image = nullptr;
 
+	wxPanel* p4Panel = nullptr;
 	wxNoLabelCheckBox* p4EnabledCheckBox = nullptr;
 	wxTextCtrl* p4Name = nullptr;
 	wxButton* p4LeftButton = nullptr;
@@ -136,8 +143,7 @@ public:
 	SetupFrame(const SetupFrame& other)=delete;
 	SetupFrame& operator=(const SetupFrame& rhs)=delete;
 
-	void OnMouseDown(wxMouseEvent& event);
-
+	void OnP1MouseDrag(wxMouseEvent& event);
 	void OnP1EnabledChange(wxCommandEvent& event);
 	void OnP1NameChange(wxCommandEvent& event);
 	void OnP1TypeChange(wxCommandEvent& event);
@@ -147,6 +153,7 @@ public:
 	void OnP1Right(wxCommandEvent& event);
 	void OnP1Push(wxCommandEvent& event);
 
+	void OnP2MouseDrag(wxMouseEvent& event);
 	void OnP2EnabledChange(wxCommandEvent& event);
 	void OnP2NameChange(wxCommandEvent& event);
 	void OnP2TypeChange(wxCommandEvent& event);
@@ -156,6 +163,7 @@ public:
 	void OnP2Right(wxCommandEvent& event);
 	void OnP2Push(wxCommandEvent& event);
 
+	void OnP3MouseDrag(wxMouseEvent& event);
 	void OnP3EnabledChange(wxCommandEvent& event);
 	void OnP3NameChange(wxCommandEvent& event);
 	void OnP3TypeChange(wxCommandEvent& event);
@@ -165,6 +173,7 @@ public:
 	void OnP3Right(wxCommandEvent& event);
 	void OnP3Push(wxCommandEvent& event);
 
+	void OnP4MouseDrag(wxMouseEvent& event);
 	void OnP4EnabledChange(wxCommandEvent& event);
 	void OnP4NameChange(wxCommandEvent& event);
 	void OnP4TypeChange(wxCommandEvent& event);
@@ -200,7 +209,7 @@ private:
 	 * Player Settings Instances
 	 */
 	PlayerSettings* 	playerSettings[PLAYER_COUNT] = {nullptr, nullptr, nullptr, nullptr};	
-	
+
 	/**
 	 * Dialog for receiving new key presses
 	 */
