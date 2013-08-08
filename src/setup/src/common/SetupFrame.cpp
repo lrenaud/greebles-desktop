@@ -20,6 +20,7 @@
 #include "KeyTranslator.h"
 #include "PlayerImages.h"
 #include "Utility.h"
+#include "wxPlayerDropTarget.h"
 
 using namespace SOAR;
 using namespace Math;
@@ -57,6 +58,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     
     p1Panel = new wxPanel(masterPanel, myID_P1_PANEL);
     p1Panel->Connect( myID_P1_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP1MouseDrag) );
+
+    wxPlayerDropTarget* p1DropTarget = new wxPlayerDropTarget(p1Panel, playerSettings[P1]);
+    p1Panel->SetDropTarget(p1DropTarget);
 
     wxStaticBoxSizer* p1BoxSizer;
     p1BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p1Panel, wxID_ANY, wxT("Player 1") ), wxVERTICAL );
@@ -178,6 +182,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p2Panel = new wxPanel(masterPanel, myID_P2_PANEL);
     p2Panel->Connect( myID_P2_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP2MouseDrag) );
 
+    wxPlayerDropTarget* p2DropTarget = new wxPlayerDropTarget(p2Panel, playerSettings[P2]);
+    p2Panel->SetDropTarget(p2DropTarget);
+
     wxStaticBoxSizer* p2BoxSizer;
     p2BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p2Panel, wxID_ANY, wxT("Player 2") ), wxVERTICAL );
     
@@ -298,6 +305,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p3Panel = new wxPanel(masterPanel, myID_P3_PANEL);
     p3Panel->Connect( myID_P3_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP3MouseDrag) );
 
+    wxPlayerDropTarget* p3DropTarget = new wxPlayerDropTarget(p3Panel, playerSettings[P3]);
+    p3Panel->SetDropTarget(p3DropTarget);
+
     wxStaticBoxSizer* p3BoxSizer;
     p3BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p3Panel, wxID_ANY, wxT("Player 3") ), wxVERTICAL );
     
@@ -417,6 +427,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     
     p4Panel = new wxPanel(masterPanel, myID_P4_PANEL);
     p4Panel->Connect( myID_P4_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP4MouseDrag) );
+    
+    wxPlayerDropTarget* p4DropTarget = new wxPlayerDropTarget(p4Panel, playerSettings[P4]);
+    p4Panel->SetDropTarget(p4DropTarget);
 
     wxStaticBoxSizer* p4BoxSizer;
     p4BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p4Panel, wxID_ANY, wxT("Player 4") ), wxVERTICAL );
@@ -597,8 +610,60 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
      * END GENERATED CODE
      */
     
+     /**
+      * Connect All the event listeners
+      */
+    Connect(myID_P1_ENABLED, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(SetupFrame::OnP1EnabledChange));
+    Connect(myID_P1_NAME, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(SetupFrame::OnP1NameChange));
+    Connect(myID_P1_TYPE, wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SetupFrame::OnP1TypeChange));
+    Connect(myID_P1_UP, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP1Up));
+    Connect(myID_P1_DOWN, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP1Down));
+    Connect(myID_P1_LEFT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP1Left));
+    Connect(myID_P1_RIGHT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP1Right));
+    Connect(myID_P1_PUSH, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP1Push));
+
+    Connect(myID_P2_ENABLED, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(SetupFrame::OnP2EnabledChange));
+    Connect(myID_P2_NAME, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(SetupFrame::OnP2NameChange));
+    Connect(myID_P2_TYPE, wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SetupFrame::OnP2TypeChange));
+    Connect(myID_P2_UP, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP2Up));
+    Connect(myID_P2_DOWN, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP2Down));
+    Connect(myID_P2_LEFT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP2Left));
+    Connect(myID_P2_RIGHT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP2Right));
+    Connect(myID_P2_PUSH, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP2Push));
+
+    Connect(myID_P3_ENABLED, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(SetupFrame::OnP3EnabledChange));
+    Connect(myID_P3_NAME, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(SetupFrame::OnP3NameChange));
+    Connect(myID_P3_TYPE, wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SetupFrame::OnP3TypeChange));
+    Connect(myID_P3_UP, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP3Up));
+    Connect(myID_P3_DOWN, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP3Down));
+    Connect(myID_P3_LEFT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP3Left));
+    Connect(myID_P3_RIGHT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP3Right));
+    Connect(myID_P3_PUSH, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP3Push));
+
+    Connect(myID_P4_ENABLED, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(SetupFrame::OnP4EnabledChange));
+    Connect(myID_P4_NAME, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(SetupFrame::OnP4NameChange));
+    Connect(myID_P4_TYPE, wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SetupFrame::OnP4TypeChange));
+    Connect(myID_P4_UP, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP4Up));
+    Connect(myID_P4_DOWN, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP4Down));
+    Connect(myID_P4_LEFT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP4Left));
+    Connect(myID_P4_RIGHT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP4Right));
+    Connect(myID_P4_PUSH, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnP4Push));
+
+    Connect(myID_DIFFICULTY, wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SetupFrame::OnDifficultyChange));
+    Connect(myID_SOUND, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(SetupFrame::OnSoundChange));
+    Connect(myID_MUSIC, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(SetupFrame::OnMusicChange)); 
+
+    Connect(wxID_CANCEL, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnCancel));
+    Connect(wxID_SAVE, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SetupFrame::OnSave));
+
+    /**
+     * Other Data
+     */
+    
     for (int p=0; p<PLAYER_COUNT; p++)
         playerSettings[p] = new PlayerSettings(p + 1);
+
+    cout << "playerSettings[0]: " << playerSettings[0] << endl;
 
     newKeyDlg = new NewKeyDialog(this);
 
@@ -619,12 +684,15 @@ SetupFrame::~SetupFrame()
 
 void SetupFrame::OnP1MouseDrag(wxMouseEvent& event)
 {
-    string playerStr = "Player 1";
-    wxTextDataObject dragData(Utility::StringToWxString(playerStr));
-   
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P1]);
+    cout << "Player 1 Settings: " << playerSettings[P1] << endl;
+    cout << "Player 1 Settings String: " << dataStr.ToAscii() << endl;
+    wxTextDataObject dragData(dataStr);
+
     wxDropSource dragSource(this);
-    wxDragResult result = dragSource.DoDragDrop();
-    cout << "DRAG RESULT: " << result << endl;
+    dragSource.SetData(dragData);
+
+    dragSource.DoDragDrop();
 }
 
 void SetupFrame::OnP1EnabledChange(wxCommandEvent& WXUNUSED(event))
@@ -680,12 +748,13 @@ void SetupFrame::OnP1Push(wxCommandEvent& WXUNUSED(event))
  */
 void SetupFrame::OnP2MouseDrag(wxMouseEvent& event)
 {
-    string playerStr = "Player 2";
-    wxTextDataObject dragData(Utility::StringToWxString(playerStr));
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P2]);
+    wxTextDataObject dragData(dataStr);
     
     wxDropSource dragSource(this);
-    wxDragResult result = dragSource.DoDragDrop();
-    cout << "DRAG RESULT: " << result << endl;
+    dragSource.SetData(dragData);
+
+    dragSource.DoDragDrop();
 }
 
 void SetupFrame::OnP2EnabledChange(wxCommandEvent& WXUNUSED(event))
@@ -741,12 +810,13 @@ void SetupFrame::OnP2Push(wxCommandEvent& WXUNUSED(event))
  */
 void SetupFrame::OnP3MouseDrag(wxMouseEvent& event)
 {
-    string playerStr = "Player 3";
-    wxTextDataObject dragData(Utility::StringToWxString(playerStr));
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P3]);
+    wxTextDataObject dragData(dataStr);
     
     wxDropSource dragSource(this);
-    wxDragResult result = dragSource.DoDragDrop();
-    cout << "DRAG RESULT: " << result << endl;
+    dragSource.SetData(dragData);
+
+    dragSource.DoDragDrop();
 }
 
 void SetupFrame::OnP3EnabledChange(wxCommandEvent& WXUNUSED(event))
@@ -802,12 +872,13 @@ void SetupFrame::OnP3Push(wxCommandEvent& WXUNUSED(event))
  */
 void SetupFrame::OnP4MouseDrag(wxMouseEvent& event)
 {
-    string playerStr = "Player 4";
-    wxTextDataObject dragData(Utility::StringToWxString(playerStr));
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P4]);
+    wxTextDataObject dragData(dataStr);
     
     wxDropSource dragSource(this);
-    wxDragResult result = dragSource.DoDragDrop();
-    cout << "DRAG RESULT: " << result << endl;
+    dragSource.SetData(dragData);
+
+    dragSource.DoDragDrop();
 }
 
 void SetupFrame::OnP4EnabledChange(wxCommandEvent& WXUNUSED(event))

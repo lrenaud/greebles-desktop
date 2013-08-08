@@ -22,6 +22,8 @@ NewKeyDialog::NewKeyDialog(wxWindow* parent): wxDialog(parent, wxID_ANY, wxT("Te
     sizer->Add(dialogMsg, 1, wxEXPAND | wxALL, 20);
 
     SetSizerAndFit(sizer);
+
+    Connect(wxID_ANY, wxEVT_KEY_UP, wxKeyEventHandler(NewKeyDialog::OnKeyUp));
 }
 
 NewKeyDialog::~NewKeyDialog()

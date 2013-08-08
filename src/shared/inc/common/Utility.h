@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 #include <wx/wx.h>
 
@@ -29,6 +30,39 @@ public:
      * @return     A matching wxString
      */
     static wxString     StringToWxString(const char* str);
+
+    /**
+     * This method takes a pointer of any kind and returns it's
+     * value, (an address of whatever it points to) as a string
+     */
+    template <typename T>
+    static std::string       PointerToString(T* ptr)
+    {
+        const void* ptrAddress = static_cast<const void*>(ptr);
+
+        std::stringstream addrStream;
+        addrStream << ptrAddress;
+
+        return addrStream.str();
+    }
+
+    template <typename T>
+    static wxString     PointerToWxString(T* ptr)
+    {
+        std::string intermediate = PointerToString<T>(ptr);
+
+        return StringToWxString(intermediate);
+    }
+
+    /**
+     * This method takes an address in string form, and returns 
+     * a pointer to it.
+     */
+    template <typename T>
+    static T*           StringToPtr(std::string ptrStr)
+    {
+        return reinterpret_cast<T*>(strtol(ptrStr.c_str(), nullptr, 0));
+    }
 
 };
 

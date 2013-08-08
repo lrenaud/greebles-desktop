@@ -13,8 +13,6 @@ class NewKeyDialog : public wxDialog
 {
 private:
 
-    DECLARE_EVENT_TABLE()
-
     /**
      * Dialog Components
      */

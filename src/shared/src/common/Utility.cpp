@@ -13,7 +13,7 @@ wxString Utility::StringToWxString(string& str)
 
 wxString Utility::StringToWxString(const char* str)
 {
-    wxString wxStr(str, wxConvUTF8);
+    wxString wxStr(str, *wxConvCurrent);
 
     return wxStr;
 }

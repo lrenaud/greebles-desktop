@@ -64,7 +64,6 @@ enum
 class SetupFrame : public wxFrame
 {
 private:
-	DECLARE_EVENT_TABLE()
 
 	static const int FRAME_WIDTH				= 400;
 	static const int FRAME_HEIGHT				= 600;
