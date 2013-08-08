@@ -25,6 +25,11 @@ PlayerSettings::~PlayerSettings()
     free();   
 }
 
+int PlayerSettings::Id()const
+{
+    return id;
+}
+
 int PlayerSettings::PlayerTypeId()const
 {
     return (int)playerType;
@@ -58,6 +63,16 @@ const string& PlayerSettings::Name()const
 ControlSet* PlayerSettings::Controls()
 {
     return controlSet;
+}
+
+bool PlayerSettings::SetId(int newId)
+{
+    if (newId < 1 || newId > 4)
+        return false;
+
+    id = newId;
+
+    return true;
 }
 
 bool PlayerSettings::SetTypeById(int typeId)

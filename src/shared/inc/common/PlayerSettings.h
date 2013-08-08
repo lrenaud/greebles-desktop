@@ -57,6 +57,12 @@ public:
     ~PlayerSettings();
 
     /**
+     * Get the id of this player
+     * @return id
+     */
+    int Id()const;
+
+    /**
      * Get an integer representation of the player type
      * @return integer representation of the player type
      */
@@ -97,6 +103,17 @@ public:
      * @return a pointer to this player's current controls
      */
     ControlSet* Controls();
+
+    /**
+     * Change the player's id. This is a bit dangerous as
+     * far as data integrity goes. It should ONLY be used 
+     * when player's are swapped on the Setup GUI.
+     * @param newId The new id for this settings group. It
+     *              must be either 1, 2, 3, or 4. All others
+     *              will cause the assignment to fail.
+     * @return true if newId was >=1 && <= 4
+     */
+    bool SetId(int newId);
 
     /**
      * Change the player's type by specifying a new type id

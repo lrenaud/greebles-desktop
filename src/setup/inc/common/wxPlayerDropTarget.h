@@ -12,11 +12,11 @@ private:
 
     wxPanel*            ownerPanel = nullptr;
     
-    PlayerSettings*     ownerSettings = nullptr;
+    PlayerSettings**    ownerSettings = nullptr;
 
 public:
 
-    wxPlayerDropTarget(wxPanel* ownerPanel, PlayerSettings* ownerSettings);
+    wxPlayerDropTarget(wxPanel* ownerPanel, PlayerSettings** ownerSettings);
 
     virtual bool OnDropText(wxCoord x, wxCoord y, const wxString& text);
 

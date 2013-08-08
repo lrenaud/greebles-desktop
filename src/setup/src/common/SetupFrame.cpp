@@ -57,10 +57,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     playersGridSizer = new wxGridSizer( 2, 2, 0, 0 );
     
     p1Panel = new wxPanel(masterPanel, myID_P1_PANEL);
-    p1Panel->Connect( myID_P1_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP1MouseDrag) );
-
-    wxPlayerDropTarget* p1DropTarget = new wxPlayerDropTarget(p1Panel, playerSettings[P1]);
-    p1Panel->SetDropTarget(p1DropTarget);
+    p1Panel->Connect( myID_P1_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP1MouseDrag), NULL, this );
 
     wxStaticBoxSizer* p1BoxSizer;
     p1BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p1Panel, wxID_ANY, wxT("Player 1") ), wxVERTICAL );
@@ -180,10 +177,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     playersGridSizer->Add( p1Panel, 1, wxALL|wxEXPAND, 5 );
     
     p2Panel = new wxPanel(masterPanel, myID_P2_PANEL);
-    p2Panel->Connect( myID_P2_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP2MouseDrag) );
-
-    wxPlayerDropTarget* p2DropTarget = new wxPlayerDropTarget(p2Panel, playerSettings[P2]);
-    p2Panel->SetDropTarget(p2DropTarget);
+    p2Panel->Connect( myID_P2_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP2MouseDrag), NULL, this );
 
     wxStaticBoxSizer* p2BoxSizer;
     p2BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p2Panel, wxID_ANY, wxT("Player 2") ), wxVERTICAL );
@@ -303,10 +297,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     playersGridSizer->Add( p2Panel, 1, wxALL|wxEXPAND, 5 );
     
     p3Panel = new wxPanel(masterPanel, myID_P3_PANEL);
-    p3Panel->Connect( myID_P3_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP3MouseDrag) );
-
-    wxPlayerDropTarget* p3DropTarget = new wxPlayerDropTarget(p3Panel, playerSettings[P3]);
-    p3Panel->SetDropTarget(p3DropTarget);
+    p3Panel->Connect( myID_P3_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP3MouseDrag), NULL, this );
 
     wxStaticBoxSizer* p3BoxSizer;
     p3BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p3Panel, wxID_ANY, wxT("Player 3") ), wxVERTICAL );
@@ -426,10 +417,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     playersGridSizer->Add( p3Panel, 1, wxALL|wxEXPAND, 5 );
     
     p4Panel = new wxPanel(masterPanel, myID_P4_PANEL);
-    p4Panel->Connect( myID_P4_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP4MouseDrag) );
-    
-    wxPlayerDropTarget* p4DropTarget = new wxPlayerDropTarget(p4Panel, playerSettings[P4]);
-    p4Panel->SetDropTarget(p4DropTarget);
+    p4Panel->Connect( myID_P4_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(SetupFrame::OnP4MouseDrag), NULL, this );
 
     wxStaticBoxSizer* p4BoxSizer;
     p4BoxSizer = new wxStaticBoxSizer( new wxStaticBox( p4Panel, wxID_ANY, wxT("Player 4") ), wxVERTICAL );
@@ -658,12 +646,21 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 
     /**
      * Other Data
-     */
-    
+     */  
     for (int p=0; p<PLAYER_COUNT; p++)
         playerSettings[p] = new PlayerSettings(p + 1);
 
-    cout << "playerSettings[0]: " << playerSettings[0] << endl;
+    wxPlayerDropTarget* p1DropTarget = new wxPlayerDropTarget(p1Panel, &playerSettings[P1]);
+    p1Panel->SetDropTarget(p1DropTarget);
+
+    wxPlayerDropTarget* p2DropTarget = new wxPlayerDropTarget(p2Panel, &playerSettings[P2]);
+    p2Panel->SetDropTarget(p2DropTarget);
+
+    wxPlayerDropTarget* p3DropTarget = new wxPlayerDropTarget(p3Panel, &playerSettings[P3]);
+    p3Panel->SetDropTarget(p3DropTarget);
+
+    wxPlayerDropTarget* p4DropTarget = new wxPlayerDropTarget(p4Panel, &playerSettings[P4]);
+    p4Panel->SetDropTarget(p4DropTarget);
 
     newKeyDlg = new NewKeyDialog(this);
 
@@ -684,15 +681,14 @@ SetupFrame::~SetupFrame()
 
 void SetupFrame::OnP1MouseDrag(wxMouseEvent& event)
 {
-    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P1]);
-    cout << "Player 1 Settings: " << playerSettings[P1] << endl;
-    cout << "Player 1 Settings String: " << dataStr.ToAscii() << endl;
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings*>(&playerSettings[P1]);
     wxTextDataObject dragData(dataStr);
 
     wxDropSource dragSource(this);
     dragSource.SetData(dragData);
 
-    dragSource.DoDragDrop();
+    if (dragSource.DoDragDrop() == wxDragCopy)
+		refresh();
 }
 
 void SetupFrame::OnP1EnabledChange(wxCommandEvent& WXUNUSED(event))
@@ -748,13 +744,14 @@ void SetupFrame::OnP1Push(wxCommandEvent& WXUNUSED(event))
  */
 void SetupFrame::OnP2MouseDrag(wxMouseEvent& event)
 {
-    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P2]);
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings*>(&playerSettings[P2]);
     wxTextDataObject dragData(dataStr);
     
     wxDropSource dragSource(this);
     dragSource.SetData(dragData);
 
-    dragSource.DoDragDrop();
+    if (dragSource.DoDragDrop() == wxDragCopy)
+		refresh();
 }
 
 void SetupFrame::OnP2EnabledChange(wxCommandEvent& WXUNUSED(event))
@@ -810,13 +807,14 @@ void SetupFrame::OnP2Push(wxCommandEvent& WXUNUSED(event))
  */
 void SetupFrame::OnP3MouseDrag(wxMouseEvent& event)
 {
-    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P3]);
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings*>(&playerSettings[P3]);
     wxTextDataObject dragData(dataStr);
     
     wxDropSource dragSource(this);
     dragSource.SetData(dragData);
 
-    dragSource.DoDragDrop();
+    if (dragSource.DoDragDrop() == wxDragCopy)
+		refresh();
 }
 
 void SetupFrame::OnP3EnabledChange(wxCommandEvent& WXUNUSED(event))
@@ -872,13 +870,14 @@ void SetupFrame::OnP3Push(wxCommandEvent& WXUNUSED(event))
  */
 void SetupFrame::OnP4MouseDrag(wxMouseEvent& event)
 {
-    wxString dataStr = Utility::PointerToWxString<PlayerSettings>(playerSettings[P4]);
+    wxString dataStr = Utility::PointerToWxString<PlayerSettings*>(&playerSettings[P4]);
     wxTextDataObject dragData(dataStr);
     
     wxDropSource dragSource(this);
     dragSource.SetData(dragData);
 
-    dragSource.DoDragDrop();
+    if (dragSource.DoDragDrop() == wxDragCopy)
+		refresh();
 }
 
 void SetupFrame::OnP4EnabledChange(wxCommandEvent& WXUNUSED(event))
