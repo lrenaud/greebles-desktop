@@ -135,7 +135,10 @@ set(SETUP_LINUX_SRCS )
 ###########################################################
 # Custom Source Files
 ###########################################################
-set(CUSTOM_COMMON_SRCS )
+set(CUSTOM_COMMON_SRCS
+    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/CustomApp.cpp
+    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/CustomFrame.cpp)
 
 set(CUSTOM_WINDOWS_SRCS )
 
@@ -174,5 +177,8 @@ target_link_libraries(setup
 					  ${SQLITE3_LIBRARY} 
 					  ${wxWidgets_LIBRARIES})
 
-#add_executable(custom ${CUSTOM_SRCS})
-#target_link_libraries(custom SOAR ${SQLITE3_LIBRARY})
+add_executable(custom ${CUSTOM_SRCS})
+target_link_libraries(custom 
+                      SOAR 
+                      ${SQLITE3_LIBRARY}
+                      ${wxWidgets_LIBRARIES})
