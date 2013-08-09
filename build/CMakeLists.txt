@@ -164,7 +164,10 @@ set(CUSTOM_LINUX_SRCS )
 ###########################################################
 # Join Source Files
 ###########################################################
-set(JOIN_COMMON_SRCS )
+set(JOIN_COMMON_SRCS 
+    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/JoinApp.cpp
+    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/JoinFrame.cpp)
 
 set(JOIN_WINDOWS_SRCS )
 
@@ -246,11 +249,11 @@ target_link_libraries(custom
                       ${SQLITE3_LIBRARY}
                       ${wxWidgets_LIBRARIES})
 
-# add_executable(join ${JOIN_SRCS})
-# target_link_libraries(join 
-#                       SOAR 
-#                       ${SQLITE3_LIBRARY}
-#                       ${wxWidgets_LIBRARIES})
+add_executable(join ${JOIN_SRCS})
+target_link_libraries(join 
+                      SOAR 
+                      ${SQLITE3_LIBRARY}
+                      ${wxWidgets_LIBRARIES})
 
 add_executable(zap ${ZAP_SRCS})
 target_link_libraries(zap 

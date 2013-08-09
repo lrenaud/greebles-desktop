@@ -20,6 +20,7 @@
 					"cmd": ["./game"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
+
 				{
 					"name": "Linux - Valgrind Setup",
 					"cmd": ["valgrind", "./setup"],
@@ -35,6 +36,7 @@
 					"cmd": ["./setup"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
+
 				{
 					"name": "Linux - Debug Custom",
 					"cmd": ["./custom"],
@@ -45,6 +47,18 @@
 					"cmd": ["./custom"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
+
+				{
+					"name": "Linux - Debug Join",
+					"cmd": ["./join"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Join",
+					"cmd": ["./join"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+
 				{
 					"name": "Linux - Debug Zap",
 					"cmd": ["./zap"],
@@ -55,6 +69,7 @@
 					"cmd": ["./zap"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
+
 				{
 					"name": "Linux - Debug Error",
 					"cmd": ["./error"],
@@ -65,6 +80,7 @@
 					"cmd": ["./error"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
+
 				{
 					"name": "Generate Documentation",
 					"cmd": ["./execute_doxygen.sh"],
