@@ -32,6 +32,12 @@ set(SETUP_PATH_TO_INC ${CMAKE_SOURCE_DIR}/../src/setup/inc)
 set(SETUP_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/setup/src)
 set(CUSTOM_PATH_TO_INC ${CMAKE_SOURCE_DIR}/../src/custom/inc)
 set(CUSTOM_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/custom/src)
+set(JOIN_PATH_TO_INC ${CMAKE_SOURCE_DIR}/../src/join/inc)
+set(JOIN_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/join/src)
+set(ZAP_PATH_TO_INC ${CMAKE_SOURCE_DIR}/../src/zap/inc)
+set(ZAP_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/zap/src)
+set(ERROR_PATH_TO_INC ${CMAKE_SOURCE_DIR}/../src/error/inc)
+set(ERROR_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/error/src)
 
 set(COMMON_DIR common)
 set(WINDOWS_DIR windows)
@@ -82,6 +88,15 @@ include_directories("${SETUP_PATH_TO_INC}/${CFG_PLATFORM}")
 
 include_directories("${CUSTOM_PATH_TO_INC}/${COMMON_DIR}")
 include_directories("${CUSTOM_PATH_TO_INC}/${CFG_PLATFORM}")
+
+include_directories("${JOIN_PATH_TO_INC}/${COMMON_DIR}")
+include_directories("${JOIN_PATH_TO_INC}/${CFG_PLATFORM}")
+
+include_directories("${ZAP_PATH_TO_INC}/${COMMON_DIR}")
+include_directories("${ZAP_PATH_TO_INC}/${CFG_PLATFORM}")
+
+include_directories("${ERROR_PATH_TO_INC}/${COMMON_DIR}")
+include_directories("${ERROR_PATH_TO_INC}/${CFG_PLATFORM}")
 
 ###########################################################
 # Shared Source Files
@@ -146,21 +161,66 @@ set(CUSTOM_MAC_SRCS )
 
 set(CUSTOM_LINUX_SRCS )
 
+###########################################################
+# Join Source Files
+###########################################################
+set(JOIN_COMMON_SRCS )
+
+set(JOIN_WINDOWS_SRCS )
+
+set(JOIN_MAC_SRCS )
+
+set(JOIN_LINUX_SRCS )
+
+###########################################################
+# Zap Source Files
+###########################################################
+set(ZAP_COMMON_SRCS )
+
+set(ZAP_WINDOWS_SRCS )
+
+set(ZAP_MAC_SRCS )
+
+set(ZAP_LINUX_SRCS )
+
+###########################################################
+# Error Source Files
+###########################################################
+set(ERROR_COMMON_SRCS
+    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/ErrorApp.cpp
+    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/ErrorFrame.cpp)
+
+set(ERROR_WINDOWS_SRCS )
+
+set(ERROR_MAC_SRCS )
+
+set(ERROR_LINUX_SRCS )
+
 if (CFG_PLATFORM STREQUAL WINDOWS_DIR)
     add_definitions("-DWINDOWS")
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${GAME_COMMON_SRCS} ${GAME_WINDOWS_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_WINDOWS_SRCS})
     set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_WINDOWS_SRCS})
+    set(JOIN_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${JOIN_COMMON_SRCS} ${JOIN_WINDOWS_SRCS})
+    set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_WINDOWS_SRCS})
+    set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_WINDOWS_SRCS})
 elseif (CFG_PLATFORM STREQUAL MAC_DIR)
     add_definitions("-DMACOSX")
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${GAME_COMMON_SRCS} ${GAME_MAC_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_MAC_SRCS})
     set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_MAC_SRCS})
+    set(JOIN_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${JOIN_COMMON_SRCS} ${JOIN_MAC_SRCS})
+    set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_MAC_SRCS})
+    set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_MAC_SRCS})
 elseif (CFG_PLATFORM STREQUAL LINUX_DIR)
     add_definitions("-DLINUX")
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${GAME_COMMON_SRCS} ${GAME_LINUX_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_LINUX_SRCS})
     set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_LINUX_SRCS})
+    set(JOIN_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${JOIN_COMMON_SRCS} ${JOIN_LINUX_SRCS})
+    set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_LINUX_SRCS})
+    set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_LINUX_SRCS})
 endif()
 
 add_definitions("-Wall")                # Give ALL the warnings!
@@ -181,4 +241,22 @@ add_executable(custom ${CUSTOM_SRCS})
 target_link_libraries(custom 
                       SOAR 
                       ${SQLITE3_LIBRARY}
+                      ${wxWidgets_LIBRARIES})
+
+# add_executable(join ${JOIN_SRCS})
+# target_link_libraries(join 
+#                       SOAR 
+#                       ${SQLITE3_LIBRARY}
+#                       ${wxWidgets_LIBRARIES})
+
+# add_executable(zap ${ZAP_SRCS})
+# target_link_libraries(zap 
+#                       SOAR 
+#                       ${SQLITE3_LIBRARY}
+#                       ${wxWidgets_LIBRARIES})
+
+add_executable(error ${ERROR_SRCS})
+target_link_libraries(error 
+                      SOAR
+                      ${SQLITE3_LIBRARY} 
                       ${wxWidgets_LIBRARIES})

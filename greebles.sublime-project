@@ -46,6 +46,16 @@
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
 				{
+					"name": "Linux - Debug Error",
+					"cmd": ["./error"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Error",
+					"cmd": ["./error"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
 					"name": "Generate Documentation",
 					"cmd": ["./execute_doxygen.sh"],
 					"working_dir": "${project_path}/scripts/"
