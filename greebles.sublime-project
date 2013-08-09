@@ -46,6 +46,16 @@
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
 				{
+					"name": "Linux - Debug Zap",
+					"cmd": ["./zap"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Zap",
+					"cmd": ["./zap"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
 					"name": "Linux - Debug Error",
 					"cmd": ["./error"],
 					"working_dir": "${project_path}/bin/linux/Debug/"

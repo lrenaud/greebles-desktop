@@ -175,7 +175,10 @@ set(JOIN_LINUX_SRCS )
 ###########################################################
 # Zap Source Files
 ###########################################################
-set(ZAP_COMMON_SRCS )
+set(ZAP_COMMON_SRCS
+    ${ZAP_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${ZAP_PATH_TO_SRC}/${COMMON_DIR}/ZapApp.cpp
+    ${ZAP_PATH_TO_SRC}/${COMMON_DIR}/ZapFrame.cpp)
 
 set(ZAP_WINDOWS_SRCS )
 
@@ -249,11 +252,11 @@ target_link_libraries(custom
 #                       ${SQLITE3_LIBRARY}
 #                       ${wxWidgets_LIBRARIES})
 
-# add_executable(zap ${ZAP_SRCS})
-# target_link_libraries(zap 
-#                       SOAR 
-#                       ${SQLITE3_LIBRARY}
-#                       ${wxWidgets_LIBRARIES})
+add_executable(zap ${ZAP_SRCS})
+target_link_libraries(zap 
+                      SOAR 
+                      ${SQLITE3_LIBRARY}
+                      ${wxWidgets_LIBRARIES})
 
 add_executable(error ${ERROR_SRCS})
 target_link_libraries(error 
