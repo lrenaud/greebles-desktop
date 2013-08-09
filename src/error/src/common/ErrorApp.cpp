@@ -8,6 +8,8 @@ using namespace SOAR;
 
 bool ErrorApp::OnInit()
 {
+    wxInitAllImageHandlers();
+
     Util::Log::GetInstance()->SetFilterLevel(Util::Log::MessageLevel::LOG_ALL);
 
     frame = new ErrorFrame(_("Error!"), 

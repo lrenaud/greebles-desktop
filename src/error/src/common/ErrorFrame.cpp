@@ -2,6 +2,7 @@
 #include "wx/button.h"
 
 #include "ErrorFrame.h"
+#include "ErrorIcon.h"
 
 ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
        : wxFrame(NULL, -1, title, pos, size, style)
@@ -21,7 +22,7 @@ ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* errorIconSizer;
     errorIconSizer = new wxBoxSizer( wxVERTICAL );
     
-    warningIcon = new wxStaticBitmap( masterPanel, wxID_ANY, wxBitmap( wxT("image/error.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+    warningIcon = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(errorIcon), wxDefaultPosition, wxDefaultSize, 0 );
     errorIconSizer->Add( warningIcon, 0, wxALL, 15 );
     
     
@@ -30,7 +31,7 @@ ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* messageSizer;
     messageSizer = new wxBoxSizer( wxVERTICAL );
     
-    messageLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("Another really long mesasage. I think I 've figured it out though. If I make it wrap at 400 pxisels or so, it should expand the dialog..."), wxDefaultPosition, wxDefaultSize, 0 );
+    messageLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("{NO ERROR MESSAGE RECEIVED}"), wxDefaultPosition, wxDefaultSize, 0 );
     messageLabel->Wrap( 450 );
     messageSizer->Add( messageLabel, 0, wxALIGN_LEFT|wxALL|wxEXPAND, 10 );
     
