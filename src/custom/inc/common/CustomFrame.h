@@ -16,24 +16,27 @@ protected:
     /**
      * GENERATED COMPONENT LIST
      */
-    wxStaticText* playerCountLabel;
-    wxCheckBox* unlimitedLivesCheckBox;
+    wxPanel* masterPanel;
 
+    wxStaticText* playerCountLabel;
+
+    wxCheckBox* unlimitedLivesCheckBox;
+    
     wxStaticText* startLevelLabel;
     wxTextCtrl* startLevelValue;
     wxStaticText* startLevelLimitLabel;
-
+    
     wxCheckBox* timeLimitCheckBox;
     wxTextCtrl* timeLimitValue;
     wxStaticText* minutesLabel;
-
+    
     wxCheckBox* levelEndsCheckBox;
     wxTextCtrl* remainingPlayersValue;
     wxStaticText* remainingPlayersLabel;
-
+    
     wxCheckBox* advertiseCheckBox;
     wxTextCtrl* advertiseNameValue;
-
+    
     wxButton* cancelButton;
     wxButton* startButton;
 
