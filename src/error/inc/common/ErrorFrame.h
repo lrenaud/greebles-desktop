@@ -7,11 +7,14 @@ class ErrorFrame : public wxFrame
 {
 protected:
 
+    const static int WRAP_LENGTH = 450;
+
     /**
      * GENERATED COMPONENT LIST
      */
     wxPanel* masterPanel;
     wxStaticBitmap* warningIcon;
+    wxBoxSizer* messageSizer;
     wxStaticText* messageLabel;
     wxButton* okButton;
 
@@ -23,6 +26,8 @@ public:
     // No copying allowed
     ErrorFrame(const ErrorFrame& other)=delete;
     ErrorFrame& operator=(const ErrorFrame& rhs)=delete;
+
+    void SetErrorMessage(wxString& errorMsg);
 
 };
 

@@ -28,11 +28,10 @@ ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     
     masterHBoxSizer->Add( errorIconSizer, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxALL, 5 );
     
-    wxBoxSizer* messageSizer;
     messageSizer = new wxBoxSizer( wxVERTICAL );
     
-    messageLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("{NO ERROR MESSAGE RECEIVED}"), wxDefaultPosition, wxDefaultSize, 0 );
-    messageLabel->Wrap( 450 );
+    messageLabel = new wxStaticText( masterPanel, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0 );
+    messageLabel->Wrap( WRAP_LENGTH );
     messageSizer->Add( messageLabel, 0, wxALIGN_LEFT|wxALL|wxEXPAND, 10 );
     
     okButton = new wxButton( masterPanel, wxID_ANY, wxT("Ok"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -58,4 +57,13 @@ ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 ErrorFrame::~ErrorFrame()
 {
 
+}
+
+void ErrorFrame::SetErrorMessage(wxString& errorMsg)
+{
+    messageLabel->SetLabel(errorMsg);
+    messageLabel->Wrap( WRAP_LENGTH );
+
+    messageSizer->Layout();
+    this->Fit();
 }
