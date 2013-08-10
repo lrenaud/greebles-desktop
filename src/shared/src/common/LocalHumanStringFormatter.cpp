@@ -15,7 +15,12 @@ string LocalHumanStringFormatter::GetInfoStr(int localPlayers, int humanPlayers)
     else
         infoStream << "are";
 
-    infoStream << " " << localPlayers << " local players (";
+    infoStream << " " << localPlayers << " local player";
+
+    if (localPlayers != 1)
+        infoStream << "s";
+    
+    infoStream << " (";
 
     if (humanPlayers == 0)
         infoStream << "none";
