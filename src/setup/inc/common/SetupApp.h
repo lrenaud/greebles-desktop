@@ -6,8 +6,8 @@ class SetupApp : public wxApp
 {
     SetupFrame* frame = nullptr;
 
-	static const int APP_WIDTH			= 400;
-	static const int APP_HEIGHT			= 600;
+	static const int APP_WIDTH			= -1;
+	static const int APP_HEIGHT			= -1;
 
     virtual bool OnInit();
     virtual int OnExit();
