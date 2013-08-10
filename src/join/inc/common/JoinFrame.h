@@ -26,6 +26,7 @@ public:
     JoinFrame(const JoinFrame& other)=delete;
     JoinFrame& operator=(const JoinFrame& rhs)=delete;
 
+    void UpdatePlayerInfoMsg(wxString playerInfoMsg);
 };
 
 #endif

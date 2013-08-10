@@ -60,12 +60,12 @@
 
 				{
 					"name": "Linux - Debug Join",
-					"cmd": ["./join"],
+					"cmd": ["./join", "-l1", "-h1"],
 					"working_dir": "${project_path}/bin/linux/Debug/"
 				},
 				{
 					"name": "Linux - Run Join",
-					"cmd": ["./join"],
+					"cmd": ["./join", "-l1", "-h1"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
 

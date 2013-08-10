@@ -18,7 +18,7 @@ JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& si
     wxBoxSizer* joinVBoxSizer;
     joinVBoxSizer = new wxBoxSizer( wxVERTICAL );
     
-    playersMsgLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("There is 1 local player (All human)"), wxDefaultPosition, wxDefaultSize, 0 );
+    playersMsgLabel = new wxStaticText( masterPanel, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0 );
     playersMsgLabel->Wrap( -1 );
     joinVBoxSizer->Add( playersMsgLabel, 0, wxALL, 5 );
     
@@ -66,4 +66,9 @@ JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 JoinFrame::~JoinFrame()
 {
 
+}
+
+void JoinFrame::UpdatePlayerInfoMsg(wxString playerInfoMsg)
+{
+    playersMsgLabel->SetLabel(playerInfoMsg);
 }
