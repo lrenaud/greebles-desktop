@@ -8,6 +8,7 @@
 #include "CustomApp.h"
 #include "CustomFrame.h"
 #include "Utility.h"
+#include "LocalHumanStringFormatter.h"
 
 using namespace std;
 
@@ -50,7 +51,7 @@ bool CustomApp::OnCmdLineParsed(wxCmdLineParser& parser)
     parser.Found(wxT("h"), &humanPlayers);
 
     stringstream playerStream;
-    playerStream << "{NOT YET IMPLEMENTED. LOCAL: " << localPlayers << "  HUMAN: " << humanPlayers << " }";
+    playerStream << LocalHumanStringFormatter::GetInfoStr(localPlayers, humanPlayers);
     string playerStr = playerStream.str();
 
     playerInfoMsg = Utility::StringToWxString(playerStr);
