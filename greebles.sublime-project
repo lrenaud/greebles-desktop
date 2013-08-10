@@ -39,12 +39,22 @@
 
 				{
 					"name": "Linux - Debug Custom",
-					"cmd": ["./custom"],
+					"cmd": ["./custom", "-l1", "-h1"],
 					"working_dir": "${project_path}/bin/linux/Debug/"
 				},
 				{
 					"name": "Linux - Run Custom",
-					"cmd": ["./custom"],
+					"cmd": ["./custom", "-l1", "-h1"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
+					"name": "Linux - Debug Custom Network",
+					"cmd": ["./custom", "-l1", "-h1", "-n"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+				{
+					"name": "Linux - Run Custom Network",
+					"cmd": ["./custom", "-l1", "-h1", "-n"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
 

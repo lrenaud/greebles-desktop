@@ -22,7 +22,7 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     wxBoxSizer* topSizer;
     topSizer = new wxBoxSizer( wxVERTICAL );
     
-    playerCountLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("There is 1 local player (all human)"), wxDefaultPosition, wxDefaultSize, 0 );
+    playerCountLabel = new wxStaticText( masterPanel, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0 );
     playerCountLabel->Wrap( -1 );
     topSizer->Add( playerCountLabel, 0, wxALIGN_CENTER_VERTICAL|wxALL, 8 );
     
@@ -110,4 +110,19 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
 CustomFrame::~CustomFrame()
 {
 
+}
+
+void CustomFrame::HandleGameType(bool isNetworkGame)
+{
+    if (isNetworkGame)
+        return;
+
+    // If it's not a network game, disable the network related components
+    advertiseCheckBox->Disable();
+    advertiseNameValue->Disable();
+}
+
+void CustomFrame::UpdatePlayerInfoMsg(wxString playerInfoMsg)
+{
+    playerCountLabel->SetLabel(playerInfoMsg);
 }

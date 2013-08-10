@@ -46,6 +46,9 @@ public:
     CustomFrame(const CustomFrame& other)=delete;
     CustomFrame& operator=(const CustomFrame& rhs)=delete;
 
+    void HandleGameType(bool isNetworkGame);
+    void UpdatePlayerInfoMsg(wxString playerInfoMsg);
+
 };
 
 #endif
