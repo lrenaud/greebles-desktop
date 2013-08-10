@@ -63,17 +63,6 @@ enum
 
 class SetupFrame : public wxFrame
 {
-private:
-
-	static const int FRAME_WIDTH				= 400;
-	static const int FRAME_HEIGHT				= 600;
-
-	static const int PADDING					= 10;
-
-	static const int PLAYER_CONFIG_BOX_SIZE		= 180;
-
-	static const int MAX_NAME_LENGTH			= 10;
-
 protected:
 
 	/**
