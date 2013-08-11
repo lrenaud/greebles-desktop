@@ -2,11 +2,12 @@
 DROP TABLE IF EXISTS `generalsettings`;
 DROP TABLE IF EXISTS `difficulty`; 
  
-CREATE TABLE `generalsettings`(`id` INTEGER PRIMARY KEY,
+CREATE TABLE `generalsettings`(`id` INTEGER,
  							   `difficultyid` INTEGER NOT NULL,
 							   `sound` INTEGER NOT NULL,
 							   `music` INTEGER NOT NULL,
-							   FOREIGN KEY(`difficultyid`) REFERENCES `difficulty`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT);
+							   FOREIGN KEY(`difficultyid`) REFERENCES `difficulty`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+							   PRIMARY KEY(`id`, `difficultyid`));
 
 CREATE TABLE `difficulty`(`id` INTEGER PRIMARY KEY,
 						  `difficulty` TEXT NOT NULL);
@@ -28,13 +29,14 @@ DROP TABLE IF EXISTS `player`;
 DROP TABLE IF EXISTS `playertype`;
 DROP TABLE IF EXISTS `controlset`;
 
-CREATE TABLE `player`(`id` INTEGER PRIMARY KEY,
+CREATE TABLE `player`(`id` INTEGER,
 					  `playertypeid` INTEGER NOT NULL,
 					  `controlsetid` INTEGER NOT NULL,
 					  `enabled` INTEGER NOT NULL,
 					  `name` TEXT NOT NULL,
 					  FOREIGN KEY(`playertypeid`) REFERENCES `playertype`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-					  FOREIGN KEY(`controlsetid`) REFERENCES `controlset`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT);
+					  FOREIGN KEY(`controlsetid`) REFERENCES `controlset`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+					  PRIMARY KEY(`id`, `playertypeid`, `controlsetid`));
 
 CREATE TABLE `playertype`(`id` INTEGER PRIMARY KEY,
 						  `typename` TEXT NOT NULL);
@@ -58,13 +60,15 @@ CREATE TABLE `score`(`id` INTEGER PRIMARY KEY AUTOINCREMENT,
 					 `level` INTEGER NOT NULL,
 					 `points` INTEGER NOT NULL);
 
-CREATE TABLE `highscore`(`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE `highscore`(`id` INTEGER,
 						 `scoreid` INTEGER,
-						 FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE CASCADE ON UPDATE CASCADE);
+						 FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+						 PRIMARY KEY(`id`, `scoreid`));
 
-CREATE TABLE `recentscore`(`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE `recentscore`(`id` INTEGER,
 						   `scoreid` INTEGER,
-						   FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE CASCADE ON UPDATE CASCADE);
+						   FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+						   PRIMARY KEY(`id`, `scoreid`));
 
 
 -- Menu System/Directions Tables

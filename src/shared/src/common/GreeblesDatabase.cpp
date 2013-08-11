@@ -9,6 +9,9 @@ using namespace SOAR;
 
 GreeblesDatabase::GreeblesDatabase():Database("greebles.db", SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE)
 {
+    // Enable Foreign Keys
+    Query("PRAGMA foreign_keys=ON;");
+
     if (QueryData("SELECT COUNT(*) FROM sqlite_master WHERE type='table';") && 
         NextRow() &&
         GetInt(0) == TABLE_COUNT + 1) // Add one for sqlite_sequence table.

@@ -3,6 +3,12 @@
 
 #include "wx/wx.h"
 
+enum
+{
+    myID_CANCEL,
+    myID_ZAP
+};
+
 class ZapFrame : public wxFrame
 {
 protected:
@@ -24,6 +30,9 @@ public:
     // No copying allowed
     ZapFrame(const ZapFrame& other)=delete;
     ZapFrame& operator=(const ZapFrame& rhs)=delete;
+
+    void OnCancel(wxCommandEvent& event);
+    void OnZap(wxCommandEvent& event);
 
 };
 

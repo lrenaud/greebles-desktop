@@ -64,15 +64,15 @@ set(SOAR_INC_PATH_BASE /home/drautb/Dropbox/GitHub/SOAR/src/soar/inc)
 set(SOAR_LIB_PATH_BASE /home/drautb/Dropbox/GitHub/SOAR/lib)
 
 set(SOAR_INC_PATH 
-	${SOAR_INC_PATH_BASE}/${COMMON_DIR}
-	${SOAR_INC_PATH_BASE}/${CFG_PLATFORM})
+    ${SOAR_INC_PATH_BASE}/${COMMON_DIR}
+    ${SOAR_INC_PATH_BASE}/${CFG_PLATFORM})
 
 include_directories("${SOAR_INC_PATH}")
 
 add_library(SOAR STATIC IMPORTED)
 
 set_property(TARGET SOAR PROPERTY
-			 IMPORTED_LOCATION ${SOAR_LIB_PATH_BASE}/${CFG_PLATFORM}/${CMAKE_BUILD_TYPE}/libSOAR.a)
+             IMPORTED_LOCATION ${SOAR_LIB_PATH_BASE}/${CFG_PLATFORM}/${CMAKE_BUILD_TYPE}/libSOAR.a)
 
 ##########################################################
 # Greebles Include Directories
@@ -102,16 +102,18 @@ include_directories("${ERROR_PATH_TO_INC}/${CFG_PLATFORM}")
 # Shared Source Files
 ###########################################################
 set(SHARED_COMMON_SRCS
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GeneralSettings.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GreeblesDatabase.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/StaticLookup.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp
-	${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Utility.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/LocalHumanStringFormatter.cpp)
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GeneralSettings.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GreeblesDatabase.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/StaticLookup.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Utility.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/LocalHumanStringFormatter.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Score.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ScoreHistory.cpp)
 
 set(SHARED_WINDOWS_SRCS )
 
@@ -134,9 +136,9 @@ set(GAME_LINUX_SRCS )
 # Setup Source Files
 ###########################################################
 set(SETUP_COMMON_SRCS 
-	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
-	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupApp.cpp
-	${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupApp.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxNoLabelCheckBox.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxFocusableStaticText.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/NewKeyDialog.cpp
@@ -240,9 +242,9 @@ add_definitions("-std=c++11")           # Use the 2011 C++ Standard
 
 add_executable(setup ${SETUP_SRCS})
 target_link_libraries(setup 
-					  SOAR 
-					  ${SQLITE3_LIBRARY} 
-					  ${wxWidgets_LIBRARIES})
+                      SOAR 
+                      ${SQLITE3_LIBRARY} 
+                      ${wxWidgets_LIBRARIES})
 
 add_executable(custom ${CUSTOM_SRCS})
 target_link_libraries(custom 

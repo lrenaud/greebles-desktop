@@ -3,6 +3,7 @@
 
 #include "ZapFrame.h"
 #include "StopIcon.h"
+#include "ScoreHistory.h"
 
 ZapFrame::ZapFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
        : wxFrame(NULL, -1, title, pos, size, style)
@@ -38,10 +39,10 @@ ZapFrame::ZapFrame(const wxString& title, const wxPoint& pos, const wxSize& size
     wxBoxSizer* buttonSizer;
     buttonSizer = new wxBoxSizer( wxHORIZONTAL );
     
-    cancelButton = new wxButton( masterPanel, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+    cancelButton = new wxButton( masterPanel, myID_CANCEL, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
     buttonSizer->Add( cancelButton, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL, 5 );
     
-    zapButton = new wxButton( masterPanel, wxID_ANY, wxT("Zap"), wxDefaultPosition, wxDefaultSize, 0 );
+    zapButton = new wxButton( masterPanel, myID_ZAP, wxT("Zap"), wxDefaultPosition, wxDefaultSize, 0 );
     zapButton->SetDefault(); 
     buttonSizer->Add( zapButton, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT|wxALL, 5 );
     
@@ -63,9 +64,28 @@ ZapFrame::ZapFrame(const wxString& title, const wxPoint& pos, const wxSize& size
     masterSizer->Fit( this );
     
     this->Centre( wxBOTH );
+
+    /**
+     * END GENERATED CODE
+     */
+
+    // Connect Event Listeners
+    Connect(myID_CANCEL, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(ZapFrame::OnCancel));
+    Connect(myID_ZAP, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(ZapFrame::OnZap));
 }
 
 ZapFrame::~ZapFrame()
 {
 
+}
+
+void ZapFrame::OnCancel(wxCommandEvent& WXUNUSED(event))
+{
+    Close(true);
+}
+
+void ZapFrame::OnZap(wxCommandEvent& WXUNUSED(event))
+{
+    ScoreHistory::GetInstance().ZapHighScores();
+    Close(true);
 }
