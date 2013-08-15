@@ -65,10 +65,10 @@ CREATE TABLE `highscore`(`id` INTEGER,
 						 FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 						 PRIMARY KEY(`id`, `scoreid`));
 
-CREATE TABLE `recentscore`(`id` INTEGER,
-						   `scoreid` INTEGER,
-						   FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-						   PRIMARY KEY(`id`, `scoreid`));
+CREATE TABLE `lastscore`(`id` INTEGER,
+						 `scoreid` INTEGER,
+						 FOREIGN KEY(`scoreid`) REFERENCES `score`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+						 PRIMARY KEY(`id`, `scoreid`));
 
 
 -- Menu System/Directions Tables

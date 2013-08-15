@@ -10,6 +10,13 @@ using namespace std;
 
 class PlayerSettings
 {
+public:
+
+    /**
+     * Constant to limit name length
+     */
+    static const int    MAX_NAME_LENGTH     = 10;
+    
 private:
 
     enum DBColumnIndex

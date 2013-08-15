@@ -21,7 +21,6 @@
 #include "PlayerImages.h"
 #include "Utility.h"
 #include "wxPlayerDropTarget.h"
-#include "Constants.h"
 
 using namespace SOAR;
 using namespace Math;
@@ -42,7 +41,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
      *                 generated code. They're outlined below:
      *                 - Replace all player enabled checkboxes with wxNoLabelCheckBox
      *                 - Replace all wxNullBitmap with wxMEMORY_BITMAP(player_n)
-     *                 - Make sure all player name fields have a max length of Constants::MAX_NAME_LENGTH
+     *                 - Make sure all player name fields have a max length of PlayerSettings::MAX_NAME_LENGTH
      */
 
     this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -88,7 +87,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p1NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p1Name = new wxTextCtrl( p1Panel, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p1Name->SetMaxLength(Constants::MAX_NAME_LENGTH); 
+    p1Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p1NameVBox->Add( p1Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -208,7 +207,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p2NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p2Name = new wxTextCtrl( p2Panel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p2Name->SetMaxLength(Constants::MAX_NAME_LENGTH); 
+    p2Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -328,7 +327,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p3NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p3Name = new wxTextCtrl( p3Panel, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p3Name->SetMaxLength(Constants::MAX_NAME_LENGTH); 
+    p3Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p3NameVBox->Add( p3Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -448,7 +447,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p4NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p4Name = new wxTextCtrl( p4Panel, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p4Name->SetMaxLength(Constants::MAX_NAME_LENGTH); 
+    p4Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p4NameVBox->Add( p4Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
