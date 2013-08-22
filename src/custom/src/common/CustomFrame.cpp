@@ -1,5 +1,6 @@
 #include "wx/wx.h"
 #include "wx/button.h"
+#include "wx/valtext.h"
 
 #include "CustomFrame.h"
 
@@ -49,7 +50,7 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     startLevelSizer = new wxBoxSizer( wxHORIZONTAL );
     
     startLevelValue = new wxTextCtrl( masterPanel, myID_START_LEVEL, wxT("2"), wxDefaultPosition, wxDefaultSize, 0 );
-    startLevelValue->SetMaxLength( 0 ); 
+    startLevelValue->SetMaxLength( 2 ); 
     startLevelSizer->Add( startLevelValue, 0, wxALL, 5 );
     
     startLevelLimitLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("(1-70)"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -66,7 +67,7 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     timeLimitSizer = new wxBoxSizer( wxHORIZONTAL );
     
     timeLimitValue = new wxTextCtrl( masterPanel, myID_TIME_LIMIT_VALUE, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    timeLimitValue->SetMaxLength( 0 ); 
+    timeLimitValue->SetMaxLength( 3 ); 
     timeLimitSizer->Add( timeLimitValue, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     minutesLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("(minutes)"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -83,7 +84,7 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     remainingPlayersSizer = new wxBoxSizer( wxHORIZONTAL );
     
     remainingPlayersValue = new wxTextCtrl( masterPanel, myID_REMAINING_PLAYERS, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    remainingPlayersValue->SetMaxLength( 0 ); 
+    remainingPlayersValue->SetMaxLength( 2 ); 
     remainingPlayersSizer->Add( remainingPlayersValue, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     remainingPlayersLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("human players remain."), wxDefaultPosition, wxDefaultSize, 0 );
@@ -125,6 +126,38 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     this->SetSizer( masterSizer );
     this->Layout();
     masterSizer->Fit( this );
+
+    /**
+     * END GENERATED CODE
+     */
+    
+    // Wire up the validator
+    numericOnlyValidator = new wxTextValidator(wxFILTER_EXCLUDE_CHAR_LIST|wxFILTER_NUMERIC, nullptr);
+    wxArrayString excludedChars;
+    excludedChars.Add(wxT("e"));
+    excludedChars.Add(wxT("-"));
+    numericOnlyValidator->SetExcludes(excludedChars);
+
+    startLevelValue->SetValidator(*numericOnlyValidator);
+    timeLimitValue->SetValidator(*numericOnlyValidator);
+    remainingPlayersValue->SetValidator(*numericOnlyValidator);
+
+    // Connect all the event handlers to their components
+    Connect(myID_UNLIMITED_LIVES, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(CustomFrame::OnUnlimitedLivesChange));
+    Connect(myID_START_LEVEL, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(CustomFrame::OnStartLevelChange));
+
+    Connect(myID_TIME_LIMIT_ENABLED, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(CustomFrame::OnTimeLimitEnabledChange));
+    Connect(myID_TIME_LIMIT_VALUE, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(CustomFrame::OnTimeLimitValueChange));
+
+    Connect(myID_LEVEL_ENDS, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(CustomFrame::OnLevelEndsChange));
+    Connect(myID_REMAINING_PLAYERS, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(CustomFrame::OnRemainingPlayersChange));
+
+    Connect(myID_ADVERTISE_ENABLED, wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler(CustomFrame::OnAdvertiseEnabledChange));
+    Connect(myID_ADVERTISE_NAME, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(CustomFrame::OnAdvertiseNameChange));
+
+    Connect(myID_CANCEL, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CustomFrame::OnCancel));
+    Connect(myID_START, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CustomFrame::OnStart));
+
 }
 
 CustomFrame::~CustomFrame()
@@ -146,3 +179,60 @@ void CustomFrame::UpdatePlayerInfoMsg(wxString playerInfoMsg)
 {
     playerCountLabel->SetLabel(playerInfoMsg);
 }
+
+/**
+ * BEGIN EVENT HANDLERS
+ */
+void CustomFrame::OnUnlimitedLivesChange(wxCommandEvent& event)
+{
+    // Set the enabled/disabled status of the start level value to match the checkbox
+
+}
+
+void CustomFrame::OnStartLevelChange(wxCommandEvent& event)
+{
+    // Make sure the value is 1-70
+}
+
+void CustomFrame::OnTimeLimitEnabledChange(wxCommandEvent& event)
+{
+    // Enable/Disable the limit value
+}
+
+void CustomFrame::OnTimeLimitValueChange(wxCommandEvent& event)
+{
+    // ?
+}
+
+void CustomFrame::OnLevelEndsChange(wxCommandEvent& event)
+{
+    // Enable/Disable the remaining player value
+}
+
+void CustomFrame::OnRemainingPlayersChange(wxCommandEvent& event)
+{
+    // ?
+}
+
+void CustomFrame::OnAdvertiseEnabledChange(wxCommandEvent& event)
+{
+    // Enable/Disable the advertise value
+}
+
+void CustomFrame::OnAdvertiseNameChange(wxCommandEvent& event)
+{
+    // ?
+}
+
+void CustomFrame::OnCancel(wxCommandEvent& event)
+{
+    Close(true);
+}
+
+void CustomFrame::OnStart(wxCommandEvent& event)
+{
+    // Save things to the database
+
+    Close(true);
+}
+

@@ -18,7 +18,7 @@ enum
 
     myID_ADVERTISE_ENABLED,
     myID_ADVERTISE_NAME,
-    
+
     myID_CANCEL,
     myID_START
 };
@@ -54,6 +54,11 @@ protected:
     wxButton* cancelButton;
     wxButton* startButton;
 
+    /**
+     * Additional Components
+     */
+    wxTextValidator* numericOnlyValidator;
+
 public:
 
     CustomFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
@@ -65,6 +70,22 @@ public:
 
     void HandleGameType(bool isNetworkGame);
     void UpdatePlayerInfoMsg(wxString playerInfoMsg);
+
+    // Event Handlers
+    void OnUnlimitedLivesChange(wxCommandEvent& event);
+    void OnStartLevelChange(wxCommandEvent& event);
+
+    void OnTimeLimitEnabledChange(wxCommandEvent& event);
+    void OnTimeLimitValueChange(wxCommandEvent& event);
+
+    void OnLevelEndsChange(wxCommandEvent& event);
+    void OnRemainingPlayersChange(wxCommandEvent& event);
+
+    void OnAdvertiseEnabledChange(wxCommandEvent& event);
+    void OnAdvertiseNameChange(wxCommandEvent& event);
+    
+    void OnCancel(wxCommandEvent& event);
+    void OnStart(wxCommandEvent& event);
 
 };
 
