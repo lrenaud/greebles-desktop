@@ -5,6 +5,8 @@ Version 1.0 © 1997 Peter N Lewis and Stairways Shareware
 
 Greebles is an action packed game of skill involving Bulldozers, Cockroaches and Fish.  With one hundred unique levels to explore, it will keep a single player busy, and when you add multi-player play (up to four people on a single computer, and up to nine computers playing over a network) the possibilities expand enormously.
 
+[toc]
+
 ### Features
 
 * One hundred unique levels to explore with unlimited progression.
@@ -21,33 +23,6 @@ Greebles is an action packed game of skill involving Bulldozers, Cockroaches and
 ### Requirements
 
 Greebles requires System 7.0 or later, a 68040 or PowerPC, 256 colours, 640 by 480 screen, 3Meg of RAM.  Networking requires Open Transport 1.1 and a TCP/IP network (modem not recommended).
-
-## Contents
-
-* How to Get Started 
-* The Full Explanation 
-* Setting Controls 
-* About Blocks 
-* Squishing Greebles 
-* Specials 
-* A Special Note on Greeble Generators 
-* Play Modes 
-* Know Thine Enemy: Greebles 
-* Know Thine Enemy: AIs 
-* Know Thine Enemy: You and Other Players 
-* Level Progression 
-* Network Play 
-* Server Options 
-* A Good Network Game 
-* The Greeble Tracker 
-* Registering Greebles 
-* Registration Gets You... 
-* How To Register 
-* On-Line Registration 
-* Off-Line Registration 
-* Warranty 
-* Fine Print 
-* Acknowledgements 
 
 ### How to Get Started
 
@@ -145,7 +120,7 @@ Miscellaneous
 
 
 
-Players Specials
+#### Players Specials
 
 Player Specials affect the way the Player behaves or gives them special abilities.  Player Specials last for ten seconds.  Getting a second Special of a type a Player already has resets the duration of that special to 10 seconds, but does not increase its effectiveness.
 
@@ -153,35 +128,35 @@ When a Player gains a Special the name of the Special shows up in the top left h
 
 Specials can dramatically change how a Player behaves, so it is important to keep track of who has what!
 
-Bonus - gives you points, good for a high score but not much else (and you'll lose your score if you die on the level, so don't worry about these guys too much).
-Shield - gives you Super Strength, blocks bounce off you and Greebles can't hurt you.  Useful for sculpting the maze. 
-Speed - gives you Super Speed, letting you outrun (most) Greebles and blocks.  Use this to race around killing Greebles and grabbing Specials.  But after a short time you'll feel like molasses! 
-Freeze - If everyone else is moving too fast for you, grab one of these.  For ten seconds you get to kill all the Greebles: they are frozen where they stand.  Grabbing another one before this one runs out is a good idea, too!  Other Players are slowed, but not stopped by this special.
-Fireball - Now is the time to get even!  Throw exploding fireballs in all directions.  Be careful or you'll kill yourself faster than you can say ÒDie Scum!Ó.
-Death Touch - Our turn to do some wiping out!  Whoosh with our heat ray!  And them running and dying, beaten at their own game.  This one is fun!  Kill 'em all, kill 'em fast!  Players will die if they come in contact with someone with a Death Touch unless they have Shields or Death Touch.
+* **Bonus** - gives you points, good for a high score but not much else (and you'll lose your score if you die on the level, so don't worry about these guys too much).
+* **Shield** - gives you Super Strength, blocks bounce off you and Greebles can't hurt you.  Useful for sculpting the maze. 
+* **Speed** - gives you Super Speed, letting you outrun (most) Greebles and blocks.  Use this to race around killing Greebles and grabbing Specials.  But after a short time you'll feel like molasses! 
+* **Freeze** - If everyone else is moving too fast for you, grab one of these.  For ten seconds you get to kill all the Greebles: they are frozen where they stand.  Grabbing another one before this one runs out is a good idea, too!  Other Players are slowed, but not stopped by this special.
+* **Fireball** - Now is the time to get even!  Throw exploding fireballs in all directions.  Be careful or you'll kill yourself faster than you can say *Die Scum!*.
+* **Death Touch** - Our turn to do some wiping out!  Whoosh with our heat ray!  And them running and dying, beaten at their own game.  This one is fun!  Kill 'em all, kill 'em fast!  Players will die if they come in contact with someone with a Death Touch unless they have Shields or Death Touch.
 
 
-Special Blocks
+#### Special Blocks
 
 Special Blocks behave differently from normal blocks.
 
-Unbreakable - Don't bother trying to crush these guys-- your puny strength is no match for their reinforced structure.  At least you can throw them around.
-Unmovable - These are nailed down.  Don't bother trying to push them.  And if you figure you can just crush them - think again!  They are here to stay.  Only natural decay can remove them.
-Line-Up - Those cute little Stairways icons can come in mighty handy; if you can get enough of them together in one place they'll break open and give you some goodies.  Lines of three or more give you points, and they transmute into Specials.  Don't crush them- you'll slow down like you were Frozen.
-Grenade - These guys don't bounce like regular blocks, but they do explode.  Great for trick shots like Òround the cornerÓ and Òthrough the blockÓ.
-Bounce Grenade - Like grenades, but harder to use.  They are a bit tougher and bounce a few times before exploding.  Still, with some careful timing (or lots of luck)É
-Bounce - Painful, that's what they are.  Bricks that bounce off these guys don't slow down at all.  And if there is one on each side, well, can you say Òkilling zoneÓ?  Be careful!
+* **Unbreakable** - Don't bother trying to crush these guys-- your puny strength is no match for their reinforced structure.  At least you can throw them around.
+* **Unmovable** - These are nailed down.  Don't bother trying to push them.  And if you figure you can just crush them - think again!  They are here to stay.  Only natural decay can remove them.
+* **Line-Up** - Those cute little Stairways icons can come in mighty handy; if you can get enough of them together in one place they'll break open and give you some goodies.  Lines of three or more give you points, and they transmute into Specials.  Don't crush them- you'll slow down like you were Frozen.
+* **Grenade** - These guys don't bounce like regular blocks, but they do explode.  Great for trick shots like *round the corner* and *through the block*.
+* **Bounce Grenade** - Like grenades, but harder to use.  They are a bit tougher and bounce a few times before exploding.  Still, with some careful timing (or lots of luck)É
+* **Bounce** - Painful, that's what they are.  Bricks that bounce off these guys don't slow down at all.  And if there is one on each side, well, can you say *killing zone*?  Be careful!
 
 
-Miscellaneous
+#### Miscellaneous
 
-Greeble Generator - These periodically produce a new Greebles.  Usually you can just crush them, but later on you have to surround them with blocks (tricky!).  Watch and listen for the warnings!
-Timed Release - This one turns into a random special.  Just hope it doesn't turn into a Greeble Generator!  Keep an eye on these and hope for the best.
-Skip Levels - If it's all too easy, crush one of these and you'll skip forward five levels (assuming you manage to finish the one you're on, of course!).
-Extra Life - Collect these!  You'll need lives to get past some of those tricky later levels.  Unless you're really good-- then you can spurn them and try to get through without losing a life.
+* **Greeble Generator** - These periodically produce a new Greebles.  Usually you can just crush them, but later on you have to surround them with blocks (tricky!).  Watch and listen for the warnings!
+* **Timed Release** - This one turns into a random special.  Just hope it doesn't turn into a Greeble Generator!  Keep an eye on these and hope for the best.
+* **Skip Levels** - If it's all too easy, crush one of these and you'll skip forward five levels (assuming you manage to finish the one you're on, of course!).
+* **Extra Life** - Collect these!  You'll need lives to get past some of those tricky later levels.  Unless you're really good-- then you can spurn them and try to get through without losing a life.
 
 
-#### A Special Note on Greeble Generators
+##### A Special Note on Greeble Generators
 
 Greeble Generators are so important they deserve their own special section.  Greeble Generators create Greebles, so it is important to kill them off quickly, otherwise the screen can be swamped with (ever decreasing in value) Greebles!  In the early stages when Greeble Generators first appear they can be crushed like any other block, but at later stages they become uncrushable and they must be destroyed by surrounding them: these are Hard Generators.
 
@@ -197,11 +172,11 @@ Surrounding Greeble Generators can be very tricky, but if there are enough block
 
 Greebles has three different Play modes: Easy, Normal and Suicidal.
 
-Easy: In easy mode the Player cannot be crushed by Blocks, but they can be killed by touching a Greeble.
+* **Easy:** In easy mode the Player cannot be crushed by Blocks, but they can be killed by touching a Greeble.
 
-Normal: Players can be crushed by Blocks or touching Greebles.  Blocks dissolve quietly and only bounce twice-- unless they bounce against a moving Player, a moving block or a Bounce Block.
+* **Normal:** Players can be crushed by Blocks or touching Greebles.  Blocks dissolve quietly and only bounce twice-- unless they bounce against a moving Player, a moving block or a Bounce Block.
 
-Suicidal: In suicidal mode as a block dissolves it turns into a Grenade, then detonates.  When a block bounces there is a 50% chance that it will not slow down (as if it had hit a bounce block).
+* **Suicidal:** In suicidal mode as a block dissolves it turns into a Grenade, then detonates.  When a block bounces there is a 50% chance that it will not slow down (as if it had hit a bounce block).
 
 
 ### Know Thine Enemy: Greebles
@@ -239,7 +214,7 @@ There are a total of 100 levels.  The game wraps when you finish the 100th level
 Using the Play Custom Game button, you can access any level between Level 1 and Level 70.  Level 70 and onwards can only be reached by completing previous levels.
 
 
-### Network Play
+## Network Play
 
 Greebles has excellent Network gaming support, and Network games are lots of fun.  Greebles uses a Server/Client model, which means that one machine acts as the Server which the other computers connect to.  When you start a Network Game you have the option of advertising your game on the Web at the Greebles Web Tracker.
 
@@ -261,13 +236,13 @@ The Difficulty Level the Server has configured on its Setup screen is effective 
 
 The Servers have several options when they start the Game.  They are:
 
-* Unlimited Lives: Players have unlimited lives.  Free Life tokens are replaced with extra (benevolent) specials.
+* **Unlimited Lives:** Players have unlimited lives.  Free Life tokens are replaced with extra (benevolent) specials.
 
-* Start game at level: Network Play can commence at any level between 1 and 70.  The game progresses as it does in single Player mode.
+* **Start game at level:** Network Play can commence at any level between 1 and 70.  The game progresses as it does in single Player mode.
 
-* Game time limit: A checkbox enables and disables this setting, which is a time (in minutes) that the game will run for before dropping into the Pause screen.  If the game is Resumed at this point the timer is reset and the game will drop into the Pause screen again after the predetermined time.  A Game time limit is a useful reminder to take a break and when you are playing Round Robin Competitions.
+* **Game time limit:** A checkbox enables and disables this setting, which is a time (in minutes) that the game will run for before dropping into the Pause screen.  If the game is Resumed at this point the timer is reset and the game will drop into the Pause screen again after the predetermined time.  A Game time limit is a useful reminder to take a break and when you are playing Round Robin Competitions.
 
-* Level ends when: A checkbox enables and disables this setting, which lets the server set how many human Players must be alive for the level to continue.  This is useful when playing with (for instance) four or five Players, because it allows the level to restart when only one or two Players remain alive (that way not too many people are left waiting for the level to end).
+* **Level ends when:** A checkbox enables and disables this setting, which lets the server set how many human Players must be alive for the level to continue.  This is useful when playing with (for instance) four or five Players, because it allows the level to restart when only one or two Players remain alive (that way not too many people are left waiting for the level to end).
 
 ### A Good Network Game
 
@@ -304,7 +279,7 @@ Use a code name when you have pre-arranged a server: then people will know the g
 
 The Greebles Server sends an update at the end of every level.  Games drop off the Tracker's list of current games if the Tracker has not received an update in the last ten minutes.
 
-### Registering Greebles
+## Registering Greebles
 
 If you enjoy Greebles, please Register the game.  We have worked hard to make an enjoyable game and make it available for around the price of a movie.  Greebles is Shareware, so we encourage you to play the game and decide whether you like it, but it is also Commercial software and we expect you to pay for the software.
 
@@ -334,8 +309,7 @@ You can pay in one of two ways: on-line registration using a web browser, or off
 
 To enter the Registration code, open Greebles and click on the Register button.  This will open the Register window, where you can enter your name and the Registration number.  Thanks for Registering!
 
-### 
-On-Line Registration
+### On-Line Registration
 
 Our online registration can be found at:
 
@@ -377,24 +351,20 @@ You may distribute this program any way other than on physical media as long as 
 
 You MAY NOT DISTRIBUTE this program on any disk or CD without our explicit permission.  (Please E-Mail us.)
 
-
-### Warranty
+## Warranty
 
 This program should do what is described in this document.  If it doesn't, you can simply stop using it.  If you paid for the product, and within a year find that it doesn't do what has been described here, then you can notify Stairways Shareware and your money will be refunded and your license cancelled.
 
-
-### Fine Print
+## Fine Print
 
 Peter Lewis and Stairways Software hereby disclaim all warranties relating to this software, whether express or implied, including without limitation any implied warranties of merchantability or fitness for a particular purpose.  Peter Lewis and Stairways Software will not be liable for any special, incidental, consequential, indirect or similar damages due to loss of data or any other reason, even if Peter Lewis, Stairways Software or an agent of these parties has been advised of the possibility of such damages.  In no event shall Peter Lewis or Stairways Software be liable for any damages, regardless of the form of the claim.  The person using the software bears all risk as to the quality and performance of the software.
-
 
 US Government
         Government End Users:  If you are acquiring the Software and fonts on behalf of any unit or agency of the United States Government, the following provisions apply.  The Government agrees:
         (i) if the Software and fonts are supplied to the Department of Defence (DoD), the Software and fonts are classified as "Commercial Computer Software" and the Government is acquiring only "restricted rights" in the Software, its documentation and fonts as that term is defined in Clause 252.227-7013(c)(1) of the DFARS; and
         (ii) if the Software and fonts are supplied to any unit or agency of the United States Government other than DoD, the Government's rights in the Software, its documentation and fonts will be as defined in Clause 52.227-19(c)(2) of the FAR or, in the case of NASA, in Clause 18-52.227-86(d) of the NASA Supplement to the FAR.
 
-
-Acknowledgements
+## Acknowledgements
 
 Many people helped to shape Greebles.  We'd like to thank our beta testers, Igor Livshits, Kevin Jaques, Rick Holzgrafe (and his two sons, Christopher and Nathaniel), Andrew Treloar, Grant Bayley, Insane Mom, Jamie McCarthy, Rick VanDerveer, Tony Reed, and Onno Benschop and others.  We'd like to particularly thank Angus McIntyre, Chris Pepper, Michael Artz and Ian Chai who went well above what is expected of a beta tester and provided between them several hundred suggestions.
 
