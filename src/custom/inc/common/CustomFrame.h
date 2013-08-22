@@ -7,6 +7,20 @@ enum
 {
     myID_MASTER_PANEL=0,
 
+    myID_UNLIMITED_LIVES,
+    myID_START_LEVEL,
+
+    myID_TIME_LIMIT_ENABLED,
+    myID_TIME_LIMIT_VALUE,
+
+    myID_LEVEL_ENDS,
+    myID_REMAINING_PLAYERS,
+
+    myID_ADVERTISE_ENABLED,
+    myID_ADVERTISE_NAME,
+    
+    myID_CANCEL,
+    myID_START
 };
 
 class CustomFrame : public wxFrame

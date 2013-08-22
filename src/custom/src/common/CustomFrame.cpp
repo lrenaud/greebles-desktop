@@ -29,7 +29,7 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     playerCountLabel->Wrap( -1 );
     topSizer->Add( playerCountLabel, 0, wxALIGN_CENTER_VERTICAL|wxALL, 8 );
     
-    unlimitedLivesCheckBox = new wxCheckBox( masterPanel, wxID_ANY, wxT("Unlimited Lives"), wxDefaultPosition, wxDefaultSize, 0 );
+    unlimitedLivesCheckBox = new wxCheckBox( masterPanel, myID_UNLIMITED_LIVES, wxT("Unlimited Lives"), wxDefaultPosition, wxDefaultSize, 0 );
     unlimitedLivesCheckBox->SetValue(true); 
     topSizer->Add( unlimitedLivesCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL|wxLEFT, 5 );
     
@@ -48,7 +48,7 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     wxBoxSizer* startLevelSizer;
     startLevelSizer = new wxBoxSizer( wxHORIZONTAL );
     
-    startLevelValue = new wxTextCtrl( masterPanel, wxID_ANY, wxT("2"), wxDefaultPosition, wxDefaultSize, 0 );
+    startLevelValue = new wxTextCtrl( masterPanel, myID_START_LEVEL, wxT("2"), wxDefaultPosition, wxDefaultSize, 0 );
     startLevelValue->SetMaxLength( 0 ); 
     startLevelSizer->Add( startLevelValue, 0, wxALL, 5 );
     
@@ -59,13 +59,13 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     flexGridSizer->Add( startLevelSizer, 0, 0, 0 );
     
-    timeLimitCheckBox = new wxCheckBox( masterPanel, wxID_ANY, wxT("Game time limit:"), wxDefaultPosition, wxDefaultSize, 0 );
+    timeLimitCheckBox = new wxCheckBox( masterPanel, myID_TIME_LIMIT_ENABLED, wxT("Game time limit:"), wxDefaultPosition, wxDefaultSize, 0 );
     flexGridSizer->Add( timeLimitCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxLEFT, 5 );
     
     wxBoxSizer* timeLimitSizer;
     timeLimitSizer = new wxBoxSizer( wxHORIZONTAL );
     
-    timeLimitValue = new wxTextCtrl( masterPanel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    timeLimitValue = new wxTextCtrl( masterPanel, myID_TIME_LIMIT_VALUE, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     timeLimitValue->SetMaxLength( 0 ); 
     timeLimitSizer->Add( timeLimitValue, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
@@ -76,13 +76,13 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     flexGridSizer->Add( timeLimitSizer, 0, 0, 5 );
     
-    levelEndsCheckBox = new wxCheckBox( masterPanel, wxID_ANY, wxT("Level ends when"), wxDefaultPosition, wxDefaultSize, 0 );
+    levelEndsCheckBox = new wxCheckBox( masterPanel, myID_LEVEL_ENDS, wxT("Level ends when"), wxDefaultPosition, wxDefaultSize, 0 );
     flexGridSizer->Add( levelEndsCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxLEFT, 5 );
     
     wxBoxSizer* remainingPlayersSizer;
     remainingPlayersSizer = new wxBoxSizer( wxHORIZONTAL );
     
-    remainingPlayersValue = new wxTextCtrl( masterPanel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    remainingPlayersValue = new wxTextCtrl( masterPanel, myID_REMAINING_PLAYERS, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     remainingPlayersValue->SetMaxLength( 0 ); 
     remainingPlayersSizer->Add( remainingPlayersValue, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
@@ -93,10 +93,10 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     flexGridSizer->Add( remainingPlayersSizer, 0, 0, 5 );
     
-    advertiseCheckBox = new wxCheckBox( masterPanel, wxID_ANY, wxT("Advertise game:"), wxDefaultPosition, wxDefaultSize, 0 );
+    advertiseCheckBox = new wxCheckBox( masterPanel, myID_ADVERTISE_ENABLED, wxT("Advertise game:"), wxDefaultPosition, wxDefaultSize, 0 );
     flexGridSizer->Add( advertiseCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxLEFT, 5 );
     
-    advertiseNameValue = new wxTextCtrl( masterPanel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    advertiseNameValue = new wxTextCtrl( masterPanel, myID_ADVERTISE_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     advertiseNameValue->SetMaxLength( 0 ); 
     flexGridSizer->Add( advertiseNameValue, 0, wxALIGN_CENTER_VERTICAL|wxALL|wxEXPAND, 5 );
     
@@ -106,10 +106,10 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     wxBoxSizer* buttonSizer;
     buttonSizer = new wxBoxSizer( wxHORIZONTAL );
     
-    cancelButton = new wxButton( masterPanel, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+    cancelButton = new wxButton( masterPanel, myID_CANCEL, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
     buttonSizer->Add( cancelButton, 0, wxALL, 5 );
     
-    startButton = new wxButton( masterPanel, wxID_ANY, wxT("Start"), wxDefaultPosition, wxDefaultSize, 0 );
+    startButton = new wxButton( masterPanel, myID_START, wxT("Start"), wxDefaultPosition, wxDefaultSize, 0 );
     buttonSizer->Add( startButton, 0, wxALL, 5 );
     
     
