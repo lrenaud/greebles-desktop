@@ -102,18 +102,18 @@ include_directories("${ERROR_PATH_TO_INC}/${CFG_PLATFORM}")
 # Shared Source Files
 ###########################################################
 set(SHARED_COMMON_SRCS
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/CustomSettings.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GeneralSettings.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GreeblesDatabase.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/StaticLookup.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Utility.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/LocalHumanStringFormatter.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerTypeLookup.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ScoreHistory.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/CustomSettings.cpp)
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/StaticLookup.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Utility.cpp)
 
 set(SHARED_WINDOWS_SRCS )
 
@@ -137,11 +137,11 @@ set(GAME_LINUX_SRCS )
 ###########################################################
 set(SETUP_COMMON_SRCS 
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/NewKeyDialog.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupApp.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp
-    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxNoLabelCheckBox.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxFocusableStaticText.cpp
-    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/NewKeyDialog.cpp
+    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxNoLabelCheckBox.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxPlayerDropTarget.cpp)
 
 set(SETUP_WINDOWS_SRCS )
@@ -154,9 +154,9 @@ set(SETUP_LINUX_SRCS )
 # Custom Source Files
 ###########################################################
 set(CUSTOM_COMMON_SRCS
-    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
     ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/CustomApp.cpp
-    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/CustomFrame.cpp)
+    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/CustomFrame.cpp
+    ${CUSTOM_PATH_TO_SRC}/${COMMON_DIR}/main.cpp)
 
 set(CUSTOM_WINDOWS_SRCS )
 
@@ -168,9 +168,9 @@ set(CUSTOM_LINUX_SRCS )
 # Join Source Files
 ###########################################################
 set(JOIN_COMMON_SRCS 
-    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
     ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/JoinApp.cpp
-    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/JoinFrame.cpp)
+    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/JoinFrame.cpp
+    ${JOIN_PATH_TO_SRC}/${COMMON_DIR}/main.cpp)
 
 set(JOIN_WINDOWS_SRCS )
 
@@ -196,9 +196,9 @@ set(ZAP_LINUX_SRCS )
 # Error Source Files
 ###########################################################
 set(ERROR_COMMON_SRCS
-    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
     ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/ErrorApp.cpp
-    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/ErrorFrame.cpp)
+    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/ErrorFrame.cpp
+    ${ERROR_PATH_TO_SRC}/${COMMON_DIR}/main.cpp)
 
 set(ERROR_WINDOWS_SRCS )
 
