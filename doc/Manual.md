@@ -5,8 +5,6 @@ Version 1.0 © 1997 Peter N Lewis and Stairways Shareware
 
 Greebles is an action packed game of skill involving Bulldozers, Cockroaches and Fish.  With one hundred unique levels to explore, it will keep a single player busy, and when you add multi-player play (up to four people on a single computer, and up to nine computers playing over a network) the possibilities expand enormously.
 
-[toc]
-
 ### Features
 
 * One hundred unique levels to explore with unlimited progression.
@@ -24,7 +22,34 @@ Greebles is an action packed game of skill involving Bulldozers, Cockroaches and
 
 Greebles requires System 7.0 or later, a 68040 or PowerPC, 256 colours, 640 by 480 screen, 3Meg of RAM.  Networking requires Open Transport 1.1 and a TCP/IP network (modem not recommended).
 
-### How to Get Started
+### Contents
+
+* [How to Get Started](#htgs)
+* [The Full Explanation](#tfe)
+ * [Setting Controls](#sc)
+ * [About Blocks](#ab)
+ * [Squishing Greebles](#sg)
+ * [Specials](#s)
+ * [A Special Note on Greeble Generators](#asnogg)
+ * [Play Modes](#pm)
+ * [Know Thine Enemy: Greebles](#kteg)
+ * [Know Thine Enemy: AIs](#kteai)
+ * [Know Thine Enemy: You and Other Players](#kteyaop)
+ * [Level Progression](#lp)
+* [Network Play](#np)
+ * [Server Options](#so)
+ * [A Good Network Game](#agng)
+ * [The Greeble Tracker](#tgt)
+* [Registering Greebles](#rg)
+ * [Registration Gets You...](#rgy)
+ * [How To Register](#htr)
+ * [On-Line Registration](#onlr)
+ * [Off-Line Registration](#offlr)
+ * [Warranty](#w)
+ * [Fine Print](#fp)
+* [Acknowledgements](#ack)
+
+### <a id="htgs"></a>How to Get Started
 
 The easiest way to lean Greebles is to play the game, but there are some things you can do to make your life easier when you are a beginner.  
 
@@ -43,11 +68,11 @@ Or, if this is all too passive and you want to get Squishing:
 
 Note that you can have up to four players playing on the same machine, even without networking, although it can get pretty crowded around the keyboard!  
 
-### The Full Explanation
+### <a id="tfe"></a>The Full Explanation
 
 In Greebles you navigate your Player around a maze of blocks.  You progress through the levels by killing all the Greebles and Greeble Generators on the level.  You score points by killing Greebles, getting Bonus specials, killing other Players and surviving the death of other Players (more on this later).  Players have a finite number of lives and they can die by touching a Greeble, being squished by a block or standing next to a Grenade as it goes off.
 
-### Setting Controls
+### <a id="sc"></a>Setting Controls
 
 Greebles' controls are straightforward.  There are five keys per Player: four direction keys and one Push key.  The direction keys indicate an absolute direction, meaning that the Up key always directs your character up the screen, no matter what direction it is currently facing.
 
@@ -66,7 +91,7 @@ The Escape key is also reserved.  If the Escape key is pressed during the game y
 The key combination Command-Q always quits the game.
 
 
-### About Blocks
+### <a id="ab"></a>About Blocks
 
 Blocks are your friends.  To attain true mastery of Greebles you must become one with the block and learn how to use the block as both offence and defence.  There are a variety of different kinds of blocks, but they can be broadly classified as Normal and Special blocks.  Specials can affect the way normal way blocks behave, change the way the character behaves or some other Special effect!
 
@@ -86,7 +111,7 @@ Players with the Speed Special can dodge any Block they can push (so long as the
 
 Blocks gradually dissolve over the course of the level.  The level ends when no blocks remain.  One block is always dissolving on the screen.  In Suicidal mode the blocks transmute into Grenades, then explode, randomly pushing blocks all over the screen.
 
-### Squishing Greebles
+### <a id="sg"></a>Squishing Greebles
 
 The most common way to gain points is to Squish Greebles.  Squishing a Greeble is a simple matter of lining a block up and pushing it into the Greeble.  The Greeble will be gathered up by the block as the block slides majestically toward some hard place, and then killed with a satisfying squish.
 
@@ -110,7 +135,7 @@ This is not the only factor which affects how many points you gain from crushing
 Finally, if you die before the level ends you lose all points gained on that level.  Points are only kept for Player lives which survive to the end of the level (which, on multiplayer games, may not mean you have to succesfully complete the level).
 
 
-### Specials
+### <a id="s"></a>Specials
 
 Players are often outnumbered and Specials can help balance the odds.  But there are a variety of Specials and they do not all help the Players.  They can be broadly classified as:
 
@@ -156,7 +181,7 @@ Special Blocks behave differently from normal blocks.
 * **Extra Life** - Collect these!  You'll need lives to get past some of those tricky later levels.  Unless you're really good-- then you can spurn them and try to get through without losing a life.
 
 
-##### A Special Note on Greeble Generators
+##### <a id="asnogg"></a>A Special Note on Greeble Generators
 
 Greeble Generators are so important they deserve their own special section.  Greeble Generators create Greebles, so it is important to kill them off quickly, otherwise the screen can be swamped with (ever decreasing in value) Greebles!  In the early stages when Greeble Generators first appear they can be crushed like any other block, but at later stages they become uncrushable and they must be destroyed by surrounding them: these are Hard Generators.
 
@@ -168,7 +193,7 @@ To surround a Greeble Generator put blocks (of any type) against all four faces 
 
 Surrounding Greeble Generators can be very tricky, but if there are enough blocks around you can always do it.   The blocks fade away over the course of the level - another reason to eliminate the Generators early.
 
-### Play Modes
+### <a id="pm"></a>Play Modes
 
 Greebles has three different Play modes: Easy, Normal and Suicidal.
 
@@ -179,7 +204,7 @@ Greebles has three different Play modes: Easy, Normal and Suicidal.
 * **Suicidal:** In suicidal mode as a block dissolves it turns into a Grenade, then detonates.  When a block bounces there is a 50% chance that it will not slow down (as if it had hit a bounce block).
 
 
-### Know Thine Enemy: Greebles
+### <a id="kteg"></a>Know Thine Enemy: Greebles
 
 Despite occasional bursts of apparently intelligent (and malicious!) behaviour the Greebles in Greebles are... dumb.  But that doesn't mean they aren't dangerous!  Greebles come in a variety of flavours, but they have the following characteristics:
 
@@ -190,7 +215,7 @@ Despite occasional bursts of apparently intelligent (and malicious!) behaviour t
 Greebles of given type should all have the same turning characteristics, although they may vary in how fast they move depending on what level they are on.  Greebles can Ôburst' into faster movement.   Once again this burst behaviour is dependent on the level.
 
 
-### Know Thine Enemy: AIs
+### <a id="kteai"></a>Know Thine Enemy: AIs
 
 The Artificial Intelligence Players can be far nastier opponents than the Greebles.  AIs come in two flavours: Friendly and Nasty.
 
@@ -201,20 +226,20 @@ Friendly AIs will not try to squish a Greeble if another Player (Human or AI) is
 Watch out for AIs shooting through walls with Grenades.  They know a couple of neat tricks... and they won't hesitate to use them.
 
 
-### Know Thine Enemy: You and Other Players
+### <a id="kteyaop"></a>Know Thine Enemy: You and Other Players
 
 Accidental suicide is a common problem in Greebles, although this problem is significantly reduced by playing in Easy mode.  Killing a Player is worth 1000 points.  But if a Player kills itself, their death is worth 2000 points to all the other Players still currently alive on that level.
 
 The game engine does not enforce cooperative or uncooperative behaviour, so Players will have to come to some agreement: Are you going for levels, or is this just a squishfest?  Are Human Players your most Dangerous Enemies, or...
 
-### Level Progression
+### <a id="lp"></a>Level Progression
 
 There are a total of 100 levels.  The game wraps when you finish the 100th level back to the 51st level, so the 100th level is repeated at levels 150, 200, 250, etc...  It will continue to loop for as long as you wish to play.
 
 Using the Play Custom Game button, you can access any level between Level 1 and Level 70.  Level 70 and onwards can only be reached by completing previous levels.
 
 
-## Network Play
+## <a id="np"></a>Network Play
 
 Greebles has excellent Network gaming support, and Network games are lots of fun.  Greebles uses a Server/Client model, which means that one machine acts as the Server which the other computers connect to.  When you start a Network Game you have the option of advertising your game on the Web at the Greebles Web Tracker.
 
@@ -230,7 +255,7 @@ Changes made in the Setup window are not available until the level restarts or t
 
 If the Server Kills the game, the game ends.
 
-### Server Options
+### <a id="so"></a>Server Options
 
 The Difficulty Level the Server has configured on its Setup screen is effective for the whole Network. 
 
@@ -244,7 +269,7 @@ The Servers have several options when they start the Game.  They are:
 
 * **Level ends when:** A checkbox enables and disables this setting, which lets the server set how many human Players must be alive for the level to continue.  This is useful when playing with (for instance) four or five Players, because it allows the level to restart when only one or two Players remain alive (that way not too many people are left waiting for the level to end).
 
-### A Good Network Game
+### <a id="agng"></a>A Good Network Game
 
 Network play is heaps of fun.  To help you have a better Network game, try the following:
 
@@ -260,7 +285,7 @@ Network play is heaps of fun.  To help you have a better Network game, try the f
 * The Server waits until everyone is happy and clicks Play
 * In the first couple of levels everyone should work out what keys are comfortable.  Players can change their keys by hitting the Escape key and then clicking on the Setup button.
 
-### The Greeble Tracker
+### <a id="tgt"></a>The Greeble Tracker
 
 To help organise Network Games we have set up a Greeble Tracker on the Web.  When you configure the Server you have the option of advertising your game on the net.  At the start of the Network game the Server sends information about the game to Greeble Tracker which can then advertise the game on the web, if you have asked for the game to be advertised.
 
@@ -279,7 +304,7 @@ Use a code name when you have pre-arranged a server: then people will know the g
 
 The Greebles Server sends an update at the end of every level.  Games drop off the Tracker's list of current games if the Tracker has not received an update in the last ten minutes.
 
-## Registering Greebles
+## <a id="rg"></a>Registering Greebles
 
 If you enjoy Greebles, please Register the game.  We have worked hard to make an enjoyable game and make it available for around the price of a movie.  Greebles is Shareware, so we encourage you to play the game and decide whether you like it, but it is also Commercial software and we expect you to pay for the software.
 
@@ -297,25 +322,25 @@ Registrations  Price ($US)     Cost ($US)
 
 Multipack Registrations provide you with multiple unique serial numbers.  (So a six pack of Registrations gives you six unique serial numbers.)
 
-### Registration Gets You...
+### <a id="rgy"></a>Registration Gets You...
 
 Registered versions of Greebles do not have the periodic Nag screens which pop up during play.  The frequency of Nag screens appearing during Network Play is directly proportional to the number of Registered machines connected to the game.
 
 When you have Registered you will also receive instructions on how to download files and manuals which let you create your own Greebles levels.  We also provide you with access to the Greebles mailing list, where you can converse with other Greebles enthusiasts, share maps and organise tournaments.  We also detail how to subscribe to our announcement and beta testing mailing lists, which will keep you up to date on all the software that Stairways is sending out.
 
-### How To Register
+### <a id="htr"></a>How To Register
 
 You can pay in one of two ways: on-line registration using a web browser, or off-line registration using the Register program.  As soon as Kagi Shareware has processed your registration they will send you an 18 digit registration code.  This registration code must be entered into Greebles.  Note that this code is keyed to your name, so make sure you enter the same name into Greebles that you used to Register.  (The name will be included in the Registration Acknowledgement from Kagi.)
 
 To enter the Registration code, open Greebles and click on the Register button.  This will open the Register window, where you can enter your name and the Registration number.  Thanks for Registering!
 
-### On-Line Registration
+### <a id="onlr"></a>On-Line Registration
 
 Our online registration can be found at:
 
 <http://order.kagi.com/cgi-bin/register1.cgi?PL>
 
-### Off-Line Registration
+### <a id="offlr"></a>Off-Line Registration
 
 Or, using the Register program, you need to:
 
@@ -351,11 +376,11 @@ You may distribute this program any way other than on physical media as long as 
 
 You MAY NOT DISTRIBUTE this program on any disk or CD without our explicit permission.  (Please E-Mail us.)
 
-## Warranty
+## <a id="w"></a>Warranty
 
 This program should do what is described in this document.  If it doesn't, you can simply stop using it.  If you paid for the product, and within a year find that it doesn't do what has been described here, then you can notify Stairways Shareware and your money will be refunded and your license cancelled.
 
-## Fine Print
+## <a id="fp"></a>Fine Print
 
 Peter Lewis and Stairways Software hereby disclaim all warranties relating to this software, whether express or implied, including without limitation any implied warranties of merchantability or fitness for a particular purpose.  Peter Lewis and Stairways Software will not be liable for any special, incidental, consequential, indirect or similar damages due to loss of data or any other reason, even if Peter Lewis, Stairways Software or an agent of these parties has been advised of the possibility of such damages.  In no event shall Peter Lewis or Stairways Software be liable for any damages, regardless of the form of the claim.  The person using the software bears all risk as to the quality and performance of the software.
 
@@ -364,7 +389,7 @@ US Government
         (i) if the Software and fonts are supplied to the Department of Defence (DoD), the Software and fonts are classified as "Commercial Computer Software" and the Government is acquiring only "restricted rights" in the Software, its documentation and fonts as that term is defined in Clause 252.227-7013(c)(1) of the DFARS; and
         (ii) if the Software and fonts are supplied to any unit or agency of the United States Government other than DoD, the Government's rights in the Software, its documentation and fonts will be as defined in Clause 52.227-19(c)(2) of the FAR or, in the case of NASA, in Clause 18-52.227-86(d) of the NASA Supplement to the FAR.
 
-## Acknowledgements
+## <a id="ack"></a>Acknowledgements
 
 Many people helped to shape Greebles.  We'd like to thank our beta testers, Igor Livshits, Kevin Jaques, Rick Holzgrafe (and his two sons, Christopher and Nathaniel), Andrew Treloar, Grant Bayley, Insane Mom, Jamie McCarthy, Rick VanDerveer, Tony Reed, and Onno Benschop and others.  We'd like to particularly thank Angus McIntyre, Chris Pepper, Michael Artz and Ian Chai who went well above what is expected of a beta tester and provided between them several hundred suggestions.
 
