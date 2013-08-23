@@ -200,12 +200,16 @@ void CustomFrame::UpdatePlayerInfoMsg(wxString playerInfoMsg)
  */
 void CustomFrame::OnUnlimitedLivesChange(wxCommandEvent& event)
 {
-
+    if (unlimitedLivesCheckBox->IsChecked())
+        CS.EnableUnlimitedLives();
+    else
+        CS.DisableUnlimitedLives();
 }
 
 void CustomFrame::OnStartLevelChange(wxCommandEvent& event)
 {
-
+    if (!startLevelValue->GetValue().IsEmpty())
+        CS.ChangeStartLevel(Utility::WxStringToInt(startLevelValue->GetValue()));
 }
 
 void CustomFrame::OnTimeLimitEnabledChange(wxCommandEvent& event)
@@ -218,7 +222,8 @@ void CustomFrame::OnTimeLimitEnabledChange(wxCommandEvent& event)
 
 void CustomFrame::OnTimeLimitValueChange(wxCommandEvent& event)
 {
-    
+    if (!timeLimitValue->GetValue().IsEmpty())
+        CS.SetTimeLimit(Utility::WxStringToInt(timeLimitValue->GetValue()));
 }
 
 void CustomFrame::OnLevelEndsChange(wxCommandEvent& event)
@@ -231,7 +236,8 @@ void CustomFrame::OnLevelEndsChange(wxCommandEvent& event)
 
 void CustomFrame::OnRemainingPlayersChange(wxCommandEvent& event)
 {
-    // ?
+    if (!remainingPlayersValue->GetValue().IsEmpty())
+        CS.SetRemainingPlayers(Utility::WxStringToInt(remainingPlayersValue->GetValue()));
 }
 
 void CustomFrame::OnAdvertiseEnabledChange(wxCommandEvent& event)
@@ -244,7 +250,7 @@ void CustomFrame::OnAdvertiseEnabledChange(wxCommandEvent& event)
 
 void CustomFrame::OnAdvertiseNameChange(wxCommandEvent& event)
 {
-    // ?
+    CS.SetAdvertiseName(string(advertiseNameValue->GetValue().mb_str()));
 }
 
 void CustomFrame::OnCancel(wxCommandEvent& event)
@@ -255,8 +261,6 @@ void CustomFrame::OnCancel(wxCommandEvent& event)
 void CustomFrame::OnStart(wxCommandEvent& event)
 {
     // Save things to the database
-
-
     if (!CS.Save())
         LOG_RECOVERABLE << "Custom Settings failed to save, changes lost.";
 
@@ -274,15 +278,27 @@ void CustomFrame::refresh()
     startLevelValue->SetValue(Utility::StringToWxString(ss.str().c_str()));
 
     timeLimitCheckBox->SetValue(CS.TimeLimit() > 0);
+    if (timeLimitCheckBox->IsChecked())
+        timeLimitValue->Enable();
+    else
+        timeLimitValue->Disable();
     ss.str("");
     ss << CS.TimeLimit();
     timeLimitValue->SetValue(Utility::StringToWxString(ss.str().c_str()));
 
     levelEndsCheckBox->SetValue(CS.RemainingPlayers() > 0);
+    if (levelEndsCheckBox->IsChecked())
+        remainingPlayersValue->Enable();
+    else
+        remainingPlayersValue->Disable();
     ss.str("");
     ss << CS.RemainingPlayers();
     remainingPlayersValue->SetValue(Utility::StringToWxString(ss.str().c_str()));
 
     advertiseCheckBox->SetValue(CS.AdvertiseName() != "");
+    if (advertiseCheckBox->IsChecked())
+        advertiseNameValue->Enable();
+    else
+        advertiseNameValue->Disable();
     advertiseNameValue->SetValue(Utility::StringToWxString(CS.AdvertiseName().c_str()));
 }

@@ -1,10 +1,14 @@
 #include <string>
 #include <sstream>
 
+#include <math/Clamp.h>
+
 #include "CustomSettings.h"
 #include "GreeblesDatabase.h"
 
 using namespace std;
+using namespace SOAR;
+using namespace Math;
 
 CustomSettings::CustomSettings()
 {
@@ -29,7 +33,7 @@ bool CustomSettings::Save()
     stringstream query;
     query << "UPDATE `customsettings` SET `unlimitedlives`=" << unlimitedLives 
           << ", `startlevel`=" << startLevel << ", `timelimit`=" << timeLimit 
-          << ", `playersremain`=" << playersRemaining << ", `advertise`=" << advertiseName << ";";
+          << ", `playersremain`=" << playersRemaining << ", `advertise`=\"" << advertiseName << "\";";
 
     if (!GreeblesDB->Query(query.str().c_str()))
         return false;
@@ -93,37 +97,25 @@ void CustomSettings::DisableUnlimitedLives()
     unlimitedLives = false;
 }
 
-bool CustomSettings::ChangeStartLevel(int newStartLevel)
+void CustomSettings::ChangeStartLevel(int newStartLevel)
 {
-    if (newStartLevel < MIN_START_LEVEL || newStartLevel > MAX_START_LEVEL)
-        return false;
-
     startLevel = newStartLevel;
-
-    return true;
+    Clamp::Int(startLevel, MIN_START_LEVEL, MAX_START_LEVEL);
 }
 
-bool CustomSettings::SetTimeLimit(int newTimeLimit)
+void CustomSettings::SetTimeLimit(int newTimeLimit)
 {
-    if (newTimeLimit < DISABLED_TIME_LIMIT || newTimeLimit > MAX_TIME_LIMIT)
-        return false;
-
     timeLimit = newTimeLimit;
-
-    return true;
+    Clamp::Int(timeLimit, DISABLED_TIME_LIMIT, MAX_TIME_LIMIT);
 }
 
-bool CustomSettings::SetRemainingPlayers(int newRemainingPlayers)
+void CustomSettings::SetRemainingPlayers(int newRemainingPlayers)
 {
-    if (newRemainingPlayers < MIN_REMAINING_PLAYERS || newRemainingPlayers > MAX_REMAINING_PLAYERS)
-        return false;
-
     playersRemaining = newRemainingPlayers;
-
-    return true;
+    Clamp::Int(playersRemaining, DISABLED_REMAINING_PLAYERS, MAX_REMAINING_PLAYERS);
 }
 
-void CustomSettings::SetAdvertiseName(string& newAdvertiseName)
+void CustomSettings::SetAdvertiseName(string newAdvertiseName)
 {
     advertiseName = newAdvertiseName;
 }

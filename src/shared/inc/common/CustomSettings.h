@@ -130,22 +130,22 @@ public:
     /**
      * Change the start level
      */
-    bool ChangeStartLevel(int newStartLevel);
+    void ChangeStartLevel(int newStartLevel);
 
     /**
      * Set Time Limit
      */
-    bool SetTimeLimit(int newTimeLimit);
+    void SetTimeLimit(int newTimeLimit);
 
     /**
      * Set Players Remaining
      */
-    bool SetRemainingPlayers(int newRemainingPlayers);
+    void SetRemainingPlayers(int newRemainingPlayers);
 
     /**
      * Set Advertising Name
      */
-    void SetAdvertiseName(string& newAdvertiseName);
+    void SetAdvertiseName(string newAdvertiseName);
 
 private:
 

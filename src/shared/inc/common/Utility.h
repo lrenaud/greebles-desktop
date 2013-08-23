@@ -32,6 +32,13 @@ public:
     static wxString     StringToWxString(const char* str);
 
     /**
+     * Takes a wxString and returns an integer representation
+     * @param  wxStr The wxString to convert
+     * @return       An integer representation of wxStr
+     */
+    static int          WxStringToInt(wxString wxStr);
+
+    /**
      * This method takes a pointer of any kind and returns it's
      * value, (an address of whatever it points to) as a string
      */
