@@ -101,7 +101,7 @@ If there is clear space and the block is not of an unmovable Special, the block 
 
 Typically a block will bounce twice before grinding to a halt.  The block will slow on each successive bounce (unless you are in Suicidal mode, where the block may maintain its speed).
 
-If there is nowhere for the block to go when it is pushed the block will be crushed (unless it is of a kind of block which cannot be crushed).  Crushing blocks is a useful way to navigate the maze, allowing the Player to shortcut through sections of the maze.  Players must generally crush (Ôeat') blocks which contain Specials to extract the Special.
+If there is nowhere for the block to go when it is pushed the block will be crushed (unless it is of a kind of block which cannot be crushed).  Crushing blocks is a useful way to navigate the maze, allowing the Player to shortcut through sections of the maze.  Players must generally crush ('eat') blocks which contain Specials to extract the Special.
 
 Since Blocks bounce when they hit something solid, it is possible for Players to squash themselves with a brick they have pushed.  Players moving at normal speed can dodge any Block they push so long as there is more than a single block of space behind the Block.
 
@@ -212,7 +212,7 @@ Despite occasional bursts of apparently intelligent (and malicious!) behaviour t
 * Greebles only move at one of two speeds
 * Greebles have standard turning characteristics
 
-Greebles of given type should all have the same turning characteristics, although they may vary in how fast they move depending on what level they are on.  Greebles can Ôburst' into faster movement.   Once again this burst behaviour is dependent on the level.
+Greebles of given type should all have the same turning characteristics, although they may vary in how fast they move depending on what level they are on.  Greebles can 'burst' into faster movement.   Once again this burst behaviour is dependent on the level.
 
 
 ### <a id="kteai"></a>Know Thine Enemy: AIs
@@ -276,8 +276,8 @@ Network play is heaps of fun.  To help you have a better Network game, try the f
 * Find the fastest, best connected machine and designate it the server.  Don't try and serve multiple machines over a 33.6kbps modem, it doesn't have the bandwidth
 * On the Server don't forget to click on Setup, choose the Level Difficulty (Normal is good) and click Save
 * Choose Host Network Game... on the Server
-* Enable ÔUnlimited lives'
-* Enable ÔLevels ends when 1 Players remain', or 2 Players if there are four or more Players playing
+* Enable 'Unlimited lives'
+* Enable 'Levels ends when 1 Players remain', or 2 Players if there are four or more Players playing
 * Click Start
 * Loudly announce the name of the Server.  The name shows up at the bottom of the Network Setup screen between the Cancel and Play buttons
 * Clients now click Join Network Game... and enter the name or IP number of the Server
@@ -310,17 +310,17 @@ If you enjoy Greebles, please Register the game.  We have worked hard to make an
 
 Greebles costs US$15 for a single user license.  Multiple Registrations are heavily discounted:
 
-Number of      Unit            Total
-Registrations  Price ($US)     Cost ($US)
-1              15              15
-2              12              24
-3              10              30
-4               9              36
-5               8              40
-6               8              48
-7+              8
+| Number of Registrations | Unit Price ($US) | Total Cost ($US) |
+| ----------------------- | ---------------- | ---------------- |
+| 1                       | 15               | 15               |
+| 2                       | 12               | 24               |
+| 3                       | 10               | 30               |
+| 4                       |  9               | 36               |
+| 5                       |  8               | 40               |
+| 6                       |  8               | 48               |           
+| 7+                      |  8               |                  |          
 
-Multipack Registrations provide you with multiple unique serial numbers.  (So a six pack of Registrations gives you six unique serial numbers.)
+Multipac|egistrations provide you with multiple unique serial numbers.  (So a six pack of Registrations gives you six unique serial numbers.)
 
 ### <a id="rgy"></a>Registration Gets You...
 
