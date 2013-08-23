@@ -30,7 +30,7 @@ Greebles requires System 7.0 or later, a 68040 or PowerPC, 256 colours, 640 by 4
  * [About Blocks](#about-blocks)
  * [Squishing Greebles](#squishing-greebles)
  * [Specials](#specials)
- * [A Special Note on Greeble Generators](#a-special-note-about-greeble-generators)
+ * [A Special Note on Greeble Generators](#a-special-note-on-greeble-generators)
  * [Play Modes](#play-modes)
  * [Know Thine Enemy: Greebles](#know-thine-enemy-greebles)
  * [Know Thine Enemy: AIs](#know-thine-enemy-ais)
