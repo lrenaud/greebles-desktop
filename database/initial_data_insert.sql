@@ -10,6 +10,9 @@ INSERT INTO `generalsettings` VALUES(1, 2, 1, 1);
 -- Insert Custom Settings Defaults
 INSERT INTO `customsettings` VALUES(1, 1, 1, 0, 0, "");
 
+-- Insert Join Settings Defaults
+INSERT INTO `joinsettings` VALUES(1, "");
+
 
 -- Insert Player Information Defaults
 INSERT INTO `playertype` VALUES(1, "Human"),

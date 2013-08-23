@@ -8,7 +8,7 @@
 
 using namespace std;
 
-wxString Utility::StringToWxString(string& str)
+wxString Utility::StringToWxString(string str)
 {
     return StringToWxString(str.c_str());
 }

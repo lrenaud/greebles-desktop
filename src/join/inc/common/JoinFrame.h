@@ -3,6 +3,14 @@
 
 #include "wx/wx.h"
 
+enum
+{
+    myID_HOST=0,
+
+    myID_CANCEL,
+    myID_CONNECT
+};
+
 class JoinFrame : public wxFrame
 {
 protected:
@@ -27,6 +35,24 @@ public:
     JoinFrame& operator=(const JoinFrame& rhs)=delete;
 
     void UpdatePlayerInfoMsg(wxString playerInfoMsg);
+
+    // Event Handlers
+    void OnHostChange(wxCommandEvent& event);
+
+    void OnCancel(wxCommandEvent& event);
+    void OnConnect(wxCommandEvent& event);
+
+private:
+
+    /**
+     * Refreshes the GUI with the data in the SEttings obejct
+     */
+    void refresh();
+
+    /**
+     * This method will disable the connect button if the host is empty
+     */
+    void refreshConnectButton();
 };
 
 #endif

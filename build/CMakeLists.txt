@@ -107,6 +107,7 @@ set(SHARED_COMMON_SRCS
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/DifficultyLookup.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GeneralSettings.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/GreeblesDatabase.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/JoinSettings.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/KeyTranslator.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/LocalHumanStringFormatter.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/PlayerSettings.cpp

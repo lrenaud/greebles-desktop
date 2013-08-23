@@ -23,6 +23,11 @@ CREATE TABLE `customsettings`(`id` INTEGER PRIMARY KEY,
 							  `playersremain` INTEGER,
 							  `advertise` TEXT);
 
+-- Join Settings Table
+DROP TABLE IF EXISTS `joinsettings`;
+
+CREATE TABLE `joinsettings`(`id` INTEGER PRIMARY KEY,
+							`host` TEXT);
 
 -- Player Data Tables
 DROP TABLE IF EXISTS `player`;

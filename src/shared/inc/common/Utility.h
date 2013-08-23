@@ -21,7 +21,7 @@ public:
      * @param  std::string The string to convert
      * @return             A matching wxString
      */
-    static wxString     StringToWxString(std::string& str);
+    static wxString     StringToWxString(std::string str);
 
     /**
      * This method takes a standard string and converts it

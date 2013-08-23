@@ -1,7 +1,11 @@
-#include "wx/wx.h"
-#include "wx/button.h"
+#include <wx/wx.h>
+#include <wx/button.h>
+
+#include <util/Log.h>
 
 #include "JoinFrame.h"
+#include "JoinSettings.h"
+#include "Utility.h"
 
 JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
        : wxFrame(NULL, -1, title, pos, size, style)
@@ -18,7 +22,7 @@ JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& si
     wxBoxSizer* joinVBoxSizer;
     joinVBoxSizer = new wxBoxSizer( wxVERTICAL );
     
-    playersMsgLabel = new wxStaticText( masterPanel, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0 );
+    playersMsgLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("There is 1 local player (All human)"), wxDefaultPosition, wxDefaultSize, 0 );
     playersMsgLabel->Wrap( -1 );
     joinVBoxSizer->Add( playersMsgLabel, 0, wxALL, 5 );
     
@@ -29,7 +33,7 @@ JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& si
     connectLabel->Wrap( -1 );
     connectHBoxSizer->Add( connectLabel, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
-    hostTextCtrl = new wxTextCtrl( masterPanel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    hostTextCtrl = new wxTextCtrl( masterPanel, myID_HOST, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     hostTextCtrl->SetMinSize( wxSize( 300,-1 ) );
     
     connectHBoxSizer->Add( hostTextCtrl, 0, wxALL, 5 );
@@ -40,10 +44,10 @@ JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& si
     wxBoxSizer* buttonHBoxSizer;
     buttonHBoxSizer = new wxBoxSizer( wxHORIZONTAL );
     
-    cancelButton = new wxButton( masterPanel, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+    cancelButton = new wxButton( masterPanel, myID_CANCEL, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
     buttonHBoxSizer->Add( cancelButton, 0, wxALL, 5 );
     
-    connectButton = new wxButton( masterPanel, wxID_ANY, wxT("Connect"), wxDefaultPosition, wxDefaultSize, 0 );
+    connectButton = new wxButton( masterPanel, myID_CONNECT, wxT("Connect"), wxDefaultPosition, wxDefaultSize, 0 );
     buttonHBoxSizer->Add( connectButton, 0, wxALL, 5 );
     
     
@@ -61,6 +65,20 @@ JoinFrame::JoinFrame(const wxString& title, const wxPoint& pos, const wxSize& si
     masterVBoxSizer->Fit( this );
     
     this->Centre( wxBOTH );
+
+    /**
+     * END GENERATED CODE
+     */
+    
+    // Wire up event handlers
+    Connect(myID_HOST, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(JoinFrame::OnHostChange));
+
+    Connect(myID_CANCEL, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(JoinFrame::OnCancel));
+    Connect(myID_CONNECT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(JoinFrame::OnConnect));
+
+    // Refresh things
+    JS.Refresh();
+    refresh();
 }
 
 JoinFrame::~JoinFrame()
@@ -71,4 +89,37 @@ JoinFrame::~JoinFrame()
 void JoinFrame::UpdatePlayerInfoMsg(wxString playerInfoMsg)
 {
     playersMsgLabel->SetLabel(playerInfoMsg);
+}
+
+void JoinFrame::OnHostChange(wxCommandEvent& event)
+{
+    refreshConnectButton();
+    JS.SetHost(string(hostTextCtrl->GetValue().mb_str()));
+}
+
+void JoinFrame::OnCancel(wxCommandEvent& event)
+{
+    Close(true);
+}
+
+void JoinFrame::OnConnect(wxCommandEvent& event)
+{   
+    if (!JS.Save())
+        LOG_RECOVERABLE << "Failed to save Join Settings, host lost!";
+
+    Close(true);
+}
+
+void JoinFrame::refresh()
+{
+    hostTextCtrl->SetValue(Utility::StringToWxString(JS.Host()));
+    refreshConnectButton();
+}
+
+void JoinFrame::refreshConnectButton()
+{
+    if (hostTextCtrl->GetValue().IsEmpty())
+        connectButton->Disable();
+    else
+        connectButton->Enable();
 }

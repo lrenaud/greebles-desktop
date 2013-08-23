@@ -12,7 +12,7 @@ class GreeblesDatabase : public Database
 {
 private:
     
-    const static int        TABLE_COUNT     = 9;
+    const static int        TABLE_COUNT     = 10;
 
     /**
      * Private Constructor for Singleton
