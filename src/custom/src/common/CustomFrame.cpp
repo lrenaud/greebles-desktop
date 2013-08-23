@@ -1,8 +1,14 @@
+#include <string>
+
 #include "wx/wx.h"
 #include "wx/button.h"
 #include "wx/valtext.h"
 
+#include <util/Log.h>
+
 #include "CustomFrame.h"
+#include "CustomSettings.h"
+#include "Utility.h"
 
 CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
        : wxFrame(NULL, -1, title, pos, size, style)
@@ -68,6 +74,8 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     timeLimitValue = new wxTextCtrl( masterPanel, myID_TIME_LIMIT_VALUE, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     timeLimitValue->SetMaxLength( 3 ); 
+    timeLimitValue->Enable( false );
+    
     timeLimitSizer->Add( timeLimitValue, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     minutesLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("(minutes)"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -85,6 +93,8 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     remainingPlayersValue = new wxTextCtrl( masterPanel, myID_REMAINING_PLAYERS, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     remainingPlayersValue->SetMaxLength( 2 ); 
+    remainingPlayersValue->Enable( false );
+    
     remainingPlayersSizer->Add( remainingPlayersValue, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     remainingPlayersLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("human players remain."), wxDefaultPosition, wxDefaultSize, 0 );
@@ -99,6 +109,8 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     advertiseNameValue = new wxTextCtrl( masterPanel, myID_ADVERTISE_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     advertiseNameValue->SetMaxLength( 0 ); 
+    advertiseNameValue->Enable( false );
+    
     flexGridSizer->Add( advertiseNameValue, 0, wxALIGN_CENTER_VERTICAL|wxALL|wxEXPAND, 5 );
     
     
@@ -158,6 +170,9 @@ CustomFrame::CustomFrame(const wxString& title, const wxPoint& pos, const wxSize
     Connect(myID_CANCEL, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CustomFrame::OnCancel));
     Connect(myID_START, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CustomFrame::OnStart));
 
+    // Load the custom settings from the database
+    CS.Refresh();
+    refresh();
 }
 
 CustomFrame::~CustomFrame()
@@ -185,28 +200,33 @@ void CustomFrame::UpdatePlayerInfoMsg(wxString playerInfoMsg)
  */
 void CustomFrame::OnUnlimitedLivesChange(wxCommandEvent& event)
 {
-    // Set the enabled/disabled status of the start level value to match the checkbox
 
 }
 
 void CustomFrame::OnStartLevelChange(wxCommandEvent& event)
 {
-    // Make sure the value is 1-70
+
 }
 
 void CustomFrame::OnTimeLimitEnabledChange(wxCommandEvent& event)
 {
-    // Enable/Disable the limit value
+    if (timeLimitCheckBox->IsChecked())
+        timeLimitValue->Enable();
+    else
+        timeLimitValue->Disable();
 }
 
 void CustomFrame::OnTimeLimitValueChange(wxCommandEvent& event)
 {
-    // ?
+    
 }
 
 void CustomFrame::OnLevelEndsChange(wxCommandEvent& event)
 {
-    // Enable/Disable the remaining player value
+    if (levelEndsCheckBox->IsChecked())
+        remainingPlayersValue->Enable();
+    else
+        remainingPlayersValue->Disable();
 }
 
 void CustomFrame::OnRemainingPlayersChange(wxCommandEvent& event)
@@ -216,7 +236,10 @@ void CustomFrame::OnRemainingPlayersChange(wxCommandEvent& event)
 
 void CustomFrame::OnAdvertiseEnabledChange(wxCommandEvent& event)
 {
-    // Enable/Disable the advertise value
+    if (advertiseCheckBox->IsChecked())
+        advertiseNameValue->Enable();
+    else
+        advertiseNameValue->Disable();
 }
 
 void CustomFrame::OnAdvertiseNameChange(wxCommandEvent& event)
@@ -233,6 +256,33 @@ void CustomFrame::OnStart(wxCommandEvent& event)
 {
     // Save things to the database
 
+
+    if (!CS.Save())
+        LOG_RECOVERABLE << "Custom Settings failed to save, changes lost.";
+
     Close(true);
 }
 
+void CustomFrame::refresh()
+{
+    stringstream ss;
+
+    unlimitedLivesCheckBox->SetValue(CS.LivesAreUnlimited());
+    
+    ss.str("");
+    ss << CS.StartLevel();
+    startLevelValue->SetValue(Utility::StringToWxString(ss.str().c_str()));
+
+    timeLimitCheckBox->SetValue(CS.TimeLimit() > 0);
+    ss.str("");
+    ss << CS.TimeLimit();
+    timeLimitValue->SetValue(Utility::StringToWxString(ss.str().c_str()));
+
+    levelEndsCheckBox->SetValue(CS.RemainingPlayers() > 0);
+    ss.str("");
+    ss << CS.RemainingPlayers();
+    remainingPlayersValue->SetValue(Utility::StringToWxString(ss.str().c_str()));
+
+    advertiseCheckBox->SetValue(CS.AdvertiseName() != "");
+    advertiseNameValue->SetValue(Utility::StringToWxString(CS.AdvertiseName().c_str()));
+}

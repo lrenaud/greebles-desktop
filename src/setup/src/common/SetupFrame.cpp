@@ -1012,7 +1012,7 @@ void SetupFrame::OnSave(wxCommandEvent& WXUNUSED(event))
     }
 
     if (!GS->Save())
-        LOG_RECOVERABLE << "Settings failed to save, changes lost.";
+        LOG_RECOVERABLE << "General Settings failed to save, changes lost.";
 
     Close(true);
 }

@@ -3,6 +3,8 @@
 
 #include "wx/wx.h"
 
+#include "CustomSettings.h"
+
 enum
 {
     myID_MASTER_PANEL=0,
@@ -86,6 +88,13 @@ public:
     
     void OnCancel(wxCommandEvent& event);
     void OnStart(wxCommandEvent& event);
+
+private:
+
+    /**
+     * Refreshes the GUI according to the data in the settings class
+     */
+    void refresh();
 
 };
 

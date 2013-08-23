@@ -112,7 +112,8 @@ set(SHARED_COMMON_SRCS
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ControlSet.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/Utility.cpp
     ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/LocalHumanStringFormatter.cpp
-    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ScoreHistory.cpp)
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/ScoreHistory.cpp
+    ${SHARED_PATH_TO_SRC}/${COMMON_DIR}/CustomSettings.cpp)
 
 set(SHARED_WINDOWS_SRCS )
 
