@@ -58,6 +58,17 @@ find_path(SQLITE3_INCLUDE_DIR sqlite3.h)
 find_library(SQLITE3_LIBRARY sqlite3)
 
 ##########################################################
+# GLFW Library
+##########################################################
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GLFW glfw3)
+
+##########################################################
+# DevIL Image Library
+##########################################################
+find_package(DevIL)
+
+##########################################################
 # SOAR Library
 ##########################################################
 set(SOAR_INC_PATH_BASE /home/drautb/Dropbox/GitHub/SOAR/src/soar/inc)
@@ -125,7 +136,9 @@ set(SHARED_LINUX_SRCS )
 ###########################################################
 # Game Source Files
 ###########################################################
-set(GAME_COMMON_SRCS )
+set(GAME_COMMON_SRCS 
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/GreeblesGame.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/main.cpp)
 
 set(GAME_WINDOWS_SRCS )
 
@@ -238,8 +251,16 @@ add_definitions("-Werror")              # Treat ALL The warnings as errors
 add_definitions("-pedantic-errors")     # Only allow standard-compliant code
 add_definitions("-std=c++11")           # Use the 2011 C++ Standard
 
-#add_executable(game ${GAME_SRCS})
-#target_link_libraries(game SOAR ${SQLITE3_LIBRARY} /usr/local/lib/FMOD/libfmodex64.so)
+add_executable(game ${GAME_SRCS})
+target_link_libraries(game 
+                      SOAR 
+                      ${SQLITE3_LIBRARY}
+                      ${wxWidgets_LIBRARIES}
+                      ${GLFW_STATIC_LIBRARIES}
+                      ${IL_LIBRARIES}
+                      ${ILU_LIBRARIES}
+                      ${ILUT_LIBRARIES})
+                       # /usr/local/lib/FMOD/libfmodex64.so)
 
 add_executable(setup ${SETUP_SRCS})
 target_link_libraries(setup 

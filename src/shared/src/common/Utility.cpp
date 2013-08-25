@@ -8,7 +8,7 @@
 
 using namespace std;
 
-wxString Utility::StringToWxString(string str)
+wxString Utility::StringToWxString(const string& str)
 {
     return StringToWxString(str.c_str());
 }
@@ -20,7 +20,7 @@ wxString Utility::StringToWxString(const char* str)
     return wxStr;
 }
 
-int Utility::WxStringToInt(wxString wxStr)
+int Utility::WxStringToInt(const wxString& wxStr)
 {
     try
     {

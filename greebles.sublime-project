@@ -16,8 +16,19 @@
 					"working_dir": "${project_path}/bin/linux/Debug/"
 				},
 				{
+					"name": "Linux - Optirun Debug Game",
+					"cmd": ["optirun", "./game"],
+					"working_dir": "${project_path}/bin/linux/Debug/"
+				},
+
+				{
 					"name": "Linux - Run Game",
 					"cmd": ["./game"],
+					"working_dir": "${project_path}/bin/linux/Release/"
+				},
+				{
+					"name": "Linux - Optirun Run Game",
+					"cmd": ["optirun", "./game"],
 					"working_dir": "${project_path}/bin/linux/Release/"
 				},
 

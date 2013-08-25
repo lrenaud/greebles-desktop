@@ -21,7 +21,7 @@ public:
      * @param  std::string The string to convert
      * @return             A matching wxString
      */
-    static wxString     StringToWxString(std::string str);
+    static wxString     StringToWxString(const std::string& str);
 
     /**
      * This method takes a standard string and converts it
@@ -36,7 +36,7 @@ public:
      * @param  wxStr The wxString to convert
      * @return       An integer representation of wxStr
      */
-    static int          WxStringToInt(wxString wxStr);
+    static int          WxStringToInt(const wxString& wxStr);
 
     /**
      * This method takes a pointer of any kind and returns it's
