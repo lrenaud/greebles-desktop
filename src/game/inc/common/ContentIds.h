@@ -41,7 +41,8 @@ enum ContentIds
     CID_BLOCKS,
     CID_PERCENT_BACKGROUND,
     CID_PERCENT_FOREGROUND,
-    CID_NUMBERS
+    CID_NUMBERS,
+    CID_TITLE_BACKGROUND,
 
     /**
      * Sound Effects

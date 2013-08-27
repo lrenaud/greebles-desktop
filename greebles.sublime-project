@@ -127,13 +127,6 @@
 			"folder_exclude_patterns": ["textures"]
 		}
 	],
-	"settings":
-    {
-        "SublimeLinter":
-        {
-        	"sublimelinter": "save-only",
-        }
-    },
 	"tab_size": 4,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_whitespace_on_save": true
