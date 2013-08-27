@@ -1,5 +1,7 @@
-# Don't want this right now, but maybe later?
-scripts/build-wxGTK.sh
+########################
+# I'm not allowed to release any resources, so I'm embedding them.
+# But I don't wnat them in version control either.
+textures/
 
 ########################
 # Doxygen Files
