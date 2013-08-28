@@ -1,10 +1,12 @@
 #include <base/Telegram.h>
+#include <util/Log.h>
 
 #include "GreeblesGame.h"
 #include "Macros.h"
 #include "menu/MainMenu.h"
 #include "menu/MainMenuState.h"
 #include "menu/ThanksMenuState.h"
+#include "menu/NetMenuState.h"
 
 using namespace SOAR;
 using namespace Base;
@@ -55,10 +57,12 @@ bool MainMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
 
         case MSG_HOST_NETWORK_CLICKED:
             g->LaunchApp("custom", "-l4 -h2 -n");
+            g->stateStack->PushState(&NetMenuState::GetInstance());
             return true;
 
         case MSG_JOIN_NETWORK_CLICKED:
             g->LaunchApp("join", "-l4 -h2");
+            g->stateStack->PushState(&NetMenuState::GetInstance());
             return true;
 
         case MSG_SETUP_CLICKED:

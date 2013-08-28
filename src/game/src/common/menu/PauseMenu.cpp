@@ -26,7 +26,7 @@ PauseMenu::~PauseMenu()
 
 void PauseMenu::Render()
 {
-    CM.Handle<Texture2D>(CID_MENU_THANKS_IDLE)->Render(GreeblesGame::GAME_AREA_MIN_X,
+    CM.Handle<Texture2D>(CID_MENU_PAUSE_IDLE)->Render(GreeblesGame::GAME_AREA_MIN_X,
                                                        GreeblesGame::GAME_AREA_MIN_Y);
 
     for (auto mc : menuChoices)

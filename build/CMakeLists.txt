@@ -146,6 +146,8 @@ set(GAME_COMMON_SRCS
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MainMenu.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MainMenuState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MenuChoice.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/NetMenu.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/NetMenuState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/PauseMenu.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/PauseMenuState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/PressedState.cpp

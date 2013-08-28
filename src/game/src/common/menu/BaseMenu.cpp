@@ -14,6 +14,8 @@ BaseMenu::~BaseMenu()
 {
     for (auto mc : menuChoices)
         SAFE_DELETE(mc);
+
+    menuChoices.clear();
 }
 
 void BaseMenu::Update()

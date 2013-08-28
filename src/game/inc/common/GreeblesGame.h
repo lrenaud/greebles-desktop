@@ -42,6 +42,15 @@ private:
      */
     bool                running;
 
+    /**
+     * This flag is set to true if the game receives the 
+     * MSG_POP_STATE message. This allows the current state
+     * to tell the game that it should be popped. The game 
+     * will wait until the current update cycle for the stateSTack
+     * has finished, and then pop the current state.
+     */
+    bool                shouldPopState;
+
 public:
 
     /**

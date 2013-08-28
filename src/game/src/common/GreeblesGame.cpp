@@ -91,12 +91,25 @@ void GreeblesGame::Run()
 void GreeblesGame::Update()
 {
     stateStack->Update();
+    
+    if (shouldPopState)
+    {
+        stateStack->PopState();
+        shouldPopState = false;
+    }
 }
 
 bool GreeblesGame::HandleMessage(const Telegram& msg)
 {
     if (stateStack->HandleMessage(msg))
         return true;
+
+    switch (msg.message)
+    {
+        case MSG_POP_STATE:
+            shouldPopState = true;
+            return true;
+    }
 
     return false;
 }
