@@ -147,6 +147,8 @@ set(GAME_COMMON_SRCS
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MainMenuState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MenuChoice.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/PressedState.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/ThanksMenu.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/ThanksMenuState.cpp
 )
 
 set(GAME_WINDOWS_SRCS )
