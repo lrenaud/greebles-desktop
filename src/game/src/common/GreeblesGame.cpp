@@ -5,11 +5,11 @@
 #include <IL/ilut.h>
 #include <GLFW/glfw3.h>
 
+#include <base/state/StateMachineStack.h>
 #include <content/ContentManager.h>
 #include <Macros.h>
 #include <math/Rectangle.h>
 #include <util/Log.h>
-#include <util/state/StateMachineStack.h>
 #include <video/Scene.h>
 #include <video/Texture.h>
 #include <video/Texture2D.h>

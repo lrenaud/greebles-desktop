@@ -1,7 +1,8 @@
 #ifndef GLOBAL_GAME_STATE_H
 #define GLOBAL_GAME_STATE_H
 
-#include <util/state/IState.h>
+#include <base/state/IState.h>
+#include <base/Telegram.h>
 
 #include "GreeblesGame.h"
 
@@ -49,6 +50,15 @@ public:
      * @param g Pointer to the game object
      */
     virtual void Exit(GreeblesGame* g);
+
+    /**
+     * This method would handle messages sent to the game itself, but 
+     * right now the game doesn't support that.
+     * @param  g   Pointer to the game object
+     * @param  msg The message that was sent
+     * @return     False always.
+     */
+    virtual bool OnMessage(GreeblesGame* g, const Telegram& msg);
 
     /**
      * This method takes care of rendering things for this state

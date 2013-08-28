@@ -1,3 +1,4 @@
+#include <base/Telegram.h>
 #include <content/ContentManager.h>
 #include <video/Texture.h>
 #include <video/Texture2D.h>
@@ -119,6 +120,11 @@ void GlobalGameState::Execute(GreeblesGame* g)
 void GlobalGameState::Exit(GreeblesGame* g)
 {
 
+}
+
+bool GlobalGameState::OnMessage(GreeblesGame* g, const Telegram& msg)
+{
+    return false;
 }
 
 void GlobalGameState::Render(GreeblesGame* g)

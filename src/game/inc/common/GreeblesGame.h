@@ -3,12 +3,12 @@
 
 #include <string>
 
-#include <util/state/StateMachineStack.h>
+#include <base/state/StateMachineStack.h>
 
 using namespace std;
 
 using namespace SOAR;
-using namespace Util;
+using namespace Base;
 using namespace State;
 
 class GreeblesGame
