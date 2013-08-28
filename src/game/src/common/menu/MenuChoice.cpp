@@ -60,12 +60,12 @@ bool MenuChoice::HandleMessage(const Telegram& msg)
     else if (msg.message == MSG_MOUSE_EXIT)
         stateMachine->ChangeState(&IdleState::GetInstance());
     else if (msg.message == MSG_MOUSE_LEFT_CLICK)
-    {
         stateMachine->ChangeState(&PressedState::GetInstance());
+    else if (msg.message == MSG_MOUSE_LEFT_RELEASE)
+    {
+        stateMachine->ChangeState(&HoverState::GetInstance());
         MD.DispatchMsg(Id(), GAME_ID, clickedMsg);
     }
-    else if (msg.message == MSG_MOUSE_LEFT_RELEASE)
-        stateMachine->ChangeState(&HoverState::GetInstance());
     else
         return false;
 
