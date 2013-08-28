@@ -36,9 +36,9 @@ void HoverState::Enter(MenuChoice* mc)
 void HoverState::Execute(MenuChoice* mc)
 {
     if (mc->WindowPosition().Contains(MOUSE.xPos, MOUSE.yPos) && MOUSE.LMBIsDown())
-        MD.DispatchMsg(mc->Id(), mc->Id(), MOUSE_LEFT_CLICK);
+        MD.DispatchMsg(mc->Id(), mc->Id(), MSG_MOUSE_LEFT_CLICK);
     else if (!mc->WindowPosition().Contains(MOUSE.xPos, MOUSE.yPos))
-        MD.DispatchMsg(mc->Id(), mc->Id(), MOUSE_EXIT);
+        MD.DispatchMsg(mc->Id(), mc->Id(), MSG_MOUSE_EXIT);
 }
 
 void HoverState::Exit(MenuChoice* mc)

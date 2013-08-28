@@ -1,20 +1,24 @@
+#include <base/EntityManager.h>
+#include <base/MessageDispatcher.h>
 #include <base/state/StateMachine.h>
 #include <base/Telegram.h>
 #include <math/Rectangle.h>
 #include <util/Log.h>
 
+#include "EntityIds.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
-#include "menu/MenuChoice.h"
-#include "menu/IdleState.h"
 #include "menu/HoverState.h"
+#include "menu/IdleState.h"
+#include "menu/MenuChoice.h"
 #include "menu/PressedState.h"
 #include "Messages.h"
 
 using namespace SOAR;
 using namespace Math;
 
-MenuChoice::MenuChoice(const Rectangle<int>& texturePosition, int hoverCid, int pressedCid)
+MenuChoice::MenuChoice(const Rectangle<int>& texturePosition, int hoverMsg,
+                       int clickedMsg, int hoverCid, int pressedCid)
 {
     this->texturePosition = texturePosition;
     
@@ -24,6 +28,9 @@ MenuChoice::MenuChoice(const Rectangle<int>& texturePosition, int hoverCid, int 
 
     this->hoverCid = hoverCid;
     this->pressedCid = pressedCid;
+
+    this->hoverMsg = hoverMsg;
+    this->clickedMsg = clickedMsg;
 
     stateMachine = new StateMachine<MenuChoice>(this);
     stateMachine->SetGlobalState(nullptr);
@@ -45,13 +52,19 @@ bool MenuChoice::HandleMessage(const Telegram& msg)
     if (stateMachine->HandleMessage(msg))
         return true;
 
-    if (msg.message == MOUSE_ENTER)
+    if (msg.message == MSG_MOUSE_ENTER)
+    {
         stateMachine->ChangeState(&HoverState::GetInstance());
-    else if (msg.message == MOUSE_EXIT)
+        MD.DispatchMsg(Id(), GAME_ID, hoverMsg);
+    }
+    else if (msg.message == MSG_MOUSE_EXIT)
         stateMachine->ChangeState(&IdleState::GetInstance());
-    else if (msg.message == MOUSE_LEFT_CLICK)
+    else if (msg.message == MSG_MOUSE_LEFT_CLICK)
+    {
         stateMachine->ChangeState(&PressedState::GetInstance());
-    else if (msg.message == MOUSE_LEFT_RELEASE)
+        MD.DispatchMsg(Id(), GAME_ID, clickedMsg);
+    }
+    else if (msg.message == MSG_MOUSE_LEFT_RELEASE)
         stateMachine->ChangeState(&HoverState::GetInstance());
     else
         return false;

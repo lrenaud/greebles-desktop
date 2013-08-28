@@ -42,7 +42,7 @@ void IdleState::Enter(MenuChoice* mc)
 void IdleState::Execute(MenuChoice* mc)
 {
     if (mc->WindowPosition().Contains(MOUSE.xPos, MOUSE.yPos))
-        MD.DispatchMsg(mc->Id(), mc->Id(), MOUSE_ENTER);
+        MD.DispatchMsg(mc->Id(), mc->Id(), MSG_MOUSE_ENTER);
 }
 
 void IdleState::Exit(MenuChoice* mc)

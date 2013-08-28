@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 
 #include <IL/il.h>
 #include <IL/ilu.h>
@@ -6,9 +7,11 @@
 #include <GLFW/glfw3.h>
 
 #include <base/state/StateMachineStack.h>
+#include <base/Telegram.h>
 #include <content/ContentManager.h>
 #include <Macros.h>
 #include <math/Rectangle.h>
+#include <util/BlockedThread.h>
 #include <util/Log.h>
 #include <video/Scene.h>
 #include <video/Texture.h>
@@ -17,17 +20,23 @@
 #include <video/WindowManager.h>
 
 #include "ContentIds.h"
-#include "GreeblesGame.h"
+#include "CustomSettings.h"
+#include "EntityIds.h"
+#include "GeneralSettings.h"
 #include "GlobalGameState.h"
+#include "GreeblesGame.h"
+#include "JoinSettings.h"
 #include "menu/MainMenuState.h"
+#include "PlayerSettings.h"
 
 using namespace std;
 
 using namespace SOAR;
 using namespace Video;
 using namespace Math;
+using namespace Util;
 
-GreeblesGame::GreeblesGame()
+GreeblesGame::GreeblesGame():BaseEntity(GAME_ID)
 {
     if (WM.CreateWindow(GAME_WINDOW_ID, WINDOW_WIDTH, WINDOW_HEIGHT, "Greebles!"))
         WM.MakeWindowActive(GAME_WINDOW_ID);
@@ -35,6 +44,9 @@ GreeblesGame::GreeblesGame()
     stateStack = new StateMachineStack<GreeblesGame>(this);
     stateStack->SetGlobalState(&GlobalGameState::GetInstance());
     stateStack->PushState(&MainMenuState::GetInstance());
+
+    if (!BlockedThread::CanSpawn())
+        LOG_FATAL << "BlockedThread::Spawn not supported on this system";
 }
 
 GreeblesGame::~GreeblesGame()
@@ -56,20 +68,18 @@ void GreeblesGame::Run()
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
 
-    GLFWwindow* mainWindow = WM.Handle(GAME_WINDOW_ID);    
-
-    while (!glfwWindowShouldClose(mainWindow))
+    running = true;
+    while (running)
     {
-
         /**
          * Update the game state
          */
-        update();
+        Update();
 
         /**
          * Render everything
          */
-        render();
+        Render();
 
         /**
          * Update the window manager
@@ -78,12 +88,20 @@ void GreeblesGame::Run()
     }
 }
 
-void GreeblesGame::update()
+void GreeblesGame::Update()
 {
     stateStack->Update();
 }
 
-void GreeblesGame::render()
+bool GreeblesGame::HandleMessage(const Telegram& msg)
+{
+    if (stateStack->HandleMessage(msg))
+        return true;
+
+    return false;
+}
+
+void GreeblesGame::Render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_TEXTURE_RECTANGLE_NV);
@@ -93,4 +111,44 @@ void GreeblesGame::render()
 
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_RECTANGLE_NV);
+}
+
+void GreeblesGame::Quit()
+{
+    running = false;
+}
+
+void GreeblesGame::Hide()
+{
+    GLFWwindow* gameWindow = WM.Handle(GAME_WINDOW_ID);
+    glfwIconifyWindow(gameWindow);
+}
+
+bool GreeblesGame::LaunchApp(const char* appName, const char* appArgs)
+{
+    stringstream command;
+
+#ifdef LINUX
+    command << "./";
+#elif MACOSX
+    command << "./";
+#endif
+
+    command << appName;
+
+#ifdef WINDOWS 
+    command << ".exe";
+#endif
+
+    command << " " << appArgs;
+    int retCode = BlockedThread::Spawn(command.str().c_str());
+    if (retCode != 0)
+    {
+        LOG_RECOVERABLE << "Setup returned code: " << retCode;
+        return false;
+    }
+    
+    // Refresh General and Player Settings
+
+    return false;
 }

@@ -6,6 +6,8 @@
 #include <base/Telegram.h>
 #include <math/Rectangle.h>
 
+#include "Messages.h"
+
 using namespace SOAR;
 using namespace Util;
 using namespace Base;
@@ -42,13 +44,24 @@ private:
     int                             hoverCid            = -1;
     int                             pressedCid          = -1;
 
+    /**
+     * message to send to the game object when this choice is hovered over
+     */
+    int                             hoverMsg            = MSG_INVALID;
+    
+    /**
+     * Message to send to the game object when this choice is clicked
+     */
+    int                             clickedMsg          = MSG_INVALID;
+
 public:
 
     /**
      * Constructor, takes a rectangle describing the position of the choice
      * in the texture, as well as Content Id's for the hover and pressed textures.
      */
-    MenuChoice(const Rectangle<int>& texturePosition, int hoverCid, int pressedCid);
+    MenuChoice(const Rectangle<int>& texturePosition, int hoverMsg=MSG_INVALID, 
+               int clickedMsg=MSG_INVALID, int hoverCid=-1, int pressedCid=-1);
 
     /**
      * Destructor
