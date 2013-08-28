@@ -140,7 +140,10 @@ set(GAME_COMMON_SRCS
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/GlobalGameState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/GreeblesGame.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/HoverState.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/IdleState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MenuChoice.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/PressedState.cpp
 )
 
 set(GAME_WINDOWS_SRCS )

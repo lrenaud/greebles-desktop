@@ -1,11 +1,14 @@
 #ifndef MENU_CHOICE_H
 #define MENU_CHOICE_H
 
+#include <base/BaseEntity.h>
+#include <base/state/StateMachine.h>
+#include <base/Telegram.h>
 #include <math/Rectangle.h>
-#include <util/state/StateMachine.h>
 
 using namespace SOAR;
 using namespace Util;
+using namespace Base;
 using namespace State;
 using namespace Math;
 
@@ -14,7 +17,7 @@ using namespace Math;
  * it's own internal state to know when to trigger sound effects,
  * game actions, or viual changes.
  */
-class MenuChoice
+class MenuChoice : public BaseEntity
 {
 private:
 
@@ -33,12 +36,19 @@ private:
      */
     StateMachine<MenuChoice>*       stateMachine        = nullptr;
 
+    /**
+     * Content IDs for the textures to use for hover and pressed choices
+     */
+    int                             hoverCid            = -1;
+    int                             pressedCid          = -1;
+
 public:
 
     /**
-     * Constructor
+     * Constructor, takes a rectangle describing the position of the choice
+     * in the texture, as well as Content Id's for the hover and pressed textures.
      */
-    MenuChoice(const Rectangle<int>& texturePosition);
+    MenuChoice(const Rectangle<int>& texturePosition, int hoverCid, int pressedCid);
 
     /**
      * Destructor
@@ -48,7 +58,14 @@ public:
     /**
      * This method just calls update on the state machine
      */
-    void Update();
+    virtual void Update();
+
+    /**
+     * This method handles messages that are sent to this MenuChoice
+     * @param  msg The message that we're receiving
+     * @return     Whether or not we handled the message
+     */
+    virtual bool HandleMessage(const Telegram& msg);
 
     /**
      * This just calls Render on the current state. If a menu choice is in the
@@ -62,6 +79,8 @@ public:
      */
     const Rectangle<int>& WindowPosition();
     const Rectangle<int>& TexturePosition();
+    const int HoverCid()const;
+    const int PressedCid()const;
 
 };
 
