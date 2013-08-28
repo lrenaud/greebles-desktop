@@ -1,6 +1,7 @@
 #include <base/state/StateMachine.h>
 #include <base/Telegram.h>
 #include <math/Rectangle.h>
+#include <util/Log.h>
 
 #include "GreeblesGame.h"
 #include "Macros.h"
@@ -25,6 +26,8 @@ MenuChoice::MenuChoice(const Rectangle<int>& texturePosition, int hoverCid, int 
     this->pressedCid = pressedCid;
 
     stateMachine = new StateMachine<MenuChoice>(this);
+    stateMachine->SetGlobalState(nullptr);
+    stateMachine->SetCurrentState(&IdleState::GetInstance());
 }
 
 MenuChoice::~MenuChoice()
@@ -48,6 +51,8 @@ bool MenuChoice::HandleMessage(const Telegram& msg)
         stateMachine->ChangeState(&IdleState::GetInstance());
     else if (msg.message == MOUSE_LEFT_CLICK)
         stateMachine->ChangeState(&PressedState::GetInstance());
+    else if (msg.message == MOUSE_LEFT_RELEASE)
+        stateMachine->ChangeState(&HoverState::GetInstance());
     else
         return false;
 

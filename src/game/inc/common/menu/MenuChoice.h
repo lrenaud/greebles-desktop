@@ -53,7 +53,7 @@ public:
     /**
      * Destructor
      */
-    ~MenuChoice();
+    virtual ~MenuChoice();
 
     /**
      * This method just calls update on the state machine

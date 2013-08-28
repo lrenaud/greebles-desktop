@@ -1,6 +1,7 @@
 #include <base/MessageDispatcher.h>
 #include <content/ContentManager.h>
 #include <input/Mouse.h>
+#include <util/Log.h>
 #include <video/Texture.h>
 #include <video/Texture2D.h>
 

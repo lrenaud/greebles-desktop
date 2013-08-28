@@ -19,6 +19,7 @@
 #include "ContentIds.h"
 #include "GreeblesGame.h"
 #include "GlobalGameState.h"
+#include "menu/MainMenuState.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ GreeblesGame::GreeblesGame()
 
     stateStack = new StateMachineStack<GreeblesGame>(this);
     stateStack->SetGlobalState(&GlobalGameState::GetInstance());
+    stateStack->PushState(&MainMenuState::GetInstance());
 }
 
 GreeblesGame::~GreeblesGame()
