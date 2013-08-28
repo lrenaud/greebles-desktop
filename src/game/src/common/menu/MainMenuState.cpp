@@ -48,12 +48,15 @@ bool MainMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
             return true;
 
         case MSG_PLAY_CUSTOM_CLICKED:
+            g->LaunchApp("custom", "-l4 -h2");
             return true;
 
         case MSG_HOST_NETWORK_CLICKED:
+            g->LaunchApp("custom", "-l4 -h2 -n");
             return true;
 
         case MSG_JOIN_NETWORK_CLICKED:
+            g->LaunchApp("join", "-l4 -h2");
             return true;
 
         case MSG_SETUP_CLICKED:
