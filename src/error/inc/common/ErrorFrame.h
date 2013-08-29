@@ -3,6 +3,11 @@
 
 #include "wx/wx.h"
 
+enum
+{
+    myID_OK
+};
+
 class ErrorFrame : public wxFrame
 {
 protected:
@@ -28,6 +33,9 @@ public:
     ErrorFrame& operator=(const ErrorFrame& rhs)=delete;
 
     void SetErrorMessage(wxString& errorMsg);
+
+    // Event Handler for Ok Button
+    void OnOk(wxCommandEvent& event);
 
 };
 
