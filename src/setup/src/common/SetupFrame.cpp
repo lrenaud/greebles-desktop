@@ -81,13 +81,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p1EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
     p1EnabledCheckBox = new wxNoLabelCheckBox( p1Panel, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALL, 5 );
+    p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     wxBoxSizer* p1NameVBox;
     p1NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p1Name = new wxTextCtrl( p1Panel, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p1Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
+    p1Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
     p1NameVBox->Add( p1Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -201,13 +201,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p2EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
     p2EnabledCheckBox = new wxNoLabelCheckBox( p2Panel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALL, 5 );
+    p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     wxBoxSizer* p2NameVBox;
     p2NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p2Name = new wxTextCtrl( p2Panel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p2Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
+    p2Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
     p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -321,13 +321,13 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p3EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
     p3EnabledCheckBox = new wxNoLabelCheckBox( p3Panel, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALL, 5 );
+    p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     wxBoxSizer* p3NameVBox;
     p3NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p3Name = new wxTextCtrl( p3Panel, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p3Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
+    p3Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
     p3NameVBox->Add( p3Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -441,17 +441,17 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p4EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
     p4EnabledCheckBox = new wxNoLabelCheckBox( p4Panel, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALL, 5 );
+    p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
     
     wxBoxSizer* p4NameVBox;
     p4NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p4Name = new wxTextCtrl( p4Panel, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p4Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
+    p4Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
     p4NameVBox->Add( p4Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
-    p4EnabledHBox->Add( p4NameVBox, 0, wxEXPAND, 5 );
+    p4EnabledHBox->Add( p4NameVBox, 1, wxEXPAND, 5 );
     
     
     p4VBox->Add( p4EnabledHBox, 0, wxEXPAND, 5 );
@@ -532,7 +532,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxString p4TypeChoices[] = { wxT("Human"), wxT("Friendly AI"), wxT("Nasty AI") };
     int p4TypeNChoices = sizeof( p4TypeChoices ) / sizeof( wxString );
     p4Type = new wxChoice( p4Panel, myID_P4_TYPE, wxDefaultPosition, wxDefaultSize, p4TypeNChoices, p4TypeChoices, 0 );
-    p4Type->SetSelection( 0 );
+    p4Type->SetSelection( 2 );
     p4TypeHBox->Add( p4Type, 1, wxALL, 5 );
     
     p4Image = new wxStaticBitmap( p4Panel, wxID_ANY, wxMEMORY_BITMAP(player_4), wxDefaultPosition, wxSize( 23,23 ), 0 );
@@ -578,9 +578,9 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     
     difficultyLabel = new wxStaticText( masterPanel, wxID_ANY, wxT("Difficulty:"), wxDefaultPosition, wxDefaultSize, 0 );
     difficultyLabel->Wrap( -1 );
-    difficultySizer->Add( difficultyLabel, 0, wxBOTTOM|wxLEFT|wxTOP, 5 );
+    difficultySizer->Add( difficultyLabel, 0, wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxLEFT|wxTOP, 5 );
     
-    wxString difficultyChoiceChoices[] = { wxT("Easy"), wxT("Normal"), wxT("Hard"), wxT("Suicidal") };
+    wxString difficultyChoiceChoices[] = { wxT("Easy"), wxT("Normal"), wxT("Suicidal") };
     int difficultyChoiceNChoices = sizeof( difficultyChoiceChoices ) / sizeof( wxString );
     difficultyChoice = new wxChoice( masterPanel, myID_DIFFICULTY, wxDefaultPosition, wxDefaultSize, difficultyChoiceNChoices, difficultyChoiceChoices, 0 );
     difficultyChoice->SetSelection( 0 );

@@ -25,7 +25,6 @@ private:
     {   
         DL_EASY = 1,
         DL_NORMAL,
-        DL_HARD,
         DL_SUICIDAL
     };
 
@@ -72,12 +71,6 @@ public:
      * @return difficulty == DL_NORMAL
      */
     bool DifficultyIsNormal()const;
-
-    /**
-     * Returns true if the difficulty level is currently set to hard
-     * @return difficulty == DL_HARD
-     */
-    bool DifficultyIsHard()const;
 
     /**
      * Returns true if the difficulty level is currently set to suicidal

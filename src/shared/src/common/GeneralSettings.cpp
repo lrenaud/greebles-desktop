@@ -71,11 +71,6 @@ bool GeneralSettings::DifficultyIsNormal()const
     return difficulty == DL_NORMAL;
 }
 
-bool GeneralSettings::DifficultyIsHard()const
-{
-    return difficulty == DL_HARD;
-}
-
 bool GeneralSettings::DifficultyIsSuicidal()const
 {
     return difficulty == DL_SUICIDAL;
