@@ -2,6 +2,7 @@
 #include "wx/cmdline.h"
 
 #include "ErrorFrame.h"
+#include "Utility.h"
 
 class ErrorApp : public wxApp
 {
@@ -25,7 +26,7 @@ static const wxCmdLineEntryDesc cmdLineDesc[] =
         wxCMD_LINE_PARAM, 
         NULL,
         NULL,
-        wxT("Error Message"),
+        MywxT("Error Message"),
         wxCMD_LINE_VAL_STRING,
         wxCMD_LINE_PARAM_OPTIONAL
     },
