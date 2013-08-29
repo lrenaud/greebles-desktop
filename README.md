@@ -19,3 +19,11 @@ One fan site has survived: http://www.infam.ch/greebles/
 
 In 2007, I contacted Peter and, explaining that I was just a hobbyist developer, asked for permission to attempt to recreate Greebles for Windows. 
 He gave me the go ahead and emailed me the game assets that he still had.
+
+### Dependencies
+* GLFW 3.0
+* CMake 2.8.10
+* DevIL 1.7.8
+* SQlite 3
+* wxWidgets 2.8.5
+
