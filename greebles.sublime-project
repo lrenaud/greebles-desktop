@@ -109,8 +109,8 @@
 				},
 				{
 					"name": "Clean Project",
-					"cmd": ["make", "clean"],
-					"working_dir": "${project_path}/build/"
+					"cmd": ["./clean_cmake.sh"],
+					"working_dir": "${project_path}/scripts/"
 				},
 				{
 					"name": "Reset Database",
@@ -123,7 +123,7 @@
 	"folders":
 	[
 		{
-			"path": "/home/drautb/Dropbox/GitHub/greebles",
+			"path": "~/Dropbox/GitHub/greebles",
 			"folder_exclude_patterns": ["textures"]
 		}
 	],

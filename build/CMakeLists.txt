@@ -8,12 +8,23 @@ project(greebles)
 set(CMAKE_BUILD_TYPE Debug)
 # set(CMAKE_BUILD_TYPE Release)
 
-##########################################################
-# Select Platform
-##########################################################
-# set(CFG_PLATFORM windows)
-# set(CFG_PLATFORM mac)
-set(CFG_PLATFORM linux)
+set(COMMON_DIR common)
+set(WINDOWS_DIR windows)
+set(MAC_DIR mac)
+set(LINUX_DIR linux)
+
+#############################
+# Try to Select Platform Automatically
+#############################
+message(STATUS "System Name: ${CMAKE_SYSTEM_NAME}")
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+    set(CFG_PLATFORM ${LINUX_DIR})
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(CFG_PLATFORM ${MAC_DIR})
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+    set(CFG_PLATFORM ${WINDOWS_DIR})    
+endif()
+message(STATUS "Build Directory: ${CFG_PLATFORM}")
 
 ##########################################################
 # Set lots of variables
@@ -39,10 +50,21 @@ set(ZAP_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/zap/src)
 set(ERROR_PATH_TO_INC ${CMAKE_SOURCE_DIR}/../src/error/inc)
 set(ERROR_PATH_TO_SRC ${CMAKE_SOURCE_DIR}/../src/error/src)
 
-set(COMMON_DIR common)
-set(WINDOWS_DIR windows)
-set(MAC_DIR mac)
-set(LINUX_DIR linux)
+##########################################################
+# Set Platform Specific Options
+##########################################################
+if (CFG_PLATFORM STREQUAL WINDOWS_DIR)
+    add_definitions("-DWINDOWS")
+    set(HOME_PATH "/Users/drautb")
+elseif (CFG_PLATFORM STREQUAL MAC_DIR)
+    add_definitions("-DMACOSX")
+    set(HOME_PATH "/Users/drautb")
+    set(CMAKE_CXX_COMPILER /usr/local/bin/g++-4.8)
+elseif (CFG_PLATFORM STREQUAL LINUX_DIR)
+    add_definitions("-DLINUX")
+    set(HOME_PATH "/home/drautb")
+endif()
+message(STATUS "Set Home Path: ${HOME_PATH}")
 
 ##########################################################
 # WxWidgets Library
@@ -71,8 +93,8 @@ find_package(DevIL)
 ##########################################################
 # SOAR Library
 ##########################################################
-set(SOAR_INC_PATH_BASE /home/drautb/Dropbox/GitHub/SOAR/src/soar/inc)
-set(SOAR_LIB_PATH_BASE /home/drautb/Dropbox/GitHub/SOAR/lib)
+set(SOAR_INC_PATH_BASE ${HOME_PATH}/Dropbox/GitHub/SOAR/src/soar/inc)
+set(SOAR_LIB_PATH_BASE ${HOME_PATH}/Dropbox/GitHub/SOAR/lib)
 
 set(SOAR_INC_PATH 
     ${SOAR_INC_PATH_BASE}/${COMMON_DIR}
@@ -143,6 +165,8 @@ set(GAME_COMMON_SRCS
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/BaseMenu.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/HoverState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/IdleState.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/InstructionsMenu.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/InstructionsMenuState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MainMenu.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MainMenuState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/MenuChoice.cpp
@@ -236,7 +260,6 @@ set(ERROR_MAC_SRCS )
 set(ERROR_LINUX_SRCS )
 
 if (CFG_PLATFORM STREQUAL WINDOWS_DIR)
-    add_definitions("-DWINDOWS")
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${GAME_COMMON_SRCS} ${GAME_WINDOWS_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_WINDOWS_SRCS})
     set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_WINDOWS_SRCS})
@@ -244,7 +267,6 @@ if (CFG_PLATFORM STREQUAL WINDOWS_DIR)
     set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_WINDOWS_SRCS})
     set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_WINDOWS_SRCS})
 elseif (CFG_PLATFORM STREQUAL MAC_DIR)
-    add_definitions("-DMACOSX")
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${GAME_COMMON_SRCS} ${GAME_MAC_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_MAC_SRCS})
     set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_MAC_SRCS})
@@ -252,7 +274,6 @@ elseif (CFG_PLATFORM STREQUAL MAC_DIR)
     set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_MAC_SRCS})
     set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_MAC_SRCS})
 elseif (CFG_PLATFORM STREQUAL LINUX_DIR)
-    add_definitions("-DLINUX")
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${GAME_COMMON_SRCS} ${GAME_LINUX_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_LINUX_SRCS})
     set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_LINUX_SRCS})
