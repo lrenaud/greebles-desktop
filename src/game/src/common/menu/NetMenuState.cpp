@@ -14,12 +14,12 @@ using namespace Base;
 
 NetMenuState::NetMenuState()
 {
-
+    menu = new NetMenu();
 }
 
 NetMenuState::~NetMenuState()
 {
-    
+    SAFE_DELETE(menu);   
 }
 
 NetMenuState& NetMenuState::GetInstance()
@@ -31,7 +31,7 @@ NetMenuState& NetMenuState::GetInstance()
 
 void NetMenuState::Enter(GreeblesGame* g)
 {
-    menu = new NetMenu();
+    
 }
 
 void NetMenuState::Execute(GreeblesGame* g)
@@ -41,7 +41,7 @@ void NetMenuState::Execute(GreeblesGame* g)
 
 void NetMenuState::Exit(GreeblesGame* g)
 {
-    SAFE_DELETE(menu);
+    
 }
 
 bool NetMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
@@ -49,7 +49,7 @@ bool NetMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
     switch (msg.message)
     {
         case MSG_CANCEL_CLICKED:
-            MD.DispatchMsg(menu->Id(), GAME_ID, MSG_POP_STATE);
+            g->stateStack->PopState();
             return true;
 
         case MSG_PLAY_CLICKED:

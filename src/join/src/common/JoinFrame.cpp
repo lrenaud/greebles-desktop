@@ -99,6 +99,7 @@ void JoinFrame::OnHostChange(wxCommandEvent& event)
 
 void JoinFrame::OnCancel(wxCommandEvent& event)
 {
+    canceled = true;
     Close(true);
 }
 
@@ -107,6 +108,7 @@ void JoinFrame::OnConnect(wxCommandEvent& event)
     if (!JS.Save())
         LOG_RECOVERABLE << "Failed to save Join Settings, host lost!";
 
+    canceled = false;
     Close(true);
 }
 

@@ -13,12 +13,12 @@ using namespace Base;
 
 MainMenuState::MainMenuState()
 {
-
+    menu = new MainMenu();
 }
 
 MainMenuState::~MainMenuState()
 {
-
+    SAFE_DELETE(menu);
 }
 
 MainMenuState& MainMenuState::GetInstance()
@@ -30,7 +30,7 @@ MainMenuState& MainMenuState::GetInstance()
 
 void MainMenuState::Enter(GreeblesGame* g)
 {
-    menu = new MainMenu();
+    
 }
 
 void MainMenuState::Execute(GreeblesGame* g)
@@ -40,7 +40,7 @@ void MainMenuState::Execute(GreeblesGame* g)
 
 void MainMenuState::Exit(GreeblesGame* g)
 {
-    SAFE_DELETE(menu);
+    
 }
 
 bool MainMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)

@@ -31,6 +31,16 @@ bool JoinApp::OnInit()
     return true;
 }
 
+int JoinApp::OnRun()
+{
+    int retCode = wxApp::OnRun();
+
+    // if (frame->WasCanceled())
+    //     return 1;
+
+    return retCode;
+}
+
 int JoinApp::OnExit()
 {
     return 0;

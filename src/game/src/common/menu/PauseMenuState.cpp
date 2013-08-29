@@ -10,12 +10,12 @@ using namespace Base;
 
 PauseMenuState::PauseMenuState()
 {
-
+    menu = new PauseMenu();
 }
 
 PauseMenuState::~PauseMenuState()
 {
-
+    SAFE_DELETE(menu);
 }
 
 PauseMenuState& PauseMenuState::GetInstance()
@@ -27,7 +27,7 @@ PauseMenuState& PauseMenuState::GetInstance()
 
 void PauseMenuState::Enter(GreeblesGame* g)
 {
-    menu = new PauseMenu();
+
 }
 
 void PauseMenuState::Execute(GreeblesGame* g)

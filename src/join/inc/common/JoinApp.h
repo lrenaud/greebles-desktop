@@ -13,6 +13,7 @@ class JoinApp : public wxApp
     static const int APP_HEIGHT         = -1;
 
     virtual bool OnInit();
+    virtual int OnRun();
     virtual int OnExit();
 
     virtual void OnInitCmdLine(wxCmdLineParser& parser);

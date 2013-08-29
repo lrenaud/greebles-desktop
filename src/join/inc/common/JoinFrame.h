@@ -25,6 +25,11 @@ protected:
     wxButton* cancelButton;
     wxButton* connectButton;
 
+    /**
+     * Lets us know if Cancel was hit instead of connect
+     */
+    bool canceled;
+
 public:
 
     JoinFrame(const wxString& title, const wxPoint& position, const wxSize& size, long style=wxDEFAULT_FRAME_STYLE);
@@ -35,6 +40,8 @@ public:
     JoinFrame& operator=(const JoinFrame& rhs)=delete;
 
     void UpdatePlayerInfoMsg(wxString playerInfoMsg);
+
+    bool WasCanceled()const{return canceled;}
 
     // Event Handlers
     void OnHostChange(wxCommandEvent& event);
