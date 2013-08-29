@@ -11,8 +11,8 @@ class CustomApp : public wxApp
     wxString     playerInfoMsg;
     bool         isNetworkGame;
 
-    static const int APP_WIDTH          = 390;
-    static const int APP_HEIGHT         = 255;
+    static const int APP_WIDTH          = 0;
+    static const int APP_HEIGHT         = 0;
 
     virtual bool OnInit();
     virtual int OnExit();

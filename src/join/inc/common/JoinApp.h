@@ -10,8 +10,8 @@ class JoinApp : public wxApp
 
     wxString     playerInfoMsg;
 
-    static const int APP_WIDTH          = -1;
-    static const int APP_HEIGHT         = -1;
+    static const int APP_WIDTH          = 0;
+    static const int APP_HEIGHT         = 0;
 
     virtual bool OnInit();
     virtual int OnRun();
