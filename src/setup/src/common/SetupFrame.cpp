@@ -206,7 +206,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* p2NameVBox;
     p2NameVBox = new wxBoxSizer( wxVERTICAL );
     
-    p2Name = new wxTextCtrl( p2Panel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    p2Name = new wxTextCtrl( p2Panel, myID_P2_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     p2Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
     p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
