@@ -195,7 +195,6 @@ set(SETUP_COMMON_SRCS
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupApp.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/SetupFrame.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxFocusableStaticText.cpp
-    ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxNoLabelCheckBox.cpp
     ${SETUP_PATH_TO_SRC}/${COMMON_DIR}/wxPlayerDropTarget.cpp)
 
 set(SETUP_WINDOWS_SRCS )

@@ -12,7 +12,6 @@
 #include "wx/msgdlg.h"      // For MessageDialogs
 #include "wx/dnd.h"         // For Drag and Drop
 
-#include "wxNoLabelCheckBox.h"
 #include "SetupFrame.h"
 #include "GeneralSettings.h"
 #include "PlayerSettings.h"
@@ -39,7 +38,6 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
      *                 copied the code in. It was generated on wxFormBuilder 3.3.4 Beta
      *                 I did still have to make a couple of minor adjustments to the
      *                 generated code. They're outlined below:
-     *                 - Replace all player enabled checkboxes with wxNoLabelCheckBox
      *                 - Replace all wxNullBitmap with wxBITMAP_PNG(player_n)
      *                 - Make sure all player name fields have a max length of PlayerSettings::MAX_NAME_LENGTH
      */
@@ -80,14 +78,14 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* p1EnabledHBox;
     p1EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
-    p1EnabledCheckBox = new wxNoLabelCheckBox( p1Panel, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+    p1EnabledCheckBox = new wxCheckBox( p1Panel, myID_P1_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT );
+    p1EnabledHBox->Add( p1EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL, 0 );
     
     wxBoxSizer* p1NameVBox;
     p1NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p1Name = new wxTextCtrl( p1Panel, myID_P1_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p1Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
+    p1Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p1NameVBox->Add( p1Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -200,14 +198,14 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* p2EnabledHBox;
     p2EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
-    p2EnabledCheckBox = new wxNoLabelCheckBox( p2Panel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+    p2EnabledCheckBox = new wxCheckBox( p2Panel, myID_P2_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT );
+    p2EnabledHBox->Add( p2EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL, 0 );
     
     wxBoxSizer* p2NameVBox;
     p2NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p2Name = new wxTextCtrl( p2Panel, myID_P2_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p2Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
+    p2Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p2NameVBox->Add( p2Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -320,14 +318,14 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* p3EnabledHBox;
     p3EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
-    p3EnabledCheckBox = new wxNoLabelCheckBox( p3Panel, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+    p3EnabledCheckBox = new wxCheckBox( p3Panel, myID_P3_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT );
+    p3EnabledHBox->Add( p3EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL, 0 );
     
     wxBoxSizer* p3NameVBox;
     p3NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p3Name = new wxTextCtrl( p3Panel, myID_P3_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p3Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
+    p3Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p3NameVBox->Add( p3Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     
@@ -440,14 +438,14 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* p4EnabledHBox;
     p4EnabledHBox = new wxBoxSizer( wxHORIZONTAL );
     
-    p4EnabledCheckBox = new wxNoLabelCheckBox( p4Panel, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+    p4EnabledCheckBox = new wxCheckBox( p4Panel, myID_P4_ENABLED, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT );
+    p4EnabledHBox->Add( p4EnabledCheckBox, 0, wxALIGN_CENTER_VERTICAL, 0 );
     
     wxBoxSizer* p4NameVBox;
     p4NameVBox = new wxBoxSizer( wxVERTICAL );
     
     p4Name = new wxTextCtrl( p4Panel, myID_P4_NAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    p4Name->SetMaxLength( PlayerSettings::MAX_NAME_LENGTH ); 
+    p4Name->SetMaxLength(PlayerSettings::MAX_NAME_LENGTH); 
     p4NameVBox->Add( p4Name, 0, wxBOTTOM|wxEXPAND|wxRIGHT|wxTOP, 5 );
     
     

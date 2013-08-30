@@ -5,7 +5,6 @@
 
 #include <math/Rectangle.h>
 
-#include "wxNoLabelCheckBox.h"
 #include "PlayerSettings.h"
 #include "NewKeyDialog.h"
 
@@ -72,7 +71,7 @@ protected:
 	wxStaticText* playersAndKeysLabel = nullptr;
 
 	wxPanel* p1Panel = nullptr;
-	wxNoLabelCheckBox* p1EnabledCheckBox = nullptr;
+	wxCheckBox* p1EnabledCheckBox = nullptr;
 	wxTextCtrl* p1Name = nullptr;
 	wxButton* p1LeftButton = nullptr;
 	wxButton* p1RightButton = nullptr;
@@ -83,7 +82,7 @@ protected:
 	wxStaticBitmap* p1Image = nullptr;
 
 	wxPanel* p2Panel = nullptr;
-	wxNoLabelCheckBox* p2EnabledCheckBox = nullptr;
+	wxCheckBox* p2EnabledCheckBox = nullptr;
 	wxTextCtrl* p2Name = nullptr;
 	wxButton* p2LeftButton = nullptr;
 	wxButton* p2RightButton = nullptr;
@@ -94,7 +93,7 @@ protected:
 	wxStaticBitmap* p2Image = nullptr;
 
 	wxPanel* p3Panel = nullptr;
-	wxNoLabelCheckBox* p3EnabledCheckBox = nullptr;
+	wxCheckBox* p3EnabledCheckBox = nullptr;
 	wxTextCtrl* p3Name = nullptr;
 	wxButton* p3LeftButton = nullptr;
 	wxButton* p3RightButton = nullptr;
@@ -105,7 +104,7 @@ protected:
 	wxStaticBitmap* p3Image = nullptr;
 
 	wxPanel* p4Panel = nullptr;
-	wxNoLabelCheckBox* p4EnabledCheckBox = nullptr;
+	wxCheckBox* p4EnabledCheckBox = nullptr;
 	wxTextCtrl* p4Name = nullptr;
 	wxButton* p4LeftButton = nullptr;
 	wxButton* p4RightButton = nullptr;
