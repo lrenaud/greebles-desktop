@@ -7,9 +7,20 @@
 				"make"
 			],
 			"name": "Build Greebles",
-			"working_dir": "${project_path}/build/",
+			"working_dir": "${project_path}/build/linux",
 
 			"variants": [
+				{
+					"name": "Mac OS X - Build Greebles",
+					"cmd": ["make"],
+					"working_dir": "${project_path}/build/mac"
+				},
+				{
+					"name": "Windows - Build Greebles",
+					"cmd": ["make"],
+					"working_dir": "${project_path}/build/windows"
+				},
+
 				{
 					"name": "Linux - Debug Game",
 					"cmd": ["./game"],
@@ -103,18 +114,34 @@
 				},
 
 				{
+					"name": "Linux - Clean Project",
+					"cmd": ["make", "clean"],
+					"working_dir": "${project_path}/build/linux"
+				},
+				{
+					"name": "Mac OS X - Clean Project",
+					"cmd": ["make", "clean"],
+					"working_dir": "${project_path}/build/mac"
+				},
+				{
+					"name": "Windows - Clean Project",
+					"cmd": ["make", "clean"],
+					"working_dir": "${project_path}/build/windows"
+				},
+
+				{
 					"name": "Generate Documentation",
 					"cmd": ["./execute_doxygen.sh"],
 					"working_dir": "${project_path}/scripts/"
 				},
 				{
-					"name": "Clean Project",
-					"cmd": ["./clean_cmake.sh"],
-					"working_dir": "${project_path}/scripts/"
-				},
-				{
 					"name": "Reset Database",
-					"cmd": ["rm", "linux/Debug/greebles.db", "linux/Release/greebles.db"],
+					"cmd": ["rm", "-f", "linux/Debug/greebles.db", 
+										"linux/Release/greebles.db",
+										"mac/Debug/greebles.db",
+										"mac/Release/greebles.db",
+										"windows/Debug/greebles.db",
+										"windows/Release/greebles.db"],
 					"working_dir": "${project_path}/bin/"
 				}
 			]
@@ -124,7 +151,7 @@
 	[
 		{
 			"path": "~/Dropbox/GitHub/greebles",
-			"folder_exclude_patterns": ["textures"]
+			"folder_exclude_patterns": ["textures", "html"]
 		}
 	],
 	"tab_size": 4,

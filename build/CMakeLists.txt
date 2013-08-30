@@ -58,6 +58,7 @@ if (CFG_PLATFORM STREQUAL WINDOWS_DIR)
     set(HOME_PATH "/Users/drautb")
 elseif (CFG_PLATFORM STREQUAL MAC_DIR)
     add_definitions("-DMACOSX")
+    include_directories(/usr/local/include)
     set(HOME_PATH "/Users/drautb")
     set(CMAKE_CXX_COMPILER /usr/local/bin/g++-4.8)
 elseif (CFG_PLATFORM STREQUAL LINUX_DIR)
@@ -267,12 +268,12 @@ if (CFG_PLATFORM STREQUAL WINDOWS_DIR)
     set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_WINDOWS_SRCS})
     set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_WINDOWS_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_WINDOWS_SRCS})
 elseif (CFG_PLATFORM STREQUAL MAC_DIR)
-    set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${GAME_COMMON_SRCS} ${GAME_MAC_SRCS})
-    set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_MAC_SRCS})
-    set(CUSTOM_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_MAC_SRCS})
-    set(JOIN_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${JOIN_COMMON_SRCS} ${JOIN_MAC_SRCS})
-    set(ZAP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_MAC_SRCS})
-    set(ERROR_SRCS ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_MAC_SRCS})
+    set(GAME_SRCS MACOSX_BUNDLE ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${GAME_COMMON_SRCS} ${GAME_MAC_SRCS})
+    set(SETUP_SRCS MACOSX_BUNDLE ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_MAC_SRCS})
+    set(CUSTOM_SRCS MACOSX_BUNDLE ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${CUSTOM_COMMON_SRCS} ${CUSTOM_MAC_SRCS})
+    set(JOIN_SRCS MACOSX_BUNDLE ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${JOIN_COMMON_SRCS} ${JOIN_MAC_SRCS})
+    set(ZAP_SRCS MACOSX_BUNDLE ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ZAP_COMMON_SRCS} ${ZAP_MAC_SRCS})
+    set(ERROR_SRCS MACOSX_BUNDLE ${SHARED_COMMON_SRCS} ${SHARED_MAC_SRCS} ${ERROR_COMMON_SRCS} ${ERROR_MAC_SRCS})
 elseif (CFG_PLATFORM STREQUAL LINUX_DIR)
     set(GAME_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${GAME_COMMON_SRCS} ${GAME_LINUX_SRCS})
     set(SETUP_SRCS ${SHARED_COMMON_SRCS} ${SHARED_LINUX_SRCS} ${SETUP_COMMON_SRCS} ${SETUP_LINUX_SRCS})
@@ -287,6 +288,7 @@ add_definitions("-Werror")              # Treat ALL The warnings as errors
 add_definitions("-pedantic-errors")     # Only allow standard-compliant code
 add_definitions("-std=c++11")           # Use the 2011 C++ Standard
 
+set(MACOSX_BUNDLE_NAME game)
 add_executable(game ${GAME_SRCS})
 target_link_libraries(game 
                       SOAR 
@@ -296,34 +298,49 @@ target_link_libraries(game
                       ${IL_LIBRARIES}
                       ${ILU_LIBRARIES}
                       ${ILUT_LIBRARIES})
-                       # /usr/local/lib/FMOD/libfmodex64.so)
+                      # /usr/local/lib/FMOD/libfmodex64.so)                     
 
+set(MACOSX_BUNDLE_NAME setup)
 add_executable(setup ${SETUP_SRCS})
 target_link_libraries(setup 
                       SOAR 
                       ${SQLITE3_LIBRARY} 
                       ${wxWidgets_LIBRARIES})
 
+set(MACOSX_BUNDLE_NAME custom)
 add_executable(custom ${CUSTOM_SRCS})
 target_link_libraries(custom 
                       SOAR 
                       ${SQLITE3_LIBRARY}
                       ${wxWidgets_LIBRARIES})
 
+set(MACOSX_BUNDLE_NAME join)
 add_executable(join ${JOIN_SRCS})
 target_link_libraries(join 
                       SOAR 
                       ${SQLITE3_LIBRARY}
                       ${wxWidgets_LIBRARIES})
 
+set(MACOSX_BUNDLE_NAME zap)
 add_executable(zap ${ZAP_SRCS})
 target_link_libraries(zap 
                       SOAR 
                       ${SQLITE3_LIBRARY}
                       ${wxWidgets_LIBRARIES})
 
+set(MACOSX_BUNDLE_NAME error)
 add_executable(error ${ERROR_SRCS})
 target_link_libraries(error 
                       SOAR
                       ${SQLITE3_LIBRARY} 
                       ${wxWidgets_LIBRARIES})
+
+if (CFG_PLATFORM STREQUAL MAC_DIR)
+    set_target_properties(game PROPERTIES MACOSX_BUNDLE TRUE)
+    set_target_properties(setup PROPERTIES MACOSX_BUNDLE TRUE)
+    set_target_properties(custom PROPERTIES MACOSX_BUNDLE TRUE)
+    set_target_properties(join PROPERTIES MACOSX_BUNDLE TRUE)
+    set_target_properties(zap PROPERTIES MACOSX_BUNDLE TRUE)
+    set_target_properties(error PROPERTIES MACOSX_BUNDLE TRUE)
+endif()
+
