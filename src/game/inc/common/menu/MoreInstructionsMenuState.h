@@ -1,7 +1,7 @@
 #include <base/Telegram.h>
 
 #include "menu/BaseMenuState.h"
-#include "menu/MainMenu.h"
+#include "menu/MoreInstructionsMenu.h"
 
 using namespace SOAR;
 using namespace Base;
@@ -10,41 +10,41 @@ using namespace State;
 /**
  * This class is represents the main menu state of the game
  */
-class MainMenuState : public BaseMenuState
+class MoreInstructionsMenuState : public BaseMenuState
 {
 private:
 
     /**
      * Private constructor for singleton
      */
-    MainMenuState();
+    MoreInstructionsMenuState();
 
 public:
     
     /**
      * Destructor
      */
-    virtual ~MainMenuState();
+    virtual ~MoreInstructionsMenuState();
 
     /**
      * Singleton access method
      */
-    static MainMenuState& GetInstance();
+    static MoreInstructionsMenuState& GetInstance();
 
     /**
-     * This method creates a MainMenu object
+     * This method creates a MoreInstructionsMenu object
      * @param g Pointer to the object
      */
     virtual void Enter(GreeblesGame* g);
 
     /**
-     * This method calls update on the MainMenu
+     * This method calls update on the MoreInstructionsMenu
      * @param g Pointer to the object
      */
     virtual void Execute(GreeblesGame* g);
 
     /**
-     * This method deletes the MainMenu Object
+     * This method deletes the MoreInstructionsMenu Object
      * @param g Pointer to the object
      */
     virtual void Exit(GreeblesGame* g);
@@ -58,9 +58,10 @@ public:
     virtual bool OnMessage(GreeblesGame* g, const Telegram& msg);
 
     /**
-     * This method calls the Render method of the MainMenu
+     * This method calls the Render method of the MoreInstructionsMenu
      * @param g Pointer to the  object
      */
     virtual void Render(GreeblesGame* g);
 
 };
+

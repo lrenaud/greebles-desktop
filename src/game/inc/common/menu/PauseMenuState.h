@@ -1,6 +1,6 @@
-#include <base/state/IState.h>
 #include <base/Telegram.h>
 
+#include "menu/BaseMenuState.h"
 #include "menu/PauseMenu.h"
 
 using namespace SOAR;
@@ -10,15 +10,8 @@ using namespace State;
 /**
  * This class is represents the main menu state of the game
  */
-class PauseMenuState : public IState<GreeblesGame>
+class PauseMenuState : public BaseMenuState
 {
-private:
-
-    /**
-     * The PauseMenu object
-     */
-    PauseMenu*               menu;
-
 private:
 
     /**
