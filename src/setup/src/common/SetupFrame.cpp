@@ -40,7 +40,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
      *                 I did still have to make a couple of minor adjustments to the
      *                 generated code. They're outlined below:
      *                 - Replace all player enabled checkboxes with wxNoLabelCheckBox
-     *                 - Replace all wxNullBitmap with wxMEMORY_BITMAP(player_n)
+     *                 - Replace all wxNullBitmap with wxBITMAP_PNG(player_n)
      *                 - Make sure all player name fields have a max length of PlayerSettings::MAX_NAME_LENGTH
      */
 
@@ -175,7 +175,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p1Type->SetSelection( 0 );
     p1TypeHBox->Add( p1Type, 1, wxALL, 5 );
     
-    p1Image = new wxStaticBitmap( p1Panel, wxID_ANY, wxMEMORY_BITMAP(player_1), wxDefaultPosition, wxSize( 23,23 ), 0 );
+    p1Image = new wxStaticBitmap( p1Panel, wxID_ANY, wxBITMAP_PNG(player_1), wxDefaultPosition, wxSize( 23,23 ), 0 );
     p1TypeHBox->Add( p1Image, 0, wxALIGN_CENTER|wxALL, 2 );
     
     
@@ -295,7 +295,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p2Type->SetSelection( 0 );
     p2TypeHBox->Add( p2Type, 1, wxALL, 5 );
     
-    p2Image = new wxStaticBitmap( p2Panel, wxID_ANY, wxMEMORY_BITMAP(player_2), wxDefaultPosition, wxSize( 23,23 ), 0 );
+    p2Image = new wxStaticBitmap( p2Panel, wxID_ANY, wxBITMAP_PNG(player_2), wxDefaultPosition, wxSize( 23,23 ), 0 );
     p2TypeHBox->Add( p2Image, 0, wxALIGN_CENTER|wxALL, 2 );
     
     
@@ -415,7 +415,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p3Type->SetSelection( 0 );
     p3TypeHBox->Add( p3Type, 1, wxALL, 5 );
     
-    p3Image = new wxStaticBitmap( p3Panel, wxID_ANY, wxMEMORY_BITMAP(player_3), wxDefaultPosition, wxSize( 23,23 ), 0 );
+    p3Image = new wxStaticBitmap( p3Panel, wxID_ANY, wxBITMAP_PNG(player_3), wxDefaultPosition, wxSize( 23,23 ), 0 );
     p3TypeHBox->Add( p3Image, 0, wxALIGN_CENTER|wxALL, 2 );
     
     
@@ -535,7 +535,7 @@ SetupFrame::SetupFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     p4Type->SetSelection( 2 );
     p4TypeHBox->Add( p4Type, 1, wxALL, 5 );
     
-    p4Image = new wxStaticBitmap( p4Panel, wxID_ANY, wxMEMORY_BITMAP(player_4), wxDefaultPosition, wxSize( 23,23 ), 0 );
+    p4Image = new wxStaticBitmap( p4Panel, wxID_ANY, wxBITMAP_PNG(player_4), wxDefaultPosition, wxSize( 23,23 ), 0 );
     p4TypeHBox->Add( p4Image, 0, wxALIGN_CENTER|wxALL, 2 );
     
     

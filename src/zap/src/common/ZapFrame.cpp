@@ -23,7 +23,7 @@ ZapFrame::ZapFrame(const wxString& title, const wxPoint& pos, const wxSize& size
     wxBoxSizer* leftSizer;
     leftSizer = new wxBoxSizer( wxVERTICAL );
     
-    stopIcon = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(stopIconData), wxDefaultPosition, wxDefaultSize, 0 );
+    stopIcon = new wxStaticBitmap( masterPanel, wxID_ANY, wxBITMAP_PNG(stopIcon), wxDefaultPosition, wxDefaultSize, 0 );
     leftSizer->Add( stopIcon, 0, 0, 5 );
     
     

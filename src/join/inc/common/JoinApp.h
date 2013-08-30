@@ -25,17 +25,17 @@ static const wxCmdLineEntryDesc cmdLineDesc[] =
 {
     {
         wxCMD_LINE_OPTION,
-        MywxT("l"),
-        MywxT("local"),
-        MywxT("Number of Local Players"),
+        "l",
+        "local",
+        "Number of Local Players",
         wxCMD_LINE_VAL_NUMBER,
         wxCMD_LINE_OPTION_MANDATORY
     },
     {
         wxCMD_LINE_OPTION,
-        MywxT("h"),
-        MywxT("human"),
-        MywxT("Number of Local Human Players"),
+        "h",
+        "human",
+        "Number of Local Human Players",
         wxCMD_LINE_VAL_NUMBER,
         wxCMD_LINE_OPTION_MANDATORY
     },

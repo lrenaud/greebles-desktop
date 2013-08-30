@@ -26,7 +26,7 @@ static const wxCmdLineEntryDesc cmdLineDesc[] =
         wxCMD_LINE_PARAM, 
         NULL,
         NULL,
-        MywxT("Error Message"),
+        "Error Message",
         wxCMD_LINE_VAL_STRING,
         wxCMD_LINE_PARAM_OPTIONAL
     },

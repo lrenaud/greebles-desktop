@@ -1,38 +1,7 @@
-/*
-	Automatic generated header by:
+#ifndef ERROR_ICON_H_
+#define ERROR_ICON_H_
 
-		wxInclude by Kim De Deyn, use --help for more information.
-		Version 1.0, compiled at Sep 12 2007 17:26:17
-
-	Header: ErrorIcon
-	Macros: yes
-	Const: yes
-*/
-
-#ifndef _WXINCLUDE_ERRORICON_H_
-#define _WXINCLUDE_ERRORICON_H_
-
-#include "wx/wx.h"
-#include "wx/mstream.h"
-
-#define wxMEMORY_IMAGE( name ) _wxConvertMemoryToImage( name, sizeof( name ) )
-#define wxMEMORY_IMAGEEX( name, type ) _wxConvertMemoryToImage( name, sizeof( name ), type )
-#define wxMEMORY_BITMAP( name ) _wxConvertMemoryToBitmap( name, sizeof( name ) )
-#define wxMEMORY_BITMAPEX( name, type ) _wxConvertMemoryToBitmap( name, sizeof( name ), type )
-
-inline wxImage _wxConvertMemoryToImage(const unsigned char* data, int length, long type = wxBITMAP_TYPE_ANY )
-{
-	wxMemoryInputStream stream( data, length );
-	return wxImage( stream, type, -1 );
-}
-
-inline wxBitmap _wxConvertMemoryToBitmap(const unsigned char* data, int length, long type = wxBITMAP_TYPE_ANY )
-{
-	wxMemoryInputStream stream( data, length );
-	return wxBitmap( wxImage( stream, type, -1 ), -1 );
-}
-
-static const unsigned char errorIcon[] = {
+static const unsigned char errorIcon_png[] = {
 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 
 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x30, 
 0x00, 0x00, 0x00, 0x30, 0x08, 0x06, 0x00, 0x00, 0x00, 0x57, 

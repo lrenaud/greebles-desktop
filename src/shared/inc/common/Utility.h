@@ -7,12 +7,6 @@
 
 #include <wx/wx.h>
 
-#ifdef MACOSX
-    #define MywxT(x) x
-#else
-    #define MywxT(x) wxT(x)
-#endif
-
 /**
  * This class is designed to hold NO member data.
  * It encapsulates only public static utililty methods.

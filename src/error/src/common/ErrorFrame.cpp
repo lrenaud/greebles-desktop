@@ -12,7 +12,7 @@ ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& 
      * With the Following Adjustments:
      * - The messagesSizer declaration was moved to ErrorFrame.h
      * - The literal '450' was replaced by WRAP_LENGTH
-     * - The wxBitmap for the error.png was replaced with wxMEMORY_BITMAP(errorIcon)
+     * - The wxBitmap for the error.png was replaced with wxBITMAP_PNG(errorIcon)
      */
     this->SetSizeHints( wxDefaultSize, wxDefaultSize );
     
@@ -26,7 +26,7 @@ ErrorFrame::ErrorFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     wxBoxSizer* errorIconSizer;
     errorIconSizer = new wxBoxSizer( wxVERTICAL );
     
-    warningIcon = new wxStaticBitmap( masterPanel, wxID_ANY, wxMEMORY_BITMAP(errorIcon), wxDefaultPosition, wxDefaultSize, 0 );
+    warningIcon = new wxStaticBitmap( masterPanel, wxID_ANY, wxBITMAP_PNG(errorIcon), wxDefaultPosition, wxDefaultSize, 0 );
     errorIconSizer->Add( warningIcon, 0, wxALL, 15 );
     
     
