@@ -18,7 +18,7 @@ public:
     /**
      * Destructor
      */
-    ~GreeblesTitleMenu();
+    virtual ~GreeblesTitleMenu();
 
     /**
      * This method takes care of drawing the idle texture

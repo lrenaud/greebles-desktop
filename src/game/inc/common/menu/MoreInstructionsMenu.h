@@ -18,7 +18,7 @@ public:
     /**
      * Destructor
      */
-    ~MoreInstructionsMenu();
+    virtual ~MoreInstructionsMenu();
 
     /**
      * This method takes care of drawing the idle texture

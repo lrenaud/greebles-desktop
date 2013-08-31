@@ -18,7 +18,7 @@ public:
     /**
      * Destructor
      */
-    ~NetMenu();
+    virtual ~NetMenu();
 
     /**
      * This method takes care of drawing the idle texture

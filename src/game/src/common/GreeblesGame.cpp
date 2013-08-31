@@ -89,6 +89,11 @@ void GreeblesGame::Run()
          */
         WM.Update();
     }
+
+    /**
+     * Clean up after ourselves
+     */
+    stateStack->Clear();
 }
 
 void GreeblesGame::Update()
