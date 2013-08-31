@@ -42,7 +42,7 @@ bool InstructionsMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
     switch (msg.message)
     {
         case MSG_MORE_CLICKED:
-            // g->stateStack->PushState(&MoreInstructionsMenuState::GetInstance());
+            g->stateStack->PushState(&MoreInstructionsMenuState::GetInstance());
             return true;
 
         case MSG_DONE_CLICKED:

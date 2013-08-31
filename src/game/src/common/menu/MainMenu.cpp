@@ -11,7 +11,8 @@ using namespace Video;
 
 MainMenu::MainMenu()
 {
-    // Initialize Menu ChoicesADD_MM_MC(580, 0, 60, 30, MSG_INVALID, MSG_ZAP_CLICKED);
+    // Initialize Menu Choices
+    ADD_MM_MC(580, 0, 60, 30, MSG_INVALID, MSG_ZAP_CLICKED);
     ADD_MM_MC(390, 370, 240, 55, MSG_INVALID, MSG_STAIRWAYS_CLICKED);
     ADD_MM_MC(400, 430, 240, 50, MSG_INVALID, MSG_INVALID);
     ADD_MM_MC(64, 100, 280, 25, MSG_INVALID, MSG_PLAY_CLICKED);
