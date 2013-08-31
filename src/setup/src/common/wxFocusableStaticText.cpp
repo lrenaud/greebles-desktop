@@ -4,7 +4,7 @@
 #include "wxFocusableStaticText.h"
 
 wxFocusableStaticText::wxFocusableStaticText(wxWindow* parent, const char* text):
-    wxPanel(parent)
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxWANTS_CHARS)
 {
     sizer = new wxBoxSizer(wxVERTICAL);
 

@@ -3,6 +3,7 @@
 #include <wx/wx.h>
 
 #include <input/Keyboard.h>
+#include <util/Log.h>
 
 #include "NewKeyDialog.h"
 #include "AllowedKeys.h"
@@ -23,7 +24,7 @@ NewKeyDialog::NewKeyDialog(wxWindow* parent): wxDialog(parent, wxID_ANY, wxT("Te
 
     SetSizerAndFit(sizer);
 
-    Connect(wxID_ANY, wxEVT_KEY_UP, wxKeyEventHandler(NewKeyDialog::OnKeyUp));
+    dialogMsg->Connect(wxID_ANY, wxEVT_KEY_UP, wxKeyEventHandler(NewKeyDialog::OnKeyUp), NULL, this);
 }
 
 NewKeyDialog::~NewKeyDialog()
@@ -31,19 +32,10 @@ NewKeyDialog::~NewKeyDialog()
 
 }
 
-int NewKeyDialog::ShowModal()
-{
-    return wxDialog::ShowModal();
-}
-
-void NewKeyDialog::EndModal(int retCode)
-{
-    wxDialog::EndModal(retCode);
-}
-
 void NewKeyDialog::OnKeyUp(wxKeyEvent& event)
 {
     int wxKey = event.GetKeyCode();
+    LOG_MESSAGE << "OnKeyUp! wxKey: " << wxKey;
     int glfwKey = KeyTranslator::GetInstance().TranslateWXKToGLFW(wxKey);
 
     if (KEY_ALLOWED(glfwKey))
