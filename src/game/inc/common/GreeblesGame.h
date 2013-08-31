@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include <GLFW/glfw3.h>
+
 #include <base/BaseEntity.h>
 #include <base/state/StateMachineStack.h>
 #include <base/Telegram.h>
@@ -41,6 +43,11 @@ private:
      * running flag, shutdown must be controlled.
      */
     bool                running;
+
+    /**
+     * Window Handle
+     */
+    GLFWwindow*         gameWindow;
 
 public:
 

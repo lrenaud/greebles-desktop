@@ -39,7 +39,10 @@ using namespace Util;
 GreeblesGame::GreeblesGame():BaseEntity(GAME_ID)
 {
     if (WM.CreateWindow(GAME_WINDOW_ID, WINDOW_WIDTH, WINDOW_HEIGHT, "Greebles!"))
+    {
         WM.MakeWindowActive(GAME_WINDOW_ID);
+        gameWindow = WM.Handle(GAME_WINDOW_ID);
+    }
 
     stateStack = new StateMachineStack<GreeblesGame>(this);
     stateStack->SetGlobalState(&GlobalGameState::GetInstance());
@@ -69,7 +72,7 @@ void GreeblesGame::Run()
     glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
 
     running = true;
-    while (running)
+    while (running && !glfwWindowShouldClose(gameWindow))
     {
         /**
          * Update the game state
