@@ -35,7 +35,6 @@ NewKeyDialog::~NewKeyDialog()
 void NewKeyDialog::OnKeyUp(wxKeyEvent& event)
 {
     int wxKey = event.GetKeyCode();
-    LOG_MESSAGE << "OnKeyUp! wxKey: " << wxKey;
     int glfwKey = KeyTranslator::GetInstance().TranslateWXKToGLFW(wxKey);
 
     if (KEY_ALLOWED(glfwKey))
