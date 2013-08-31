@@ -17,17 +17,16 @@
 using namespace SOAR;
 using namespace Math;
 
-MenuChoice::MenuChoice(const Rectangle<int>& texturePosition, int hoverMsg,
-                       int clickedMsg, int hoverCid, int pressedCid)
+int MenuChoice::hoverCid = -1;
+int MenuChoice::pressedCid = -1;
+
+MenuChoice::MenuChoice(const Rectangle<int>& texturePosition, int hoverMsg, int clickedMsg)
 {
     this->texturePosition = texturePosition;
     
     this->windowPosition = texturePosition;
     this->windowPosition.x += GreeblesGame::GAME_AREA_MIN_X;
     this->windowPosition.y += GreeblesGame::GAME_AREA_MIN_Y;
-
-    this->hoverCid = hoverCid;
-    this->pressedCid = pressedCid;
 
     this->hoverMsg = hoverMsg;
     this->clickedMsg = clickedMsg;

@@ -2,10 +2,12 @@
 #include <base/MessageDispatcher.h>
 #include <util/Log.h>
 
+#include "ContentIds.h"
 #include "EntityIds.h"
 #include "Messages.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
+#include "menu/MenuChoice.h"
 #include "menu/NetMenu.h"
 #include "menu/NetMenuState.h"
 
@@ -29,19 +31,9 @@ NetMenuState& NetMenuState::GetInstance()
     return instance;
 }
 
-void NetMenuState::Enter(GreeblesGame* g)
-{
-    
-}
-
 void NetMenuState::Execute(GreeblesGame* g)
 {
     menu->Update();
-}
-
-void NetMenuState::Exit(GreeblesGame* g)
-{
-    
 }
 
 bool NetMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
@@ -62,4 +54,10 @@ bool NetMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
 void NetMenuState::Render(GreeblesGame* g)
 {
     menu->Render();
+}
+
+void NetMenuState::SetTextureCids()
+{
+    MenuChoice::hoverCid = CID_MENU_NET_HOVER;
+    MenuChoice::pressedCid = CID_MENU_NET_PRESSED;  
 }

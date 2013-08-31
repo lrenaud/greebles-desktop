@@ -2,10 +2,12 @@
 #include <base/MessageDispatcher.h>
 #include <util/Log.h>
 
+#include "ContentIds.h"
 #include "EntityIds.h"
 #include "Messages.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
+#include "menu/MenuChoice.h"
 #include "menu/InstructionsMenu.h"
 #include "menu/InstructionsMenuState.h"
 #include "menu/MoreInstructionsMenuState.h"
@@ -30,19 +32,9 @@ InstructionsMenuState& InstructionsMenuState::GetInstance()
     return instance;
 }
 
-void InstructionsMenuState::Enter(GreeblesGame* g)
-{
-    
-}
-
 void InstructionsMenuState::Execute(GreeblesGame* g)
 {
     menu->Update();
-}
-
-void InstructionsMenuState::Exit(GreeblesGame* g)
-{
-    
 }
 
 bool InstructionsMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
@@ -66,3 +58,8 @@ void InstructionsMenuState::Render(GreeblesGame* g)
     menu->Render();
 }
 
+void InstructionsMenuState::SetTextureCids()
+{
+    MenuChoice::hoverCid = CID_MENU_INSTRUCTIONS_1_HOVER;
+    MenuChoice::pressedCid = CID_MENU_INSTRUCTIONS_1_PRESSED;
+}

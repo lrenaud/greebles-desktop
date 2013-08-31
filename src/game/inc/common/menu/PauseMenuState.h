@@ -32,22 +32,10 @@ public:
     static PauseMenuState& GetInstance();
 
     /**
-     * This method creates a PauseMenu object
-     * @param g Pointer to the object
-     */
-    virtual void Enter(GreeblesGame* g);
-
-    /**
      * This method calls update on the PauseMenu
      * @param g Pointer to the object
      */
     virtual void Execute(GreeblesGame* g);
-
-    /**
-     * This method deletes the PauseMenu Object
-     * @param g Pointer to the object
-     */
-    virtual void Exit(GreeblesGame* g);
 
     /**
      * This method handles messages sent to this state
@@ -62,5 +50,11 @@ public:
      * @param g Pointer to the  object
      */
     virtual void Render(GreeblesGame* g);
+
+    /**
+     * This method sets the MenuChoice texture CIDS for rendering
+     * Hover and Pressed MCs
+     */
+    virtual void SetTextureCids();
 
 };

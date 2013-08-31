@@ -1,10 +1,12 @@
 #include <base/Telegram.h>
 #include <util/Log.h>
 
+#include "ContentIds.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
 #include "menu/MainMenu.h"
 #include "menu/MainMenuState.h"
+#include "menu/MenuChoice.h"
 #include "menu/ThanksMenuState.h"
 #include "menu/NetMenuState.h"
 
@@ -28,19 +30,9 @@ MainMenuState& MainMenuState::GetInstance()
     return instance;
 }
 
-void MainMenuState::Enter(GreeblesGame* g)
-{
-    
-}
-
 void MainMenuState::Execute(GreeblesGame* g)
 {
     menu->Update();
-}
-
-void MainMenuState::Exit(GreeblesGame* g)
-{
-    
 }
 
 bool MainMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
@@ -102,6 +94,12 @@ bool MainMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
 }
 
 void MainMenuState::Render(GreeblesGame* g)
-{
+{    
     menu->Render();
+}
+
+void MainMenuState::SetTextureCids()
+{
+    MenuChoice::hoverCid = CID_MENU_TITLE_HOVER;
+    MenuChoice::pressedCid = CID_MENU_TITLE_PRESSED;
 }

@@ -1,7 +1,7 @@
 #ifndef HOVER_STATE_H
 #define HOVER_STATE_H
 
-#include <base/state/IState.h>
+#include <base/state/IStackableState.h>
 #include <base/Telegram.h>
 
 #include "GreeblesGame.h"
@@ -14,7 +14,7 @@ using namespace State;
 /**
  * This class is represents the hover state for a menu choice
  */
-class BaseMenuState : public IState<GreeblesGame>
+class BaseMenuState : public IStackableState<GreeblesGame>
 {
 protected:
 
@@ -41,7 +41,7 @@ public:
      * This method prepares this state
      * @param g Pointer to the object
      */
-    virtual void Enter(GreeblesGame* g)=0;
+    virtual void Enter(GreeblesGame* g);
 
     /**
      * This method checks for mouse clicks
@@ -53,7 +53,7 @@ public:
      * This method cleans up after this state
      * @param g Pointer to the object
      */
-    virtual void Exit(GreeblesGame* g)=0;
+    virtual void Exit(GreeblesGame* g);
 
     /**
      * This method handles messages sent to this state
@@ -68,6 +68,24 @@ public:
      * @param g Pointer to the  object
      */
     virtual void Render(GreeblesGame* g)=0;
+
+    /**
+     * This method is called when this state is pushed deeper onto the stateStack
+     * @param g Pointer to the game object
+     */
+    virtual void Pause(GreeblesGame* g);
+
+    /**
+     * This method is called when this state rises to the top of the stack
+     * @param g Pointer to the game object
+     */
+    virtual void Resume(GreeblesGame* g);
+
+    /**
+     * This method is called by Resume, it should set the current content Ids for the 
+     * menu choice hover/pressed CIDs for the current menu.
+     */
+    virtual void SetTextureCids()=0;
 
 };
 

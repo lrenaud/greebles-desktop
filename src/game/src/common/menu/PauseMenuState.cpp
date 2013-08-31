@@ -1,7 +1,9 @@
 #include <base/Telegram.h>
 
+#include "ContentIds.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
+#include "menu/MenuChoice.h"
 #include "menu/PauseMenu.h"
 #include "menu/PauseMenuState.h"
 
@@ -25,19 +27,9 @@ PauseMenuState& PauseMenuState::GetInstance()
     return instance;
 }
 
-void PauseMenuState::Enter(GreeblesGame* g)
-{
-
-}
-
 void PauseMenuState::Execute(GreeblesGame* g)
 {
     menu->Update();
-}
-
-void PauseMenuState::Exit(GreeblesGame* g)
-{
-    SAFE_DELETE(menu);
 }
 
 bool PauseMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
@@ -69,4 +61,10 @@ bool PauseMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
 void PauseMenuState::Render(GreeblesGame* g)
 {
     menu->Render();
+}
+
+void PauseMenuState::SetTextureCids()
+{
+    MenuChoice::hoverCid = CID_MENU_PAUSE_HOVER;
+    MenuChoice::pressedCid = CID_MENU_PAUSE_PRESSED;
 }

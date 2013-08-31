@@ -2,54 +2,46 @@
 #include <base/MessageDispatcher.h>
 #include <util/Log.h>
 
+#include "ContentIds.h"
 #include "EntityIds.h"
 #include "Messages.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
+#include "menu/MenuChoice.h"
 #include "menu/InstructionsMenu.h"
-#include "menu/InstructionsMenuState.h"
+#include "menu/MoreInstructionsMenuState.h"
 
 using namespace SOAR;
 using namespace Base;
 
-InstructionsMenuState::InstructionsMenuState()
+MoreInstructionsMenuState::MoreInstructionsMenuState()
 {
     menu = new InstructionsMenu();
 }
 
-InstructionsMenuState::~InstructionsMenuState()
+MoreInstructionsMenuState::~MoreInstructionsMenuState()
 {
     SAFE_DELETE(menu);   
 }
 
-InstructionsMenuState& InstructionsMenuState::GetInstance()
+MoreInstructionsMenuState& MoreInstructionsMenuState::GetInstance()
 {
-    static InstructionsMenuState instance;
+    static MoreInstructionsMenuState instance;
 
     return instance;
 }
 
-void InstructionsMenuState::Enter(GreeblesGame* g)
-{
-    
-}
-
-void InstructionsMenuState::Execute(GreeblesGame* g)
+void MoreInstructionsMenuState::Execute(GreeblesGame* g)
 {
     menu->Update();
 }
 
-void InstructionsMenuState::Exit(GreeblesGame* g)
-{`
-    
-}
-
-bool InstructionsMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
+bool MoreInstructionsMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
 {
     switch (msg.message)
     {
         case MSG_MORE_CLICKED:
-            // g->stateStack->PushState(&MoreInstructionsMenuState::GetInstance());
+            // g->stateStack->PushState(&MoreMoreInstructionsMenuState::GetInstance());
             return true;
 
         case MSG_DONE_CLICKED:
@@ -60,8 +52,13 @@ bool InstructionsMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
     return false;
 }
 
-void InstructionsMenuState::Render(GreeblesGame* g)
+void MoreInstructionsMenuState::Render(GreeblesGame* g)
 {
     menu->Render();
 }
 
+void MoreInstructionsMenuState::SetTextureCids()
+{
+    MenuChoice::hoverCid = CID_MENU_INSTRUCTIONS_2_HOVER;
+    MenuChoice::pressedCid = CID_MENU_INSTRUCTIONS_2_PRESSED;
+}

@@ -39,12 +39,6 @@ private:
     StateMachine<MenuChoice>*       stateMachine        = nullptr;
 
     /**
-     * Content IDs for the textures to use for hover and pressed choices
-     */
-    int                             hoverCid            = -1;
-    int                             pressedCid          = -1;
-
-    /**
      * message to send to the game object when this choice is hovered over
      */
     int                             hoverMsg            = MSG_INVALID;
@@ -55,13 +49,21 @@ private:
     int                             clickedMsg          = MSG_INVALID;
 
 public:
+    /**
+     * Content IDs for the textures to use for hover and pressed choices.
+     * These are set by the Menu's when their state changes.
+     */
+    static int                      hoverCid;
+    static int                      pressedCid;
+
+public:
 
     /**
      * Constructor, takes a rectangle describing the position of the choice
      * in the texture, as well as Content Id's for the hover and pressed textures.
      */
     MenuChoice(const Rectangle<int>& texturePosition, int hoverMsg=MSG_INVALID, 
-               int clickedMsg=MSG_INVALID, int hoverCid=-1, int pressedCid=-1);
+               int clickedMsg=MSG_INVALID);
 
     /**
      * Destructor

@@ -4,7 +4,7 @@
 #include "menu/BaseMenu.h"
 
 // Shorthand for adding menu choices
-#define ADD_INST_MC(x, y, w, h, hover, clicked) menuChoices.push_back(new MenuChoice{ {x, y, w, h}, hover, clicked, CID_MENU_INSTRUCTIONS_1_HOVER, CID_MENU_INSTRUCTIONS_1_PRESSED })
+#define ADD_INST_MC(x, y, w, h, hover, clicked) menuChoices.push_back(new MenuChoice{ {x, y, w, h}, hover, clicked })
 
 class InstructionsMenu : public BaseMenu
 {

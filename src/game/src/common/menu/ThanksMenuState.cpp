@@ -1,7 +1,9 @@
 #include <base/Telegram.h>
 
+#include "ContentIds.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
+#include "menu/MenuChoice.h"
 #include "menu/ThanksMenu.h"
 #include "menu/ThanksMenuState.h"
 
@@ -25,19 +27,9 @@ ThanksMenuState& ThanksMenuState::GetInstance()
     return instance;
 }
 
-void ThanksMenuState::Enter(GreeblesGame* g)
-{
-    
-}
-
 void ThanksMenuState::Execute(GreeblesGame* g)
 {
     menu->Update();
-}
-
-void ThanksMenuState::Exit(GreeblesGame* g)
-{
-    
 }
 
 bool ThanksMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
@@ -55,4 +47,10 @@ bool ThanksMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
 void ThanksMenuState::Render(GreeblesGame* g)
 {
     menu->Render();
+}
+
+void ThanksMenuState::SetTextureCids()
+{
+    MenuChoice::hoverCid = CID_MENU_THANKS_HOVER;
+    MenuChoice::pressedCid = CID_MENU_THANKS_PRESSED;
 }
