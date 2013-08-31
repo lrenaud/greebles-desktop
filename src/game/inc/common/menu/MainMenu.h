@@ -1,12 +1,12 @@
 #ifndef MAIN_MENU_H
 #define MAIN_MENU_H
 
-#include "menu/BaseMenu.h"
+#include "menu/GreeblesTitleMenu.h"
 
 // Shorthand for adding menu choices
 #define ADD_MM_MC(x, y, w, h, hover, clicked) menuChoices.push_back(new MenuChoice{ {x, y, w, h}, hover, clicked })
 
-class MainMenu : public BaseMenu
+class MainMenu : public GreeblesTitleMenu
 {
 public:
     

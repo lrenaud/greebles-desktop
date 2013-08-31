@@ -165,6 +165,7 @@ set(GAME_COMMON_SRCS
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/main.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/BaseMenu.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/BaseMenuState.cpp
+    ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/GreeblesTitleMenu.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/HoverState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/IdleState.cpp
     ${GAME_PATH_TO_SRC}/${COMMON_DIR}/menu/InstructionsMenu.cpp

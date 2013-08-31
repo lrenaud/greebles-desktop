@@ -4,11 +4,12 @@
 #include "ContentIds.h"
 #include "GreeblesGame.h"
 #include "Macros.h"
+#include "menu/InstructionsMenuState.h"
 #include "menu/MainMenu.h"
 #include "menu/MainMenuState.h"
 #include "menu/MenuChoice.h"
-#include "menu/ThanksMenuState.h"
 #include "menu/NetMenuState.h"
+#include "menu/ThanksMenuState.h"
 
 using namespace SOAR;
 using namespace Base;
@@ -62,7 +63,7 @@ bool MainMenuState::OnMessage(GreeblesGame* g, const Telegram& msg)
             return true;
 
         case MSG_INSTRUCTIONS_CLICKED:
-            // Switch to instructions state
+            g->stateStack->PushState(&InstructionsMenuState::GetInstance());
             return true;
 
         case MSG_DEMO_CLICKED:
